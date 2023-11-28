@@ -22,7 +22,7 @@
             <% if @profile.photo.attached? %>
             <%= cl_image_tag @profile.photo.key, class: "avatar", alt: "dropdown menu" %>
             <% else %>
-            <h5>No photo</h5>
+            <%= image_tag "https://res.cloudinary.com/dbd4uen7z/image/upload/v1701205441/skill-swap/default-avatar.png", class: "avatar", alt: "dropdown menu" %>
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

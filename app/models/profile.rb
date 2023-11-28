@@ -7,7 +7,7 @@ class Profile < ApplicationRecord
   has_many :reviews_as_reviewer, class_name: "Profile", foreign_key: :reviewer_id
   has_many :reviews_as_reviewee, class_name: "Profile", foreign_key: :reviewee_id
   has_one_attached :photo
-  validates :photo, presence: true
+  # validates :photo, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
 
