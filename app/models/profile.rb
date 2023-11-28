@@ -8,13 +8,14 @@ class Profile < ApplicationRecord
   has_many :reviews_as_reviewee, class_name: "Profile", foreign_key: :reviewee_id
   has_one_attached :photo
 
-
+  # validates :word_count_validation
   validates :age, numericality: { greater_than_or_equal_to: 18 }
-  enum gender: [ :male, :female, :diverse, :na]
-  validates :gender, presence: true, inclusion: { in: %w[Male Female Diverse PreferNotToSay]}
+  # enum gender: [ :male, :female, :diverse, :na]
+  validates :gender, presence: true, inclusion: { in: %w[Male Female Diverse PreferNotToSay] }
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
+
 
 
 end

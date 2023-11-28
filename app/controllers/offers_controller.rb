@@ -7,7 +7,7 @@ class OffersController < ApplicationController
   end
 
   def create
-    @profile = Profile.find(params[:patient_id])
+    @profile = Profile.find(params[:profile_id])
     @offer = Offer.new(offer_params)
     @offer.profile = @profile
     if @offer.save
@@ -21,7 +21,7 @@ class OffersController < ApplicationController
 
   def update
     @offer = Offer.find(params[:id])
-    @offer.update(offer_parmas)
+    @offer.update(offer_params)
     redirect_to profile_path(@offer.profile)
   end
 
@@ -31,12 +31,12 @@ class OffersController < ApplicationController
   end
 
   private
-    def offer_parmas
+    def offer_params
       params.require(:offer).permit(:description, :category)
       #should I add picture here?
     end
 
     def find_profile
-      @profile = Profile.find(params[:patient_id])
+      @profile = Profile.find(params[:profile_id])
     end
 end

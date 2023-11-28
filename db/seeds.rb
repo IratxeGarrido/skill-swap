@@ -1,10 +1,23 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+# Destroy all Users, Offers, Profiles, Matches and Messages
+
+User.destroy_all
+Offer.destroy_all
+Profile.destroy_all
+Match.destroy_all
+Message.destroy_all
+
+iratxe = User.create(email: 'iratxe@skillswap.com', password: '123456')
+spiderman = User.create(email: 'peter@gmail.com', password: '123456')
+
+Profile.create(
+  id: 2,
+  first_name: 'Peter',
+  last_name: 'Parker',
+  bio: 'I swing through the concrete canyons of New York, a web-slinging hero known as Spider-Man. Bitten by a radioactive spider, I gained super strength, agility, and a sixth sense. Juggling crime-fighting with my job as a photojournalist, I embody responsibility and wit, facing villains with a quip and clad in my iconic red and blue suit.',
+  age: 34,
+  gender: 'Male',
+  address: 'New York',
+  user_id: spiderman.id
+)
 
