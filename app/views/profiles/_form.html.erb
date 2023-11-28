@@ -5,6 +5,6 @@
   <%= f.input :age %>
   <%= f.input :address %>
   <%= f.input :gender, collection: %w(Male Female Diverse PreferNotToSay) %>
-  <%# <%= f.input :photo, as: :file %>
+  <%= f.input :photo, as: :file %>
   <%= f.button :submit, class: "btn-flat" %>
 <% end %>

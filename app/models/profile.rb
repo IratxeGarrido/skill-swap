@@ -7,21 +7,13 @@ class Profile < ApplicationRecord
   has_many :reviews_as_reviewer, class_name: "Profile", foreign_key: :reviewer_id
   has_many :reviews_as_reviewee, class_name: "Profile", foreign_key: :reviewee_id
   has_one_attached :photo
+  validates :photo, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
-  # validates :word_count_validation
-  validates :age, numericality: { greater_than_or_equal_to: 18 }
-  # enum gender: [ :male, :female, :diverse, :na]
+  validates :age, numericality: { greater_than_or_equal_to: 18 } , presence: true
   validates :gender, presence: true, inclusion: { in: %w[Male Female Diverse PreferNotToSay] }
 
   # geocoded_by :address
   # after_validation :geocode, if: :will_save_change_to_address?
-
-  # private
-
-  # def word_count_validation
-  #   if bio.present? && bio.split.size > 500
-  #     errors.add(:bio, "can't have more than 500 words")
-  #   end
-  # end
-
 end
