@@ -67,27 +67,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_164227) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "matches", "profiles", column: "creator_id"
-  add_foreign_key "matches", "profiles", column: "initiator_id"
-  add_foreign_key "messages", "matches"
-  add_foreign_key "messages", "profiles", column: "recipient_id"
-  add_foreign_key "messages", "profiles", column: "sender_id"
-  add_foreign_key "offers", "profiles"
-  add_foreign_key "profiles", "users"
-  add_foreign_key "reviews", "profiles", column: "reviewee_id"
-  add_foreign_key "reviews", "profiles", column: "reviewer_id"
-=======
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_153341) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -99,5 +78,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_153341) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
+  add_foreign_key "matches", "profiles", column: "creator_id"
+  add_foreign_key "matches", "profiles", column: "initiator_id"
+  add_foreign_key "messages", "matches"
+  add_foreign_key "messages", "profiles", column: "recipient_id"
+  add_foreign_key "messages", "profiles", column: "sender_id"
+  add_foreign_key "offers", "profiles"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "reviews", "profiles", column: "reviewee_id"
+  add_foreign_key "reviews", "profiles", column: "reviewer_id"
 end
