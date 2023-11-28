@@ -1,7 +1,5 @@
 class ProfilesController < ApplicationController
-
-  before_action :set_profile, only: %i[edit destroy]
-
+  # before_action :set_profile, only: %i[edit]
 
   def edit
     @profile = Profile.create(user: current_user)
@@ -22,11 +20,11 @@ class ProfilesController < ApplicationController
 
   private
 
-  def set_booking
-    @profile = Profile.find(params[:id])
-  end
+  # def set_profile
+  #   @profile = Profile.find(params[:id])
+  # end
 
   def profile_params
-    params.require(:profile).permit(:dates)
+    params.require(:profile).permit(:bio, :age, :gender, :address)
   end
 end
