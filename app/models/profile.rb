@@ -16,12 +16,6 @@ class Profile < ApplicationRecord
   # geocoded_by :address
   # after_validation :geocode, if: :will_save_change_to_address?
 
-  # private
 
-  # def word_count_validation
-  #   if bio.present? && bio.split.size > 500
-  #     errors.add(:bio, "can't have more than 500 words")
-  #   end
-  # end
 
 end
