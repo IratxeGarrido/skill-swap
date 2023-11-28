@@ -11,4 +11,10 @@ class User < ApplicationRecord
   (?=.*[[:^alnum:]]) # Must contain a symbol
 /x
   validates :password, presence: true, format: PASSWORD_REQUIREMENT
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
 end
