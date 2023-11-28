@@ -4,11 +4,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   #should I use the on create here?
   PASSWORD_REQUIREMENT = /\A
-    (?=.{8,})
-    (?=.*\d)
-    (?=.*[a-z])
-    (?=.*[A-Z])
-    (?=.*[[:^alnum:]])
-  /x
+  (?=.{8,})          # Must contain 8 or more characters
+  (?=.*\d)           # Must contain a digit
+  (?=.*[a-z])        # Must contain a lower case character
+  (?=.*[A-Z])        # Must contain an upper case character
+  (?=.*[[:^alnum:]]) # Must contain a symbol
+/x
   validates :password, presence: true, format: PASSWORD_REQUIREMENT
 end

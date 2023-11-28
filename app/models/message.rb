@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  belongs_to :matches
+  belongs_to :match
   belongs_to :sender, class_name: "Profile"
   belongs_to :recipient, class_name: "Profile"
   validates :content, presence: true

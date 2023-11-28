@@ -4,4 +4,5 @@ class Match < ApplicationRecord
   has_many :messages
   validates :status
   #how should I validate the status here
+  #
 end
