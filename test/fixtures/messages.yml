@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  read_status: MyString
+  boolean: MyString
+  matches: one
+  sender: one
+  recipient: one
+
+two:
+  content: MyString
+  read_status: MyString
+  boolean: MyString
+  matches: two
+  sender: two
+  recipient: two

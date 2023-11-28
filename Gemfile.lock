@@ -159,9 +159,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.4)
-    popper_js (2.11.8)
-    psych (5.1.1.1)
-      stringio
+    psych (4.0.0)
     public_suffix (5.0.4)
     puma (6.4.0)
       nio4r (~> 2.0)
@@ -239,7 +237,6 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
-    stringio (3.0.9)
     thor (1.3.0)
     tilt (2.3.0)
     timeout (0.4.1)
@@ -279,6 +276,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   importmap-rails
   pg (~> 1.1)
+  psych (= 4.0.0.0)
   puma (>= 5.0)
   rails (~> 7.1.2)
   sassc-rails
