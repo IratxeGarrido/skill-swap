@@ -1,0 +1,7 @@
+<%= simple_form_for [profile, offer] do |f| %>
+  <%= f.input :description, label: 'Description', error: 'Username is mandatory, please specify one' %>
+  <%= f.input :category, label: 'Category', hint: 'No special characters.' %>
+  <%# should I specify the category at my models? %>
+  <%= f.input :score, placeholder: 'if the score is under 50, the doctor is underqualified' %>
+  <%= f.button :submit, class: "btn btn-primary"   %>
+<% end %>

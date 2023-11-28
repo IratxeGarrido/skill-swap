@@ -82,7 +82,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_164227) do
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "profiles", column: "reviewee_id"
   add_foreign_key "reviews", "profiles", column: "reviewer_id"
-=======
+
 ActiveRecord::Schema[7.1].define(version: 2023_11_27_153341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
