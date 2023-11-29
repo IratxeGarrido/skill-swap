@@ -3,8 +3,6 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.where.not(user_id: current_user)
-
-    @profiles = Profile.where.not(user_id: current_user.id)
     if params[:search].present?
       @query = params[:search][:query]
       @profiles = @profiles.where("category ILIKE ?", "%#{@query}%")
@@ -44,7 +42,7 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    
+
   end
 
   private
