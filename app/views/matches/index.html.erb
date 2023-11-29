@@ -1,0 +1,6 @@
+<h1>Your matches</h1>
+<% @accepted_matches.each do |match| %>
+<p>Initiator: <%= match.initiator_id %></p>
+<p>Creator: <%= match.creator_id %></p>
+<p>Status: <%= match.status %></p>
+<% end %>
