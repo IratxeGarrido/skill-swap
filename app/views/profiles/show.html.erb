@@ -2,7 +2,7 @@
 <hr>
 <% @profile.offers.each do |offer| %>
   <div class="mb-3">
-    <%= "offer number: #{offer.id}" %>
+    <%= "offer number: #{offer.id}" %><br>
     <%= "description: #{offer.description}"%><br>
     <%= "category: #{offer.category}"%><br>
     <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
