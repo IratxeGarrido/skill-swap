@@ -1,4 +1,9 @@
-<div class="form_wrapper">
-  <h1>This is the edit page for the offer</h1>
-  <%= render partial: "form", locals: { offer: @offer, profile: @profile }  %>
-</div>
+
+
+<%= simple_form_for(@offer) do |f| %>
+  <%= f.input :description, label: 'Description', error: 'Username is mandatory, please specify one' %>
+  <%= f.input :category, label: 'Category', hint: 'No special characters.' %>
+  <%# should I specify the category at my models? %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: "btn btn-primary"   %>
+<% end %>
