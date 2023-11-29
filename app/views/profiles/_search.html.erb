@@ -1,0 +1,20 @@
+<%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      <% end %>
+
+---------------------- for reference
+<%= simple_form_for(profile) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :bio %>
+  <%= f.input :age %>
+  <%= f.input :address %>
+  <%= f.input :gender, collection: %w(Male Female Diverse PreferNotToSay) %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: "btn-flat" %>
+<% end %>
