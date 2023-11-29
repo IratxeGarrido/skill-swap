@@ -1,6 +1,15 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show]
 
+  def index
+    @profiles = Profile.find.where!(user_id: current_user.id)
+
+    if params[:search].present?
+      @query = params[:search][:query]
+      @profiles = @profiles.where("category ILIKE ?", "%#{@query}%")
+    end
+  end
+
   def new
     @profile = Profile.create(user: current_user)
   end
