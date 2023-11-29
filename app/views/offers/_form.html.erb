@@ -1,4 +1,4 @@
-<%= simple_form_for [profile, offer] do |f| %>
+<%= simple_form_for offer do |f| %>
   <%= f.input :description, label: 'Description', error: 'Username is mandatory, please specify one' %>
   <%= f.input :category, label: 'Category', hint: 'No special characters.' %>
   <%# should I specify the category at my models? %>
