@@ -171,7 +171,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.6.1)
-    nokogiri (1.15.5-arm64-darwin)
+    nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.4)
@@ -285,7 +285,7 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
@@ -308,7 +308,7 @@ DEPENDENCIES
   simple_form
   sprockets-rails
   stimulus-rails
-  turbo-rails
+  turbo-rails (~> 1.0)
   tzinfo-data
   web-console
 

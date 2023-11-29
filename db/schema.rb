@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_160036) do
   end
 
   create_table "offers", force: :cascade do |t|
-    t.string "description"
+    t.text "description"
     t.string "category"
     t.bigint "profile_id", null: false
     t.datetime "created_at", null: false
