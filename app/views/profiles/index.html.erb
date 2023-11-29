@@ -1,12 +1,9 @@
 <h1>Index Page</h1>
 <div class="container" id="index-container">
-  <%= @profile.each do  %>
-    <%= render "profile", profile: profile%>
-    <% end %>
-
+  <%= render "profiles", profiles: @profiles%>
 </div>
 
-
+<%#
 <!DOCTYPE html>
 <html>
   <head>
@@ -85,4 +82,4 @@
       <img class="native-home" src="img/home-indicator.svg" />
     </div>
   </body>
-</html>
+</html> %>
