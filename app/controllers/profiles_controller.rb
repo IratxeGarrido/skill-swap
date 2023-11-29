@@ -1,6 +1,15 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show]
 
+  def index
+    @profiles = Profile.find.where!(user_id: current_user.id)
+
+    if params[:search].present?
+      @query = params[:search][:query]
+      @profiles = @profiles.where("category ILIKE ?", "%#{@query}%")
+    end
+  end
+
   def new
     @profile = Profile.create(user: current_user)
   end
@@ -15,7 +24,22 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    set_profile
+  end
+
+  def update
+    set_profile
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def show
+
+    
   end
 
   private
