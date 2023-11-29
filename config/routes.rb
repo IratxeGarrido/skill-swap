@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #root "profiles#index"
   root "profiles#index"
 
-  resources :profiles, only: %i[index show new create] do
+  resources :profiles, only: %i[index show new create edit update] do
     resources :offers, only: %i[new create]
   end
   resources :offers, only: %i[edit update destroy]
