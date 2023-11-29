@@ -15,7 +15,22 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    set_profile
+  end
+
+  def update
+    set_profile
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def show
+
+    
   end
 
   private
