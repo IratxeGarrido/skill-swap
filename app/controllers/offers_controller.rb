@@ -26,8 +26,10 @@ class OffersController < ApplicationController
   end
 
   def destroy
+    @offer = Offer.find(params[:id])
+    @profile = @offer.profile # Assuming an offer belongs to a profile
     @offer.destroy
-    redirect_to profiles_path(@profile), status: :see_other
+    redirect_to profile_path(@profile), notice: 'Offer was successfully deleted.'
   end
 
   private
