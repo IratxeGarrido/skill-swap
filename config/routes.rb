@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   #root "profiles#index"
+  root "profiles#index"
 
   resources :profiles, only: %i[index show new create] do
     resources :offers, only: %i[new create]
