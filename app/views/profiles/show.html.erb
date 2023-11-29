@@ -1,2 +1,2 @@
 <h1>Hello <%= @profile.first_name %> <%= @profile.last_name %></h1>
-<%= cl_image_tag @profile.photo.key, height: 300, width: 400, crop: :fill if @profile.photo.attached %>
+<%= cl_image_tag @profile.photo.key, height: 300, width: 400, crop: :fill if @profile.photo.attached? %>
