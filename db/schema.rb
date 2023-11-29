@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_103716) do
   create_table "matches", force: :cascade do |t|
     t.integer "status"
     t.bigint "initiator_id", null: false
-    t.bigint "creator_id", null: false
+    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_matches_on_creator_id"

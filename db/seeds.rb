@@ -21,6 +21,7 @@ Message.destroy_all
 # template_profile.photo.attach(io: file, filename: "template.png", content_type: "image/png")
 # template_profile.save!
 
+
 spiderman = User.create(email: 'peter@skillswap.com', password: '123456')
 file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/spiderman.jpg")
 spiderman_profile = Profile.new(
@@ -91,3 +92,15 @@ mustafa_profile = Profile.new(
 )
 mustafa_profile.photo.attach(io: file, filename: "mustafa.png", content_type: "image/png")
 mustafa_profile.save!
+
+
+match = Match.new(status: "pending", initiator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
+match.save!
+match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "rejected", initiator_id: iratxe_profile.id)
+match.save!
