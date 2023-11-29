@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show]
 
   def index
-    # @profiles = Profile.all
+    @profiles = Profile.where.not(user_id: current_user)
 
     @profiles = Profile.where.not(user_id: current_user.id)
     if params[:search].present?
@@ -41,11 +41,10 @@ class ProfilesController < ApplicationController
 
   def show
 
-
   end
 
   def search
-
+    
   end
 
   private

@@ -6,6 +6,7 @@ class Profile < ApplicationRecord
   has_many :messages_as_recipient, class_name: "Profile", foreign_key: :recipient_id
   has_many :reviews_as_reviewer, class_name: "Profile", foreign_key: :reviewer_id
   has_many :reviews_as_reviewee, class_name: "Profile", foreign_key: :reviewee_id
+  has_many :offers
   has_one_attached :photo
   validates :photo, presence: true
   validates :first_name, presence: true

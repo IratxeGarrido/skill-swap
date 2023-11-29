@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if profile.empty?
       new_profile_path
     else
-      profile_path(@profile)
+      profiles_path
     end
   end
 
