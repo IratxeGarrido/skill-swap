@@ -6,18 +6,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
-<%= javascript_include_tag "turbo", type: "module" %>
+    <%= javascript_include_tag "turbo", type: "module" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <br>
-    <div class="container col-6">
+
       <%= yield %>
-    </div>
     <%= render "shared/flashes" %>
 
   </body>
