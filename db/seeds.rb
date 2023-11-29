@@ -32,6 +32,7 @@ spiderman_profile = Profile.new(
   address: 'New York',
   user_id: spiderman.id
 )
+
 spiderman_profile.photo.attach(io: file, filename: "spiderman.png", content_type: "image/png")
 spiderman_profile.save!
 
