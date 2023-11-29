@@ -1,1 +1,88 @@
 <h1>Index Page</h1>
+<div class="container" id="index-container">
+  <%= @profile.each do  %>
+    <%= render "profile", profile: profile%>
+    <% end %>
+
+</div>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="home">
+      <div class="native-status-bar"></div>
+      <div class="bars-nav-bars">
+        <div class="text-wrapper">SkillSwap</div>
+        <img class="left-actionable" src="img/left-actionable.svg" />
+        <img class="right-actionable" src="img/right-actionable-icon.svg" />
+      </div>
+      <div class="screen-content">
+        <div class="total-profile">
+          <div class="profile-card">
+            <div class="skill-card"></div>
+            <div class="frame">
+              <div class="div">
+                <div class="avatar">
+                  <div class="avatar-2"></div>
+                  <div class="skill-title">Zoe</div>
+                </div>
+                <div class="location-buttons">
+                  <img class="vector" src="img/vector.svg" />
+                  <div class="text">Nearby</div>
+                </div>
+              </div>
+              <div class="skill-description">
+                <div class="skill-title-2">About Me</div>
+                <p class="p">a short description description descriptiondescription description of yourself</p>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card-2">
+            <div class="frame-2">
+              <div class="avatar-3">
+                <div class="avatar-4"></div>
+                <div class="skill-title">Zoe MawbySmart</div>
+              </div>
+              <div class="location-buttons">
+                <img class="vector" src="img/vector-2.svg" />
+                <div class="text">Nearby</div>
+              </div>
+            </div>
+            <div class="skill-description-2">
+              <div class="skill-title-2">Painting</div>
+              <p class="skill-description-3">
+                a short description description descriptiondescription description of your photography skill on offer..
+              </p>
+            </div>
+          </div>
+          <div class="skill-card-3">
+            <div class="frame-2">
+              <div class="avatar-3">
+                <div class="avatar-5"></div>
+                <div class="skill-title">Zoe MawbySmart</div>
+              </div>
+              <div class="location-buttons">
+                <img class="vector" src="img/image.svg" />
+                <div class="text">Nearby</div>
+              </div>
+            </div>
+            <div class="skill-description-2">
+              <div class="skill-title-2">Photography</div>
+              <p class="skill-description-3">
+                a short description description descriptiondescription description of your photography skill on offer..
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img class="bars-tab-bar-icon" src="img/tab-bar-icon-only.svg" />
+      <img class="native-home" src="img/home-indicator.svg" />
+    </div>
+  </body>
+</html>
