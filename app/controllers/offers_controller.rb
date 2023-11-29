@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :find_profile, only: [:new, :create]
+  before_action :find_profile, only: [:new, :create, :show]
 
   def new
     @profile = Profile.find(params[:profile_id])
@@ -13,6 +13,11 @@ class OffersController < ApplicationController
     if @offer.save
       redirect_to profile_path(@profile)
     end
+  end
+
+  def show
+    @offers = Offer.where(profile_id: @profile)
+    raise
   end
 
   def edit
