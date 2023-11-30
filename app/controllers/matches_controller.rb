@@ -1,4 +1,10 @@
 class MatchesController < ApplicationController
+
+  def show
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
+
   def index
     @accepted_matches =  Match.where(status: "accepted").where("creator_id = ? OR initiator_id = ?", current_user, current_user)
     # Match.where(initiator_id: profile_id)

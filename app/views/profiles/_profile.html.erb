@@ -22,7 +22,7 @@
     </div>
 
 --------------
-<% profiles.each do |profile| %>
+<% @profiles.each do |profile| %>
   <%= cl_image_tag profile.photo.key, height: 200, width: 200, crop: :fill if profile.photo.attached? %>
   <p><%= profile.first_name %> <%= profile.age %></p>
   <p><%= profile.bio %></p>

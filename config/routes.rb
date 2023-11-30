@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :offers, only: %i[new create show]
   end
   resources :offers, only: %i[edit update destroy]
-  resources :matches, only: %i[index show create]
-  resources :messages, only: %i[create]
+  resources :matches, only: %i[index show create] do
+    resources :messages, only: %i[create]
+  end
 end

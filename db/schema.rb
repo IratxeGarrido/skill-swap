@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_29_103716) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_133141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,11 +57,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_103716) do
     t.boolean "read_status"
     t.bigint "match_id", null: false
     t.bigint "sender_id", null: false
-    t.bigint "recipient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["match_id"], name: "index_messages_on_match_id"
-    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
@@ -115,7 +113,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_103716) do
   add_foreign_key "matches", "profiles", column: "creator_id"
   add_foreign_key "matches", "profiles", column: "initiator_id"
   add_foreign_key "messages", "matches"
-  add_foreign_key "messages", "profiles", column: "recipient_id"
   add_foreign_key "messages", "profiles", column: "sender_id"
   add_foreign_key "offers", "profiles"
   add_foreign_key "profiles", "users"
