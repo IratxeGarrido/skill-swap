@@ -1,13 +1,56 @@
-<%= cl_image_tag @profile.photo.key, height: 300, width: 400, crop: :fill if @profile.photo.attached? %>
-<hr>
+
+<%# _usercard.scss  %>
+  <div class="profile-card">
+      <div class="skill-card" style="background-image: url('<%= cl_image_path(@profile.photo.key) if @profile.photo.attached? %>');">
+      </div>
+      <div class="frame">
+        <div class="div">
+          <div class="name">
+            <div class="name-title"><%= @profile.first_name %></div>
+          </div>
+          <div class="location-buttons">
+            <div>
+              <i class="fa-solid fa-location-arrow" style="color: #ffffff;"></i>
+            </div>
+            <div class="text">Nearby</div>
+          </div>
+        </div>
+        <div class="profile-description">
+          <div class="text-wrapper">About Me</div>
+          <p class="p"><%= @profile.bio %></p>
+        </div>
+      </div>
+    </div>
+<%# skill.scss  %>
+
+
 <% @profile.offers.each do |offer| %>
-  <div class="mb-3">
-    <%= "offer number: #{offer.id}" %><br>
-    <%= "description: #{offer.description}"%><br>
-    <%= "category: #{offer.category}"%><br>
-    <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
-  </div>
-  <%= link_to "Edit", edit_offer_path(offer.id), class:"btn btn-secondary btn-lg"%>
-  <%= link_to "Delete", offer_path(offer), class:"btn btn-secondary btn-lg", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-  <hr>
+    <div class="skill-card" style="background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 8.85%,
+    rgba(255, 255, 255, 0) 47.4%,
+    rgba(0, 0, 0, 0.4) 88.02%
+  ), url('<%= cl_image_path(offer.photo.key) %>');">
+      <div class="frame">
+        <div class="avatar">
+          <div class="avatar-pic" >
+            <%= cl_image_tag @profile.photo.key, class: "avatar-pic" %>
+          </div>
+          <div class="profile-title"><%= @profile.first_name %></div>
+        </div>
+        <div class="location-buttons">
+          <i class="fa-solid fa-location-arrow" style="color: #ffffff;"></i>
+          <div class="text">Nearby</div>
+        </div>
+      </div>
+      <div class="skill-description">
+        <div class="text-wrapper"><%= offer.category %></div>
+        <p class="p"> <%= offer.description %>
+        </p>
+      </div>
+    </div>
 <% end %>
+
+
+
+<%# <%= render "offers/show", locals: {profile_id: @profile.id} %>

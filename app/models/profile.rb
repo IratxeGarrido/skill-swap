@@ -17,4 +17,8 @@ class Profile < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def is_match?(my_user)
+    Match.where("initiator_id = ? AND creator_id = ? AND status = ?", my_user, self, 0).exists? || Match.where("initiator_id = ? AND status = ?", my_user, 1).exists? || Match.where("initiator_id = ? AND status = ?", self, 1).exists? || Match.where("initiator_id = ? AND creator_id = ? AND status = ?"  , my_user, self, 2).exists? || Match.where("initiator_id = ? AND creator_id = ? AND status = ?" , self, my_user, 2).exists?
+  end
 end
