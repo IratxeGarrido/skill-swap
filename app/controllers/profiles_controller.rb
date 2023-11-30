@@ -7,7 +7,6 @@ class ProfilesController < ApplicationController
     #   @query = params[:search][:query]
     #   @profiles = @profiles.where("category ILIKE ?", "%#{@query}%")
     # end
-
   end
 
   def new
