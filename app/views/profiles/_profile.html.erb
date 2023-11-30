@@ -13,22 +13,35 @@
             </div>
           </div>
           <div class="skill-description">
-            <div class="skill-title-2">About Me</div>
+            <div class="skill-title-2">
+              About Me
+            </div>
             <p class="p"><%= profile.bio %></p>
           </div>
+          <div data-controller>
+            <div class="d-flex justify-content-between">
+            <div class="">
+              <button> <i class="fa-solid fa-xmark fa-2xl" style="color: #f7dd36"></i> </button>
+            </div>
+            <div class="">
+              <button> <i class="fa-solid fa-heart fa-2xl" style="color: #f7dd36"></i> </button>
+            </div>
+          </div>
+          </div>
+
         </div>
       </div>
       <%= render "offers/show" %>
     </div>
 
---------------
-<% profiles.each do |profile| %>
-  <%= cl_image_tag profile.photo.key, height: 200, width: 200, crop: :fill if profile.photo.attached? %>
-  <p><%= profile.first_name %> <%= profile.age %></p>
-  <p><%= profile.bio %></p>
+<!-------------->
+<%# @profiles.each do |profile| %>
+  <%#= cl_image_tag profile.photo.key, height: 200, width: 200, crop: :fill if profile.photo.attached? %>
+  <%#= profile.first_name %> <%#= profile.age %>
+  <%#= profile.bio %>
   <!--
   2 buttons (trigger scroll down in JS):
     - Swipe left ❌: trigger rejection in DB
     - Swipe right ✅: trigger accept in DB
   -->
-<% end %>
+<%# end %>
