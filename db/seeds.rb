@@ -94,13 +94,13 @@ mustafa_profile.photo.attach(io: file, filename: "mustafa.png", content_type: "i
 mustafa_profile.save!
 
 
-match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.create(status: "rejected", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
-match.save!
-match = Match.create(status: "accepted", initiator_id: peter_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
-match.save!
+# match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+# match.save!
+# match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
+# match.save!
+# match = Match.create(status: "rejected", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
+# match.save!
+# match = Match.create(status: "accepted", initiator_id: spiderman_profile.id, creator_id: iratxe_profile.id)
+# match.save!
+# match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
+# match.save!

@@ -7,7 +7,9 @@
   </div>
   <div id="screen-content">
     <% @profiles.each do |profile| %>
-      <%= render "profile", profile: profile%>
+      <% unless profile.is_match?(current_user.profile) %>
+        <%= render "profile", profile: profile%>
+      <% end %>
     <% end %>
 
   </div>
