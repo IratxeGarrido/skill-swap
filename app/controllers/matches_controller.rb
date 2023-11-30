@@ -1,4 +1,10 @@
 class MatchesController < ApplicationController
+
+  def show
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
+
   def index
     @accepted_matches = Match.where(
       status: 'accepted'
