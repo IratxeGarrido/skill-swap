@@ -1,7 +1,7 @@
-<%= if @offers.nil? %>
+<% if @offers.nil? %>
 <p> You dont have any offers</p>
 <% else %>
-  <%= @offers.each do |offer|  %>
+  <% @offers.each do |offer|  %>
 
   <%# need to embed the offer into the card below still ...  %>
 
@@ -23,4 +23,5 @@
           </p>
         </div>
       </div>
+<% end %>
 <% end %>
