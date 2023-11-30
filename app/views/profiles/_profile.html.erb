@@ -1,0 +1,34 @@
+    <div class="total-profile">
+      <div class="profile-card">
+        <div class="p-card" style="background-image: url('<%= cl_image_path(profile.photo.key) if profile.photo.attached? %>');"></div>
+        <div class="frame">
+          <div class="div">
+            <div class="avatar">
+              <div class="avatar-2"></div>
+              <div class="skill-title"><%= profile.first_name %></div>
+            </div>
+            <div class="location-buttons">
+              <img class="vector" src="img/vector.svg" />
+              <div class="text">Nearby</div>
+            </div>
+          </div>
+          <div class="skill-description">
+            <div class="skill-title-2">About Me</div>
+            <p class="p"><%= profile.bio %></p>
+          </div>
+        </div>
+      </div>
+      <%= render "offers/show" %>
+    </div>
+
+--------------
+<% profiles.each do |profile| %>
+  <%= cl_image_tag profile.photo.key, height: 200, width: 200, crop: :fill if profile.photo.attached? %>
+  <p><%= profile.first_name %> <%= profile.age %></p>
+  <p><%= profile.bio %></p>
+  <!--
+  2 buttons (trigger scroll down in JS):
+    - Swipe left ❌: trigger rejection in DB
+    - Swipe right ✅: trigger accept in DB
+  -->
+<% end %>

@@ -1,0 +1,27 @@
+<% if @offers.nil? %>
+<p> You dont have any offers</p>
+<% else %>
+  <% @offers.each do |offer|  %>
+
+  <%# need to embed the offer into the card below still ...  %>
+
+  <div class="skill-card-2">
+        <div class="frame-2">
+          <div class="avatar-3">
+            <div class="avatar-4"></div>
+            <div class="skill-title">Zoe MawbySmart</div>
+          </div>
+          <div class="location-buttons">
+            <img class="vector" src="img/vector-2.svg" />
+            <div class="text">Nearby</div>
+          </div>
+        </div>
+        <div class="skill-description-2">
+          <div class="skill-title-2">Painting</div>
+          <p class="skill-description-3">
+            a short description description descriptiondescription description of your photography skill on offer..
+          </p>
+        </div>
+      </div>
+<% end %>
+<% end %>

@@ -7,20 +7,20 @@
   background-color: #ffffff;
 }
 
-.home .native-status-bar {
+.native-status-bar {
   position: relative;
   width: 375px;
   height: 44px;
 }
 
-.home .bars-nav-bars {
+.bars-nav-bars {
   position: relative;
   width: 375px;
   height: 48px;
   background-color: var(--skywhite);
 }
 
-.home .text-wrapper {
+.text-wrapper {
   position: absolute;
   height: 18px;
   top: 14px;
@@ -36,7 +36,7 @@
   font-style: var(--large-none-regular-font-style);
 }
 
-.home .left-actionable {
+.left-actionable {
   position: absolute;
   width: 24px;
   height: 24px;
@@ -44,7 +44,7 @@
   left: 18px;
 }
 
-.home .right-actionable {
+.right-actionable {
   position: absolute;
   width: 24px;
   height: 24px;
@@ -78,7 +78,7 @@
   background-color: #0d0000;
 }
 
-.home .skill-card {
+.home .p-card {
   position: relative;
   width: 360px;
   height: 468px;
@@ -88,7 +88,6 @@
     rgba(255, 255, 255, 0) 47.4%,
     rgba(0, 0, 0, 0.4) 88.02%
   );
-  background-image: url(./img/skill-card.png);
   background-size: cover;
   background-position: 50% 50%;
 }
