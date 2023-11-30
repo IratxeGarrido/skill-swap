@@ -14,8 +14,7 @@ class OffersController < ApplicationController
   end
 
   def show
-    @offers = Offer.where(profile_id: @profile)
-    raise
+    @offers = Offer.where(profile_id: @profile.id)
   end
 
   def edit
