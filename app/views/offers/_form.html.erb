@@ -1,6 +1,7 @@
-<%= simple_form_for offer do |f| %>
-  <%= f.input :description, label: 'Description', error: 'Username is mandatory, please specify one' %>
-  <%= f.input :category, label: 'Category', hint: 'No special characters.' %>
+<%= simple_form_for [profile, offer] do |f| %>
+  <%= f.input :description, label: 'Description', error: 'description is mandatory, please specify one' %>
+  <%= f.input :category, label: 'Category', hint: 'No special characters.', error: 'category is mandatory, please specify one' %>
   <%# should I specify the category at my models? %>
+<%= f.input :photo, as: :file, error: 'Photo is mandatory, please specify one' %>
   <%= f.button :submit, class: "btn btn-primary"   %>
 <% end %>
