@@ -180,6 +180,9 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.4)
+    pg_search (2.3.6)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     popper_js (2.11.8)
     psych (4.0.0)
     public_suffix (5.0.4)
@@ -308,6 +311,7 @@ DEPENDENCIES
   geocoder
   importmap-rails
   pg (~> 1.1)
+  pg_search
   psych (= 4.0.0.0)
   puma (>= 5.0)
   rails (~> 7.1.2)
