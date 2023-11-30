@@ -1,11 +1,11 @@
 require "open-uri"
 
 # Destroy all Users, Offers, Profiles, Matches and Messages
-User.destroy_all
+Message.destroy_all
+Match.destroy_all
 Offer.destroy_all
 Profile.destroy_all
-Match.destroy_all
-Message.destroy_all
+User.destroy_all
 
 # template = User.create(email: 'template@skillswap.com', password: '123456')
 # file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/template.jpg")
@@ -94,13 +94,13 @@ mustafa_profile.photo.attach(io: file, filename: "mustafa.png", content_type: "i
 mustafa_profile.save!
 
 
-match = Match.new(status: "pending", initiator_id: iratxe_profile.id)
-match.save!
-match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
+match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
 match.save!
 match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
 match.save!
-match = Match.create(status: "rejected", initiator_id: iratxe_profile.id)
+match = Match.create(status: "rejected", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
+match.save!
+match = Match.create(status: "accepted", initiator_id: peter_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
 match.save!
