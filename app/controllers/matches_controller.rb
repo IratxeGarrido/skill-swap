@@ -9,7 +9,7 @@ class MatchesController < ApplicationController
     )
   end
 
-def swipe_left
+  def swipe_left
     if user_has_swiped.nil?
       Match.create(
         initiator_id: current_user.profile.id,

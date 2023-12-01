@@ -1,6 +1,6 @@
-    <div class="total-profile">
-      <div class="profile-card">
-        <div class="p-card" style="background-image: url('<%= cl_image_path(profile.photo.key) if profile.photo.attached? %>'); width: 360px; height: 468pxFf"></div>
+    <div class="total-profile" data-controller="swipe">
+      <div class="profile-card" data-swipe-target="swipeCard">
+        <div class="p-card" style="background-image: url('<%= cl_image_path(profile.photo.key) if profile.photo.attached? %>'); width: 360px; height: 468px;"></div>
         <div class="frame">
           <div class="div">
             <div class="avatar">
