@@ -1,9 +1,9 @@
-
-   <%# footer %>
+<%# footer %>
     <div class="footer">
-      <%= link_to profile_path(current_user.profile) do %>
-        <div class="option"><i class="fa-solid fa-user fa-lg"></i></div>
-      <% end %>
+        <% link_to profile_path(current_user.profile) do %>
+          <div class="option"><i class="fa-solid fa-user fa-lg"></i></div>
+        <% end %>
+
 
       <%= link_to profiles_path do %>
         <div class="option"><i class="fa-solid fa-shapes fa-lg"></i></div>
