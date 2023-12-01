@@ -1,28 +1,34 @@
-<div class="text-center">
-  <h1>This is the show page for matches and is also the chatroom</h1>
-</div>
+<% if current_user.id == @match.initiator_id || current_user.id == @match.creator_id %>
 
-<div class="container chatroom" data-controller="match-subscription" data-match-subscription-match-id-value="<%= @match.id %>">
+    <% initiator_profile = Profile.find_by(id: @match.initiator_id) %>
+    <% creator_profile = Profile.find_by(id: @match.creator_id) %>
+
+      <div class="text-center">
+        <h1>This is the show page for matches and is also the chatroom</h1>
+      </div>
+
+      <div class="container chatroom" data-controller="match-subscription" data-match-subscription-match-id-value="<%= @match.id %>">
+        <div class="messages" data-match-subscription-target="messages">
+        <% @match.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+        </div>
 
 
-  <div class="messages" data-match-subscription-target="messages">
-    <% @match.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
-  </div>
+        <%= simple_form_for [@match, @message],
+        html: { data: { action: "turbo:submit-end->match-subscription#resetForm" },
+        class: "d-flex"} do |f|
+        %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "write your message",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+        <% end %>
 
+      </div>
 
-
-  <%= simple_form_for [@match, @message],
-    html: { data: { action: "turbo:submit-end->match-subscription#resetForm" },
-    class: "d-flex"} do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "write your message",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
-
-</div>
+<% else %>
+  <p>Access denied</p>
+<% end %>

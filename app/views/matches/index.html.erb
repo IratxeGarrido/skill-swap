@@ -1,6 +1,39 @@
-<h1>Your matches</h1>
-<% @accepted_matches.each do |match| %>
-<p>Initiator: <%= match.initiator_id %></p>
-<p>Creator: <%= match.creator_id %></p>
-<p>Status: <%= match.status %></p>
-<% end %>
+<div class="text-center">
+  <h1>Your matches</h1>
+
+  <% @accepted_matches.each do |match| %>
+      <% initiator_profile = Profile.find_by(id: match.initiator_id) %>
+      <% creator_profile = Profile.find_by(id: match.creator_id) %>
+    <% if current_user.profile.id != initiator_profile.id%>
+
+
+      <% latest_message = match.messages.order(created_at: :desc).first %>
+     
+      <div style="width: 100%; height: 100%; position: relative">
+        <div style="width: 412px; height: 82px; left: 0px; top: 0px; position: absolute; background: #FBF7FF; border-radius: 5px"></div>
+        <div style="width: 63px; height: 66px; left: 5px; top: 8px; position: absolute; justify-content: flex-start; align-items: center; gap: 13px; display: inline-flex">
+          <div style="width: 75.66px; padding-right: 7.66px; justify-content: flex-start; align-items: center; display: flex">
+            <%= cl_image_tag(initiator_profile.photo.key, style: "width: 68px; height: 65px; border-radius: 9999px") %>
+          </div>
+        </div>
+      <div style="left: 81px; top: 8px; position: absolute; color: #060200; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 24px; word-wrap: break-word"><%= initiator_profile.first_name %> <%= initiator_profile.last_name %></div>
+        <% initiator_profile.offers.each do |offer| %>
+        <div style="width: 88px; height: 16px; padding-left: 17px; padding-right: 17px; padding-top: 2px; padding-bottom: 2px; left: 223px; top: 12px; position: absolute; background: #6B4EFF; border-radius: 30px; overflow: hidden; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+          <div style="color: white; font-size: 14px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+              <%= offer.category %>
+          </div>
+        </div>
+            <% end  %>
+        <div style="width: 209px; height: 27px; left: 81px; top: 41px; position: absolute; color: rgba(0, 0, 0, 0.70); font-size: 18px; font-family: Inter; font-weight: 400; line-height: 24px; word-wrap: break-word"><%= latest_message.content %></div>
+
+        <div style="width: 35px; height: 35px; left: 348px; top: 32px; position: absolute; background: #FBF7FF"></div>
+        <div style="width: 35px; height: 35px; padding-top: 2.91px; padding-bottom: 2.92px; padding-left: 2.91px; padding-right: 2.93px; left: 358px; top: 33px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+          <%= link_to match_path(match), class: 'my-link-class' do %>
+          <i class="fas fa-comment"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
