@@ -8,12 +8,21 @@ class ProfilesController < ApplicationController
     # I need to show all profiles that I dont have a match
     # i need to see the ones im a creator
 
-    # if params[:search]["offer"].present?
-    #   @query = params[:search][:"offer"]
-    #   raise
-    #   @profiles = Profile.offers_search(@query)
-    # end
+    if params[:search]
+      if params[:search][:distance].present? && params[:search][:offer].present?
+        @query = params[:search][:offer]
+        @results = Profile.offers_search(@query)
+        @profiles = @profiles.near(current_user.profile.address, params[:search][:distance])
 
+      elsif params[:search][:offer].present?
+        @query = params[:search][:offer]
+        @profiles = Profile.offers_search(@query)
+
+      elsif params[:search][:distance].present?
+        @query = params[:search][:distance]
+        @profiles = Profile.near(current_user.profile.address, @query)
+      end
+    end
     @match = Match.new
   end
 

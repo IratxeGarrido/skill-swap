@@ -31,12 +31,14 @@ class Profile < ApplicationRecord
       Match.exists?(initiator: self, creator: my_user, status: 2)
   end
 
-  include PgSearch::Model
+    include PgSearch::Model
+
   pg_search_scope :offers_search,
-  associated_against: {
-    offer: [:category]
-  },
-  using: {
-    tsearch: { prefix: true }
-  }
+    associated_against: {
+      offers: [:category]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end

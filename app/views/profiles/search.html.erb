@@ -3,9 +3,8 @@
 -----------------------
 
 <%# FILTERS AND SEARCH LOGIC %>
-<%= simple_form_for :search, url: profiles_path, method: "GET", html: { class: "form index-form" } do |f| %>
-  <div class="filter-container">
-
+<div class="filter-container">
+  <%= simple_form_for :search, url: profiles_path, method: "GET", html: {class: "form index-form" } do |f| %>
     <div class="filter-div" data-controller="checkbox">
       <div class="panel">
         <%= f.input :offer,
@@ -15,13 +14,24 @@
           item_wrapper_class: 'tag-item',
           input_html: {class: 'tag-selector'},
           collection: [
-                          [('photography').html_safe, "photography"],
-                          [('art').html_safe, "art"],
-                          [('coding').html_safe, "coding"],
-                          [('ceramics').html_safe, "ceramics"],
-                          [('textiles').html_safe, "textiles"],
+                          [('Photography').html_safe, "Photography"],
+                          [('Art').html_safe, "Painting & Drawing"],
+                          [('Coding').html_safe, "Coding"],
+                          [('Ceramics').html_safe, "Ceramics"],
+                          [('Textiles').html_safe, "Textiles"],
+                          [('Carpentry').html_safe, "Carpentry"]
                         ] %>
+      </div>
+    </div>
 
-        <%= f.submit %>
+    <div class="geolocation">
+      <%= f.input :distance,
+        as: :range,
+        label: 'Distance',
+        input_html: { min: 5, max: 25, step: 5, class: 'form-range'}
+      %>
+    </div>
 
-<% end %>
+    <%= f.submit %>
+  <% end %>
+</div>
