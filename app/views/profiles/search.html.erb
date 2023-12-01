@@ -3,62 +3,35 @@
 -----------------------
 
 <%# FILTERS AND SEARCH LOGIC %>
-<%= simple_form_for :search, url: profiles_path, method: "GET", html: { class: "form index-form" } do |f| %>
-  <div class="filter-container">
-
-      <%# <%= f.input :filter,
-            as: :check_boxes,
-            collection_wrapper_tag: 'div',
-            collection_wrapper_class: 'category-wrapper',
-            item_wrapper_class: 'category-item',
-            multiple: true,
-            input_html: {class: 'category-selector', multiple: true},
-            collection:  [
-
-                          ] %>
-
+<div class="filter-container">
+  <%= simple_form_for :search, url: profiles_path, method: "GET", html: {class: "form index-form" } do |f| %>
     <div class="filter-div" data-controller="checkbox">
       <div class="panel">
-        <%= f.input :filter,
-          as: :check_boxes,
+        <%= f.input :offer,
+          as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper-1',
-          item_wrapper_class: 'category-item',
-          multiple: true,
-          input_html: {class: 'category-selector', multiple: true},
+          item_wrapper_class: 'tag-item',
+          input_html: {class: 'tag-selector'},
           collection: [
-                          [('<i class="fa-solid fa-wifi"></i>').html_safe, "photography"],
-                          [('<i class="fa-solid fa-mug-hot"></i>').html_safe, "art"],
-                          [('<i class="fa-solid fa-faucet-drip"></i>').html_safe, "water"],
-                          [('<i class="fa-solid fa-toilet"></i>').html_safe, "bathroom"],
-                          [('<i class="fa-solid fa-volume-xmark"></i>').html_safe, "quiet"],
-                          [('<i class="fa-solid fa-plug"></i>').html_safe, "power"],
-                          [('<i class="fa-solid fa-euro-sign"></i>').html_safe, "cost"],
-                          [('<i class="fa-solid fa-tree"></i>').html_safe, "trees"],
-                          [('<i class="fa-solid fa-chair"></i>').html_safe, "seating"],
-                          [('<i class="fa-solid fa-person-shelter"></i>').html_safe, "shelter"],
-                          [('<i class="fa-solid fa-paw"></i>').html_safe, "animals"],
-                          [('<i class="fa-solid fa-mountain-sun"></i>').html_safe, "view"],
+                          [('Photography').html_safe, "Photography"],
+                          [('Art').html_safe, "Painting & Drawing"],
+                          [('Coding').html_safe, "Coding"],
+                          [('Ceramics').html_safe, "Ceramics"],
+                          [('Textiles').html_safe, "Textiles"],
+                          [('Carpentry').html_safe, "Carpentry"]
                         ] %>
-
-        <%= f.submit %>
-
-
-          <%# ROW FOR FUTURE FILTERS %>
-       <%#  <%= f.input :filter,
-          as: :check_boxes,
-          collection_wrapper_tag: 'div',
-          collection_wrapper_class: 'category-wrapper-2',
-          item_wrapper_class: 'category-item',
-          multiple: true,
-          input_html: {class: 'category-selector', multiple: true},
-          collection:  [
-
-                          ] %>
-      </div>
-      <div data-checkbox-target="accordion" class="accordion" id="more-filters">
-        <i class="fa-solid fa-arrow-down-short-wide"></i>
       </div>
     </div>
-  </div>
-<% end %>
+
+    <div class="geolocation">
+      <%= f.input :distance,
+        as: :range,
+        label: 'Distance',
+        input_html: { min: 5, max: 25, step: 5, class: 'form-range'}
+      %>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</div>

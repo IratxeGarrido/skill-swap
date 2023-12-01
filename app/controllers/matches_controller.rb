@@ -1,3 +1,4 @@
+require "pry"
 class MatchesController < ApplicationController
 
   def show
@@ -27,13 +28,18 @@ class MatchesController < ApplicationController
     @accepted_matches.each do |match|
       @latest_messages[match.id] = match.messages.order(created_at: :desc).first
     end
+
+  def create
+    @form_type = params[:match][:form]
+    @profile_id = params[:match][:profile]
+    @form_type == "like" ? swipe_right(@profile_id) : swipe_left(@profile_id)
   end
 
-def swipe_left
+  def swipe_left(profile_id)
     if user_has_swiped.nil?
       Match.create(
         initiator_id: current_user.profile.id,
-        creator_id: params[:profile],
+        creator_id: profile_id,
         status: 'rejected'
       )
     else
@@ -42,11 +48,11 @@ def swipe_left
     end
   end
 
-  def swipe_right
+  def swipe_right(profile_id)
     if user_has_swiped.nil?
       Match.create(
         initiator_id: current_user.profile.id,
-        creator_id: params[:profile],
+        creator_id: profile_id,
         status: 'pending'
       )
     else
@@ -55,12 +61,10 @@ def swipe_left
     end
   end
 
-  private
+  def user_matches
+    Match.where(initiator_id: @test_profile.user_id)
 
-  def user_has_swiped
-    @match = Match.where(
-      'initiator_id = ? AND creator_id = ?',
-      params[:profile], current_user.profile.id
-    ).first
   end
+
+
 end

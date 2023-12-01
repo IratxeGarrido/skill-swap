@@ -1,6 +1,6 @@
-    <div class="total-profile">
-      <div class="profile-card">
-        <div class="p-card" style="background-image: url('<%= cl_image_path(profile.photo.key) if profile.photo.attached? %>');"></div>
+    <div class="total-profile" data-controller="swipe" data-swipe-profile-value=<%= profile.id %>>
+      <div class="profile-card" data-swipe-target="swipeCard" >
+        <div class="p-card" style="background-image: url('<%= cl_image_path(profile.photo.key) if profile.photo.attached? %>'); width: 360px; height: 468px;"></div>
         <div class="frame">
           <div class="div">
             <div class="avatar">
@@ -19,26 +19,24 @@
             <p class="p"><%= profile.bio %></p>
           </div>
             <div class="d-flex justify-content-between position-absolute">
-              <%= link_to swipe_left_path(profile: profile), data: {turbo_method: :patch} do %>
+              <%= link_to swipe_left_path(profile: profile), data: {turbo_method: :patch, swipel_target: "button"} do %>
                 <i class="fa-solid fa-xmark fa-2xl" style="color: #f7dd36"></i>
               <% end %>
               <%= link_to swipe_right_path(profile: profile), data: {turbo_method: :patch} do %>
                 <i class="fa-solid fa-heart fa-2xl" style="color: #f7dd36"></i>
+              <% end %>
+              <%= simple_form_for @match, data: { swipe_target: "dislikeForm" },  html: { class: 'd-none' } do |f| %>
+                <%= f.input :profile, as: :hidden, input_html: { value: profile.id } %>
+                <%= f.input :form, as: :hidden, input_html: { value: "dislike" }%>
+                <%= f.submit %>
+              <% end %>
+              <%= simple_form_for @match, data: { swipe_target: "likeForm" },  html: { class: 'd-none' } do |f| %>
+                <%= f.input :profile, as: :hidden, input_html: { value: profile.id } %>
+                <%= f.input :form, as: :hidden, input_html: { value: "like" }%>
+                <%= f.submit %>
               <% end %>
           </div>
         </div>
       </div>
       <%= render "offers/show", locals: {profile_id: @profile.id} %>
     </div>
-
-<% @profiles.each do |profile| %>
-  <%= cl_image_tag profile.photo.key, height: 200, width: 200, crop: :fill if profile.photo.attached? %>
-  <p><%= profile.first_name %> <%= profile.age %></p>
-  <p><%= profile.bio %></p>
-  <!--
-  2 buttons (trigger scroll down in JS):
-    - Swipe left ❌: trigger rejection in DB
-    - Swipe right ✅: trigger accept in DB
-  -->
-<% end %>
-

@@ -3,10 +3,27 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.where.not(user_id: current_user)
-    # if params[:search].present?
-    #   @query = params[:search][:query]
-    #   @profiles = @profiles.where("category ILIKE ?", "%#{@query}%")
-    # end
+    @profiles = @profiles.reject { |profile| profile.is_match?(current_user.profile) }
+    # match filter rejected or accept and pendint where Im initiator
+    # I need to show all profiles that I dont have a match
+    # i need to see the ones im a creator
+
+    if params[:search]
+      if params[:search][:distance].present? && params[:search][:offer].present?
+        @query = params[:search][:offer]
+        @results = Profile.offers_search(@query)
+        @profiles = @profiles.near(current_user.profile.address, params[:search][:distance])
+
+      elsif params[:search][:offer].present?
+        @query = params[:search][:offer]
+        @profiles = Profile.offers_search(@query)
+
+      elsif params[:search][:distance].present?
+        @query = params[:search][:distance]
+        @profiles = Profile.near(current_user.profile.address, @query)
+      end
+    end
+    @match = Match.new
   end
 
   def new

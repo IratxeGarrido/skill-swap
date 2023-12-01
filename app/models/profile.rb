@@ -19,6 +19,26 @@ class Profile < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   def is_match?(my_user)
-    Match.where("initiator_id = ? AND creator_id = ? AND status = ?", my_user, self, 0).exists? || Match.where("initiator_id = ? AND status = ?", my_user, 1).exists? || Match.where("initiator_id = ? AND status = ?", self, 1).exists? || Match.where("initiator_id = ? AND creator_id = ? AND status = ?"  , my_user, self, 2).exists? || Match.where("initiator_id = ? AND creator_id = ? AND status = ?" , self, my_user, 2).exists?
+    # I swiped right
+    Match.exists?(initiator: my_user, creator: self, status: 0) ||
+      # I swiped left
+      Match.exists?(initiator: my_user, creator: self, status: 1) ||
+      # Someone swiped left on me
+      Match.exists?(initiator: self, creator: my_user, status: 1) ||
+      # Both swiped right
+      Match.exists?(initiator: my_user, creator: self, status: 2) ||
+      # Both swiped right but the other way
+      Match.exists?(initiator: self, creator: my_user, status: 2)
   end
+
+    include PgSearch::Model
+
+  pg_search_scope :offers_search,
+    associated_against: {
+      offers: [:category]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end
