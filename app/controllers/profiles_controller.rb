@@ -3,14 +3,14 @@ class ProfilesController < ApplicationController
 
   def index
 
-    @profiles = Profile.all
-    # @profiles = Profile.where.not(user_id: current_user)
+#    @profiles = Profile.all
+    @profiles = Profile.where.not(user_id: current_user)
 
-    if params[:search]["offer"].present?
-      @query = params[:search][:"offer"]
-      raise
-      @profiles = Profile.offers_search(@query)
-    end
+    # if params[:search]["offer"].present?
+    #   @query = params[:search][:"offer"]
+    #   raise
+    #   @profiles = Profile.offers_search(@query)
+    # end
 
   end
 
