@@ -4,3 +4,5 @@ class Match < ApplicationRecord
   has_many :messages
   enum status: [ :pending, :rejected, :accepted ]
 end
+
+
