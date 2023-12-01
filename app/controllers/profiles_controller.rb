@@ -2,16 +2,24 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show]
 
   def index
-
     @profiles = Profile.all
     # @profiles = Profile.where.not(user_id: current_user)
 
-    if params[:search]["offer"].present?
-      @query = params[:search][:"offer"]
-      raise
-      @profiles = Profile.offers_search(@query)
-    end
+    if params[:search]
+      if params[:search][:distance].present? && params[:search][:offer].present?
+        @query = params[:search][:offer]
+        @results = Profile.offers_search(@query)
+        @profiles = @profiles.near(current_user.profile.address, params[:search][:distance])
 
+      elsif params[:search][:offer].present?
+        @query = params[:search][:offer]
+        @profiles = Profile.offers_search(@query)
+
+      elsif params[:search][:distance].present?
+        @query = params[:search][:distance]
+        @profiles = Profile.near(current_user.profile.address, @query)
+      end
+    end
   end
 
   def new

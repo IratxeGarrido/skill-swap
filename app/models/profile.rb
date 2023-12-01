@@ -22,12 +22,14 @@ class Profile < ApplicationRecord
     Match.where("initiator_id = ? AND creator_id = ? AND status = ?", my_user, self, 0).exists? || Match.where("initiator_id = ? AND status = ?", my_user, 1).exists? || Match.where("initiator_id = ? AND status = ?", self, 1).exists? || Match.where("initiator_id = ? AND creator_id = ? AND status = ?"  , my_user, self, 2).exists? || Match.where("initiator_id = ? AND creator_id = ? AND status = ?" , self, my_user, 2).exists?
   end
 
-  include PgSearch::Model
+    include PgSearch::Model
+
   pg_search_scope :offers_search,
-  associated_against: {
-    offer: [:category]
-  },
-  using: {
-    tsearch: { prefix: true }
-  }
+    associated_against: {
+      offers: [:category]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end

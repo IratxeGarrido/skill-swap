@@ -1,0 +1,24 @@
+.footer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 52px;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  padding-bottom: 18px;
+  background-color: white;
+}
+
+
+.footer .option {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: $purple-1;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
