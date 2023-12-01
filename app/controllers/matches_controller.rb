@@ -1,6 +1,21 @@
 require "pry"
 class MatchesController < ApplicationController
 
+  def index
+    @accepted_matches = Match.where(
+      status: 'accepted'
+    ).where(
+      'creator_id = ? OR initiator_id = ?',
+      current_user.profile.id,
+      current_user.profile.id
+    )
+
+    @latest_messages = {}
+    @accepted_matches.each do |match|
+      @latest_messages[match.id] = match.messages.order(created_at: :desc).first
+    end
+  end
+
   def show
     @accepted_matches = Match.where(
       status: 'accepted'
@@ -11,23 +26,7 @@ class MatchesController < ApplicationController
     )
     @match = Match.find(params[:id])
     @message = Message.new
-
   end
-
-  def index
-
-    @accepted_matches = Match.where(
-      status: 'accepted'
-    ).where(
-      'creator_id = ? OR initiator_id = ?',
-      current_user.profile.id,
-      current_user.profile.id
-    )
-    
-    @latest_messages = {}
-    @accepted_matches.each do |match|
-      @latest_messages[match.id] = match.messages.order(created_at: :desc).first
-    end
 
   def create
     @form_type = params[:match][:form]
@@ -63,8 +62,14 @@ class MatchesController < ApplicationController
 
   def user_matches
     Match.where(initiator_id: @test_profile.user_id)
-
   end
 
+  private
 
+  def user_has_swiped
+    @match = Match.where(
+      'initiator_id = ? AND creator_id = ?',
+      params[:profile], current_user.profile.id
+    ).first
+  end
 end
