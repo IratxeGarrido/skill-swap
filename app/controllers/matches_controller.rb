@@ -1,3 +1,5 @@
+require "pry"
+
 class MatchesController < ApplicationController
 
   def show
@@ -15,11 +17,17 @@ class MatchesController < ApplicationController
     )
   end
 
-  def swipe_left
+  def create
+    @form_type = params[:match][:form]
+    @profile_id = params[:match][:profile]
+    @form_type == "like" ? swipe_right(@profile_id) : swipe_left(@profile_id)
+  end
+
+  def swipe_left(profile_id)
     if user_has_swiped.nil?
       Match.create(
         initiator_id: current_user.profile.id,
-        creator_id: params[:profile],
+        creator_id: profile_id,
         status: 'rejected'
       )
     else
@@ -28,11 +36,11 @@ class MatchesController < ApplicationController
     end
   end
 
-  def swipe_right
+  def swipe_right(profile_id)
     if user_has_swiped.nil?
       Match.create(
         initiator_id: current_user.profile.id,
-        creator_id: params[:profile],
+        creator_id: profile_id,
         status: 'pending'
       )
     else

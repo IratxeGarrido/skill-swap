@@ -2,16 +2,18 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show]
 
   def index
+    @profiles = Profile.where.not(user_id: current_user)
+    @profiles = @profiles.reject { |profile| profile.is_match?(current_user.profile) }
+    # match filter rejected or accept and pendint where Im initiator
+    # I need to show all profiles that I dont have a match
+    # i need to see the ones im a creator
 
-    @profiles = Profile.all
-    # @profiles = Profile.where.not(user_id: current_user)
-
-    if params[:search]["offer"].present?
-      @query = params[:search][:"offer"]
-      raise
-      @profiles = Profile.offers_search(@query)
-    end
-
+    # if params[:search]["offer"].present?
+    #   @query = params[:search][:"offer"]
+    #   raise
+    #   @profiles = Profile.offers_search(@query)
+    # end
+    @match = Match.new
   end
 
   def new

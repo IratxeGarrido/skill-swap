@@ -6,10 +6,9 @@
     <img class="right-actionable" src="" /> %>
   </div>
   <div id="screen-content">
+
     <% @profiles.each do |profile| %>
-      <% unless profile.is_match?(current_user.profile) %>
-        <%= render "profile", profile: profile%>
-      <% end %>
+      <%= render "profile", profile: profile %>
     <% end %>
 
   </div>
