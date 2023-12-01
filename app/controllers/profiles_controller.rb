@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
     #   raise
     #   @profiles = Profile.offers_search(@query)
     # end
+
     @match = Match.new
   end
 

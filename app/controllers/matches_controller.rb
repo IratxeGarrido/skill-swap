@@ -1,20 +1,9 @@
 require "pry"
 
 class MatchesController < ApplicationController
-
-  def show
-    @match = Match.find(params[:id])
-    @message = Message.new
-  end
-
   def index
-    @accepted_matches = Match.where(
-      status: 'accepted'
-    ).where(
-      'creator_id = ? OR initiator_id = ?',
-      current_user.profile.id,
-      current_user.profile.id
-    )
+    @accepted_matches =  Match.where(status: "accepted").where("creator_id = ? OR initiator_id = ?", current_user, current_user)
+    # Match.where(initiator_id: profile_id)
   end
 
   def create
@@ -49,12 +38,10 @@ class MatchesController < ApplicationController
     end
   end
 
-  private
+  def user_matches
+    Match.where(initiator_id: @test_profile.user_id)
 
-  def user_has_swiped
-    @match = Match.where(
-      'initiator_id = ? AND creator_id = ?',
-      params[:profile], current_user.profile.id
-    ).first
   end
+
+
 end
