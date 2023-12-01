@@ -107,4 +107,3 @@ match.save!
 
 message = Message.new(content: "hi", read_status: true, match_id: 2, sender_id: 2)
 message.save!
-

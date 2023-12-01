@@ -1,11 +1,6 @@
 class MatchesController < ApplicationController
 
   def show
-    @match = Match.find(params[:id])
-    @message = Message.new
-  end
-
-  def index
     @accepted_matches = Match.where(
       status: 'accepted'
     ).where(
@@ -13,6 +8,25 @@ class MatchesController < ApplicationController
       current_user.profile.id,
       current_user.profile.id
     )
+    @match = Match.find(params[:id])
+    @message = Message.new
+
+  end
+
+  def index
+
+    @accepted_matches = Match.where(
+      status: 'accepted'
+    ).where(
+      'creator_id = ? OR initiator_id = ?',
+      current_user.profile.id,
+      current_user.profile.id
+    )
+    
+    @latest_messages = {}
+    @accepted_matches.each do |match|
+      @latest_messages[match.id] = match.messages.order(created_at: :desc).first
+    end
   end
 
 def swipe_left
