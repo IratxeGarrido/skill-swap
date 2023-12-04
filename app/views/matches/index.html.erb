@@ -21,9 +21,18 @@
               <%= offer.category %>
             </div>
           <% end %>
-          <div class="latest-message">
-            <%= latest_message.content %>
-          </div>
+
+          <% if latest_message.present? %>
+            <div class="latest-message">
+              <%= latest_message.content %>
+            </div>
+          <% else %>
+            <div class="no-message">
+                No messages yet.
+            </div>
+          <% end %>
+
+
           <div class="icon-background"></div>
           <div class="comment-icon">
             <%= link_to match_path(match), class: 'my-link-class' do %>
@@ -35,5 +44,3 @@
     <% end %>
   <% end %>
 </div>
-
-
