@@ -11,11 +11,9 @@ class MatchesController < ApplicationController
     )
     @match = Match.find(params[:id])
     @message = Message.new
-
   end
 
   def index
-
     @accepted_matches = Match.where(
       status: 'accepted'
     ).where(
@@ -23,11 +21,12 @@ class MatchesController < ApplicationController
       current_user.profile.id,
       current_user.profile.id
     )
-    
+
     @latest_messages = {}
     @accepted_matches.each do |match|
       @latest_messages[match.id] = match.messages.order(created_at: :desc).first
     end
+  end
 
   def create
     @form_type = params[:match][:form]
@@ -65,6 +64,4 @@ class MatchesController < ApplicationController
     Match.where(initiator_id: @test_profile.user_id)
 
   end
-
-
 end
