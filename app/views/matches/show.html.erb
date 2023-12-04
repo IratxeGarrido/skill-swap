@@ -7,11 +7,17 @@
         <h1>This is the show page for matches and is also the chatroom</h1>
       </div>
 
-      <div class="container chatroom" data-controller="match-subscription" data-match-subscription-match-id-value="<%= @match.id %>">
+      <div class="container chatroom"
+      data-controller="match-subscription"
+      data-match-subscription-match-id-value="<%= @match.id %>">
         <div class="messages" data-match-subscription-target="messages">
-        <% @match.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
-        <% end %>
+          <% @match.messages.each do |message| %>
+            <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+              <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+                <%= render "messages/message", message: message %>
+              </div>
+            </div>
+          <% end %>
         </div>
 
 
