@@ -8,6 +8,7 @@ class MatchesController < ApplicationController
       current_user.profile.id,
       current_user.profile.id
     )
+
     @match = Match.find(params[:id])
     @message = Message.new
   end
@@ -25,8 +26,10 @@ class MatchesController < ApplicationController
     @accepted_matches.each do |match|
       @latest_messages[match.id] = match.messages.order(created_at: :desc).first
     end
-  end
 
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
   
   def create
     @form_type = params[:match][:form]
@@ -34,11 +37,11 @@ class MatchesController < ApplicationController
     @form_type == "like" ? swipe_right(@profile_id) : swipe_left(@profile_id)
   end
 
-  def swipe_left
+  def swipe_left(profile_id)
     if user_has_swiped.nil?
       Match.create(
         initiator_id: current_user.profile.id,
-        creator_id: params[:profile],
+        creator_id: profile_id,
         status: 'rejected'
       )
     else
@@ -47,11 +50,11 @@ class MatchesController < ApplicationController
     end
   end
 
-  def swipe_right
+  def swipe_right(profile_id)
     if user_has_swiped.nil?
       Match.create(
         initiator_id: current_user.profile.id,
-        creator_id: params[:profile],
+        creator_id: profile_id,
         status: 'pending'
       )
     else
