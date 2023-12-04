@@ -21,20 +21,77 @@ User.destroy_all
 # template_profile.photo.attach(io: file, filename: "template.png", content_type: "image/png")
 # template_profile.save!
 
-spiderman = User.create(email: 'peter@skillswap.com', password: '123456')
-file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/spiderman.jpg")
-spiderman_profile = Profile.new(
-  first_name: 'Peter',
-  last_name: 'Parker',
-  bio: 'I swing through the concrete canyons of New York, a web-slinging hero known as Spider-Man. Bitten by a radioactive spider, I gained super strength, agility, and a sixth sense. Juggling crime-fighting with my job as a photojournalist, I embody responsibility and wit, facing villains with a quip and clad in my iconic red and blue suit.',
+# Adam - polish, speaking fast
+# Emma Rünzel - sexy dashboards
+# Pedro - footvolley, ugly css styling
+# Joshua - brownie baking
+# Olivier Girardot
+# Lucas Grüner - dog training
+# Elisabeth Messmer
+# Emre Ebeturk
+# Sebastian Remm
+# Karl von der Eltz
+# Stella Raab
+# Maximilian Eich - jenga master, beer stacking
+# Eduardo Roldan Isaac -
+# Michelle Rodriguez - dancing
+# Rodrigo Hoffmann
+
+adam = User.create(email: 'adam@skillswap.com', password: '123456')
+file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701690159/skill-swap/adam.png")
+adam_profile = Profile.new(
+  first_name: 'Adam',
+  last_name: 'Tomczyk',
+  bio: "Creative fullstack web developer based in Berlin. It all started with ms-dos in the 90's. 👾👾👾",
   age: 34,
   gender: 'Male',
   address: 'Hauptstraße 13, Berlin',
-  user_id: spiderman.id
+  user_id: adam.id
 )
+adam_profile.photo.attach(io: file, filename: "adam.png", content_type: "image/png")
+adam_profile.save!
 
-spiderman_profile.photo.attach(io: file, filename: "spiderman.png", content_type: "image/png")
-spiderman_profile.save!
+emma = User.create(email: 'emma@skillswap.com', password: '123456')
+file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/emma.jpg")
+emma_profile = Profile.new(
+  first_name: 'Emma',
+  last_name: 'Rünzel',
+  bio: "Hey everyone! I'm Emma, and initially, I studied linguistics and literature, but I have been working in full-stack development & communications within languages and beekeeping (don't ask haha) for some time now.",
+  age: 34,
+  gender: 'Female',
+  address: 'Seydelstraße 2, Berlin',
+  user_id: emma.id
+)
+emma_profile.photo.attach(io: file, filename: "emma.png", content_type: "image/png")
+emma_profile.save!
+
+pedro = User.create(email: 'pedro@skillswap.com', password: '123456')
+file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701696520/skill-swap/pedro.jpg")
+pedro_profile = Profile.new(
+  first_name: 'Pedro',
+  last_name: 'Miranda',
+  bio: 'B.S in Economics, Masters in Public Policy. Interests range from data analysis and data science, public administration, public policy , urban resilience, sustainable development, smart cities, and complex systems.',
+  age: 34,
+  gender: 'Male',
+  address: 'Mollstraße 31, Berlin',
+  user_id: pedro.id
+)
+pedro_profile.photo.attach(io: file, filename: "pedro.png", content_type: "image/png")
+pedro_profile.save!
+
+max = User.create(email: 'max@skillswap.com', password: '123456')
+file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701696696/skill-swap/max.jpg")
+max_profile = Profile.new(
+  first_name: 'Maximilian',
+  last_name: 'Eich',
+  bio: 'Italian/German. Born in Milan, live in Berlin since two years now. Used to be a Cook. Currently working as a Set-Designer. Wanted to get myself into a new challenge, possibly expanding my options for the future.',
+  age: 34,
+  gender: 'Male',
+  address: 'Holzmarktstraße 25, Berlin',
+  user_id: max.id
+)
+pedro_profile.photo.attach(io: file, filename: "pedro.png", content_type: "image/png")
+pedro_profile.save!
 
 iratxe = User.create(email: 'iratxe@skillswap.com', password: '123456')
 file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/iratxe.jpg")
