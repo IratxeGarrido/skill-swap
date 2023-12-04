@@ -1,146 +1,146 @@
 
-.profile-card {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  height: 674px;
-  align-items: flex-start;
-  gap: 10px;
-  position: relative;
-  background-color: #0d0000;
-}
+// .profile-card {
+//   display: flex;
+//   flex-direction: column;
+//   width: 360px;
+//   height: 674px;
+//   align-items: flex-start;
+//   gap: 10px;
+//   position: relative;
+//   background-color: #0d0000;
+// }
 
-.profile-card .skill-card {
-  position: relative;
-  width: 360px;
-  height: 468px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.4) 8.85%,
-    rgba(255, 255, 255, 0) 47.4%,
-    rgba(0, 0, 0, 0.4) 88.02%
-  );
-  background-image: url(./img/skill-card.png);
-  background-size: cover;
-  background-position: 50% 50%;
-}
+// .profile-card .skill-card {
+//   position: relative;
+//   width: 360px;
+//   height: 468px;
+//   background: linear-gradient(
+//     180deg,
+//     rgba(0, 0, 0, 0.4) 8.85%,
+//     rgba(255, 255, 255, 0) 47.4%,
+//     rgba(0, 0, 0, 0.4) 88.02%
+//   );
+//   background-image: url(./img/skill-card.png);
+//   background-size: cover;
+//   background-position: 50% 50%;
+// }
 
-.profile-card .frame {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  align-items: flex-start;
-  gap: 11px;
-  padding: 0px 16px;
-  position: relative;
-  flex: 0 0 auto;
-}
+// .profile-card .frame {
+//   display: flex;
+//   flex-direction: column;
+//   width: 360px;
+//   align-items: flex-start;
+//   gap: 11px;
+//   padding: 0px 16px;
+//   position: relative;
+//   flex: 0 0 auto;
+// }
 
-.profile-card .div {
-  display: flex;
-  flex-wrap: wrap;
-  width: 225px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0px 6px;
-  position: relative;
-  flex: 0 0 auto;
-}
+// .profile-card .div {
+//   display: flex;
+//   flex-wrap: wrap;
+//   width: 225px;
+//   align-items: center;
+//   justify-content: space-between;
+//   gap: 0px 6px;
+//   position: relative;
+//   flex: 0 0 auto;
+// }
 
-.profile-card .avatar {
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  position: relative;
-  flex: 0 0 auto;
-}
+// .profile-card .avatar {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 13px;
+//   position: relative;
+//   flex: 0 0 auto;
+// }
 
-.profile-card .avatar-2 {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  background-image: url(./img/ellipse-7.png);
-  background-size: cover;
-  background-position: 50% 50%;
-}
+// .profile-card .avatar-2 {
+//   position: relative;
+//   width: 36px;
+//   height: 36px;
+//   background-image: url(./img/ellipse-7.png);
+//   background-size: cover;
+//   background-position: 50% 50%;
+// }
 
-.profile-card .skill-title {
-  position: relative;
-  width: fit-content;
-  font-family: var(--large-normal-bold-font-family);
-  font-weight: var(--large-normal-bold-font-weight);
-  color: #f5f3f2;
-  font-size: var(--large-normal-bold-font-size);
-  letter-spacing: var(--large-normal-bold-letter-spacing);
-  line-height: var(--large-normal-bold-line-height);
-  white-space: nowrap;
-  font-style: var(--large-normal-bold-font-style);
-}
+// .profile-card .skill-title {
+//   position: relative;
+//   width: fit-content;
+//   font-family: var(--large-normal-bold-font-family);
+//   font-weight: var(--large-normal-bold-font-weight);
+//   color: #f5f3f2;
+//   font-size: var(--large-normal-bold-font-size);
+//   letter-spacing: var(--large-normal-bold-letter-spacing);
+//   line-height: var(--large-normal-bold-line-height);
+//   white-space: nowrap;
+//   font-style: var(--large-normal-bold-font-style);
+// }
 
-.profile-card .location-buttons {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  padding: 6px 7px;
-  position: relative;
-  flex: 0 0 auto;
-  margin-left: -205px;
-  background-color: var(--variable-collection-icon-color);
-  border-radius: 48px;
-}
+// .profile-card .location-buttons {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 2px;
+//   padding: 6px 7px;
+//   position: relative;
+//   flex: 0 0 auto;
+//   margin-left: -205px;
+//   background-color: var(--variable-collection-icon-color);
+//   border-radius: 48px;
+// }
 
-.profile-card .vector {
-  position: relative;
-  width: 7px;
-  height: 7px;
-}
+// .profile-card .vector {
+//   position: relative;
+//   width: 7px;
+//   height: 7px;
+// }
 
-.profile-card .text {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Inter-Medium", Helvetica;
-  font-weight: 500;
-  color: var(--skywhite);
-  font-size: 15px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: 10.5px;
-  white-space: nowrap;
-}
+// .profile-card .text {
+//   position: relative;
+//   width: fit-content;
+//   margin-top: -1px;
+//   font-family: "Inter-Medium", Helvetica;
+//   font-weight: 500;
+//   color: var(--skywhite);
+//   font-size: 15px;
+//   text-align: center;
+//   letter-spacing: 0;
+//   line-height: 10.5px;
+//   white-space: nowrap;
+// }
 
-.profile-card .skill-description {
-  display: flex;
-  flex-direction: column;
-  width: 279px;
-  height: 108px;
-  align-items: flex-start;
-  gap: 8px;
-  position: relative;
-}
+// .profile-card .skill-description {
+//   display: flex;
+//   flex-direction: column;
+//   width: 279px;
+//   height: 108px;
+//   align-items: flex-start;
+//   gap: 8px;
+//   position: relative;
+// }
 
-.profile-card .text-wrapper {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: var(--large-normal-bold-font-family);
-  font-weight: var(--large-normal-bold-font-weight);
-  color: #f5f3f2;
-  font-size: var(--large-normal-bold-font-size);
-  letter-spacing: var(--large-normal-bold-letter-spacing);
-  line-height: var(--large-normal-bold-line-height);
-  white-space: nowrap;
-  font-style: var(--large-normal-bold-font-style);
-}
+// .profile-card .text-wrapper {
+//   position: relative;
+//   width: fit-content;
+//   margin-top: -1px;
+//   font-family: var(--large-normal-bold-font-family);
+//   font-weight: var(--large-normal-bold-font-weight);
+//   color: #f5f3f2;
+//   font-size: var(--large-normal-bold-font-size);
+//   letter-spacing: var(--large-normal-bold-letter-spacing);
+//   line-height: var(--large-normal-bold-line-height);
+//   white-space: nowrap;
+//   font-style: var(--large-normal-bold-font-style);
+// }
 
-.profile-card .p {
-  position: relative;
-  width: 279px;
-  height: 72px;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 24px;
-}
+// .profile-card .p {
+//   position: relative;
+//   width: 279px;
+//   height: 72px;
+//   font-family: "Inter-Regular", Helvetica;
+//   font-weight: 400;
+//   color: #ffffff;
+//   font-size: 14px;
+//   letter-spacing: 0;
+//   line-height: 24px;
+// }
