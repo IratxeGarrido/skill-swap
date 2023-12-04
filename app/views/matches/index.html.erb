@@ -2,24 +2,26 @@
   <h1 class="matches-title">Your matches</h1>
 
   <% @accepted_matches.each do |match| %>
+    <% initiator_profile = Profile.find_by(id: match.initiator_id) %>
+    <% creator_profile = Profile.find_by(id: match.creator_id) %>
 
-    <% correspondent = match.initiator.user == current_user ? match.creator : match.initiator %>
+    <% latest_message = match.messages.order(created_at: :desc).first %>
+
     <div class="match-item">
       <div class="match-background"></div>
       <div class="profile-image">
-        <%= cl_image_tag(correspondent.photo.key, class: "profile-pic") %>
+        <%= cl_image_tag(initiator_profile.photo.key, class: "profile-pic") %>
       </div>
       <div class="profile-details">
         <div class="profile-name">
-          <%= correspondent.first_name %>
+          <%= initiator_profile.first_name %> <%= initiator_profile.last_name %>
         </div>
-        <% correspondent.offers.each do |offer| %>
+        <% initiator_profile.offers.each do |offer| %>
           <div class="offer-category">
             <%= offer.category %>
           </div>
         <% end %>
 
-        <% latest_message = match.messages.order(created_at: :desc).first %>
         <% if latest_message.present? %>
           <div class="latest-message">
             <%= latest_message.content %>
@@ -38,6 +40,5 @@
         </div>
       </div>
     </div>
-
   <% end %>
 </div>
