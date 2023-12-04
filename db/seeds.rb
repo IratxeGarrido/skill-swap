@@ -121,16 +121,16 @@ offer.photo.attach(io: file, filename: "coding-1.png", content_type: "image/png"
 offer.save!
 
 
-# match = Match.new(status: "pending", initiator_id: iratxe_profile.id)
-# match.save!
-# match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
-# match.save!
-# match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.create(status: "rejected", initiator_id: iratxe_profile.id)
-# match.save!
+match = Match.new(status: "pending", initiator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
+match.save!
+match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "rejected", initiator_id: iratxe_profile.id)
+match.save!
 
 
 
