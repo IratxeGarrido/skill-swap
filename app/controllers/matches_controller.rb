@@ -1,5 +1,25 @@
 class MatchesController < ApplicationController
 
+  def index
+    @accepted_matches = Match.where(
+      status: 'accepted'
+    ).where(
+      'creator_id = ? OR initiator_id = ?',
+      current_user.profile.id,
+      current_user.profile.id
+    )
+    
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
+
+  def index
+    @latest_messages = {}
+    @accepted_matches.each do |match|
+      @latest_messages[match.id] = match.messages.order(created_at: :desc).first
+    end
+  end
+
   def show
     @accepted_matches = Match.where(
       status: 'accepted'
@@ -8,24 +28,20 @@ class MatchesController < ApplicationController
       current_user.profile.id,
       current_user.profile.id
     )
-    @match = Match.find(params[:id])
-    @message = Message.new
 
-  end
-
-  def index
-
-    @accepted_matches = Match.where(
-      status: 'accepted'
-    ).where(
-      'creator_id = ? OR initiator_id = ?',
-      current_user.profile.id,
-      current_user.profile.id
-    )
     @latest_messages = {}
     @accepted_matches.each do |match|
       @latest_messages[match.id] = match.messages.order(created_at: :desc).first
     end
+    
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
+
+  def create
+    @form_type = params[:match][:form]
+    @profile_id = params[:match][:profile]
+    @form_type == "like" ? swipe_right(@profile_id) : swipe_left(@profile_id)
   end
 
   def swipe_left
@@ -55,6 +71,10 @@ class MatchesController < ApplicationController
   end
 
   private
+  
+  def user_matches
+    Match.where(initiator_id: @test_profile.user_id)
+  end
 
   def user_has_swiped
     @match = Match.where(
