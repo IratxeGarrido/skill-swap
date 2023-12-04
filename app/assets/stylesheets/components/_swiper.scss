@@ -1,3 +1,84 @@
 .hide {
   opacity: 0;
 }
+
+.profiles-all {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out;
+  touch-action: pan-y !important;
+}
+
+.floating-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+
+}
+
+.floating-icon i {
+  font-size: 100px;
+  transform: scale(0.8);
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: $purple-1;
+  opacity: 0.6;
+}
+
+
+
+// .float_love .fa-heart {
+//   opacity: 0.7;
+//   transform: scale(1);
+// }
+
+// .float_no .fa-remove {
+//   opacity: 0.7;
+//   transform: scale(1);
+// }
+
+.profile-cards {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  touch-action: pan-y !important;
+}
+
+.single-card{
+  display: inline-block;
+  width: 100vw;
+  max-width: 400px;
+  height: 100vh;
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: auto;
+  position: absolute;
+  will-change: transform;
+  transition: all 0.3s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.moving.single {
+  transition: none;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.loaded.profiles-all {
+  opacity: 1;
+}
