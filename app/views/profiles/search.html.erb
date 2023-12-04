@@ -1,13 +1,11 @@
 
 
------------------------
-
 <%# FILTERS AND SEARCH LOGIC %>
 <div class="filter-container">
   <%= simple_form_for :search, url: profiles_path, method: "GET", html: {class: "form index-form" } do |f| %>
     <div class="filter-div" data-controller="checkbox">
       <div class="panel">
-        <%= f.input :offer,
+        <%= f.input :skill,
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper-1',
@@ -28,10 +26,10 @@
       <%= f.input :distance,
         as: :range,
         label: 'Distance',
-        input_html: { min: 5, max: 25, step: 5, class: 'form-range'}
+        input_html: { min: 5, max: 25, step: 5, class: 'form-range' }
       %>
     </div>
 
-    <%= f.submit %>
+    <%= f.submit class: 'btn-flat' %>
   <% end %>
 </div>

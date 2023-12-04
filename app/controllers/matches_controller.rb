@@ -27,8 +27,7 @@ class MatchesController < ApplicationController
       @latest_messages[match.id] = match.messages.order(created_at: :desc).first
     end
 
-    @match = Match.find(params[:id])
-    @message = Message.new
+    
   end
 
   def create

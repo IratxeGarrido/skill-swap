@@ -243,7 +243,6 @@ mustafa_profile = Profile.find_by(first_name: "Mohammad")
 # offer.photo.attach(io: file, filename: "photography-2.png", content_type: "image/png")
 # offer.save!
 
-
 # file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701704652/skill-swap/3d-printing.jpg")
 # offer = Offer.new(description: "I just bought a new 3D printer and I dom't use this one anymore so I'm giving it away.",
 # category: "3D Printing",
@@ -302,6 +301,7 @@ match.save!
 # match.save!
 # match = Match.create(status: "rejected", initiator_id: iratxe_profile.id)
 # match.save!
+
 
 # message = Message.new(content: "hi", read_status: true, match_id: 2, sender_id: 2)
 # message.save!
