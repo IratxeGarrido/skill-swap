@@ -1,17 +1,5 @@
-<div class="home">
-  <div class="native-status-bar"></div>
-  <div class="bars-nav-bars">
-    <div class="text-wrapper">SkillSwap</div>
-    <%# <img class="left-actionable" src="" />
-    <img class="right-actionable" src="" /> %>
+<div id="screen-content">
+  <% @profiles.each do |profile| %>
+    <%= render "profile", profile: profile %>
+  <% end %>
   </div>
-  <div id="screen-content">
-
-    <% @profiles.each do |profile| %>
-      <%= render "profile", profile: profile %>
-    <% end %>
-
-  </div>
-  <img class="bars-tab-bar-icon" src="img/tab-bar-icon-only.svg" />
-  <img class="native-home" src="img/home-indicator.svg" />
-</div>

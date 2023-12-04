@@ -2,26 +2,20 @@
 <p> You dont have any offers</p>
 <% else %>
   <% @offers.each do |offer|  %>
-
-  <%# need to embed the offer into the card below still ...  %>
-
-  <div class="skill-card-2">
-        <div class="frame-2">
-          <div class="avatar-3">
-            <div class="avatar-4"></div>
-            <div class="skill-title">Zoe MawbySmart</div>
-          </div>
-          <div class="location-buttons">
-            <img class="vector" src="img/vector-2.svg" />
-            <div class="text">Nearby</div>
-          </div>
-        </div>
-        <div class="skill-description-2">
-          <div class="skill-title-2">Painting</div>
-          <p class="skill-description-3">
-            a short description description descriptiondescription description of your photography skill on offer..
-          </p>
-        </div>
-      </div>
+<div class="skill-card" style="background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 8.85%,
+    rgba(255, 255, 255, 0) 47.4%,
+    rgba(0, 0, 0, 0.4) 88.02%
+    ), url('<%= cl_image_path(offer.photo.key) %>');">
+  <div class="skill-description">
+    <div class="text-wrapper"><%= offer.category %></div>
+    <p class="p"> <%= offer.description %>
+    </p>
+  </div>
+</div>
+  <%= link_to "Edit", edit_offer_path(offer.id), class:"btn btn-secondary btn-lg"%>
+  <%= link_to "Delete", offer_path(offer), class:"btn btn-secondary btn-lg", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+<% end %>
 <% end %>
 <% end %>
