@@ -1,25 +1,5 @@
 class MatchesController < ApplicationController
 
-  def index
-    @accepted_matches = Match.where(
-      status: 'accepted'
-    ).where(
-      'creator_id = ? OR initiator_id = ?',
-      current_user.profile.id,
-      current_user.profile.id
-    )
-
-    @match = Match.find(params[:id])
-    @message = Message.new
-  end
-
-  def index
-    @latest_messages = {}
-    @accepted_matches.each do |match|
-      @latest_messages[match.id] = match.messages.order(created_at: :desc).first
-    end
-  end
-
   def show
     @accepted_matches = Match.where(
       status: 'accepted'
@@ -29,6 +9,19 @@ class MatchesController < ApplicationController
       current_user.profile.id
     )
 
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
+
+  def index
+    @accepted_matches = Match.where(
+      status: 'accepted'
+    ).where(
+      'creator_id = ? OR initiator_id = ?',
+      current_user.profile.id,
+      current_user.profile.id
+    )
+
     @latest_messages = {}
     @accepted_matches.each do |match|
       @latest_messages[match.id] = match.messages.order(created_at: :desc).first
@@ -37,7 +30,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @message = Message.new
   end
-
+  
   def create
     @form_type = params[:match][:form]
     @profile_id = params[:match][:profile]
