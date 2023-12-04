@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
     @match = Match.new
   end
 
-  def new
+  def newP
     @profile = Profile.create(user: current_user)
   end
 
