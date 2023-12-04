@@ -2,45 +2,43 @@
   <h1 class="matches-title">Your matches</h1>
 
   <% @accepted_matches.each do |match| %>
-    <% initiator_profile = Profile.find_by(id: match.initiator_id) %>
-    <% creator_profile = Profile.find_by(id: match.creator_id) %>
-    <% if current_user.profile.id != initiator_profile.id %>
-      <% latest_message = match.messages.order(created_at: :desc).first %>
 
-      <div class="match-item">
-        <div class="match-background"></div>
-        <div class="profile-image">
-          <%= cl_image_tag(initiator_profile.photo.key, class: "profile-pic") %>
+    <% correspondent = match.initiator.user == current_user ? match.creator : match.initiator %>
+    <div class="match-item">
+      <div class="match-background"></div>
+      <div class="profile-image">
+        <%= cl_image_tag(correspondent.photo.key, class: "profile-pic") %>
+      </div>
+      <div class="profile-details">
+        <div class="profile-name">
+          <%= correspondent.first_name %>
+ 
         </div>
-        <div class="profile-details">
-          <div class="profile-name">
-            <%= initiator_profile.first_name %> <%= initiator_profile.last_name %>
+        <% correspondent.offers.each do |offer| %>
+          <div class="offer-category">
+            <%= offer.category %>
           </div>
-          <% initiator_profile.offers.each do |offer| %>
-            <div class="offer-category">
-              <%= offer.category %>
-            </div>
-          <% end %>
+        <% end %>
 
-          <% if latest_message.present? %>
-            <div class="latest-message">
-              <%= latest_message.content %>
-            </div>
-          <% else %>
-            <div class="no-message">
-                No messages yet.
-            </div>
-          <% end %>
-
-
-          <div class="icon-background"></div>
-          <div class="comment-icon">
-            <%= link_to match_path(match), class: 'my-link-class' do %>
-              <i class="fas fa-comment"></i>
-            <% end %>
+        <% latest_message = match.messages.order(created_at: :desc).first %>
+        <% if latest_message.present? %>
+          <div class="latest-message">
+            <%= latest_message.content %>
           </div>
+        <% else %>
+          <div class="no-message">
+            No messages yet.
+          </div>
+        <% end %>
+
+        <div class="icon-background"></div>
+        <div class="comment-icon">
+          <%= link_to match_path(match), class: 'my-link-class' do %>
+            <i class="fas fa-comment"></i>
+          <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
+
   <% end %>
 </div>

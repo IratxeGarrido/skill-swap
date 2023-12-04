@@ -1,10 +1,15 @@
-<div id="screen-content" data-controller="swipe" >
+<div class="profiles-all" data-controller="swipe">
+  <div class="floating-icon">
+    <i class="fa fa-remove d-none" data-swipe-target="nope"></i>
+    <i class="fa fa-heart d-none" data-swipe-target="like"></i>
+  </div>
+  <div class="profile-cards">
   <% @profiles.each do |profile| %>
-    <div data-swipe-profile-value=<%= profile.id %>>
-      <div data-swipe-target="swipeCard" >
+    <div class="single-card"
+        data-swipe-target="swipeCard" data-swipe-profile-value=<%= profile.id %>>
         <%= render "profile", profile: profile %>
         <%= render "offer", profile: profile %>
-      </div>
     </div>
   <% end %>
+  </div>
 </div>
