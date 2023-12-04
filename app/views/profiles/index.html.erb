@@ -1,8 +1,10 @@
-<div id="screen-content">
+<div id="screen-content" data-controller="swipe" >
   <% @profiles.each do |profile| %>
-    <div class= "total-profile" data-controller="swipe" data-swipe-profile-value=<%= profile.id %>>
-      <div class="profile-card" data-swipe-target="swipeCard" >
-      <%= render "profile", profile: profile %>
-      <% end %>
-  </div>
+    <div data-swipe-profile-value=<%= profile.id %>>
+      <div data-swipe-target="swipeCard" >
+        <%= render "profile", profile: profile %>
+        <%= render "offer", profile: profile %>
+      </div>
+    </div>
+  <% end %>
 </div>

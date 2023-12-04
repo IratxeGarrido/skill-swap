@@ -1,26 +1,26 @@
 <% profile.offers.each do |offer| %>
-<div class="skill-card" style="background-image: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.4) 8.85%,
-    rgba(255, 255, 255, 0) 47.4%,
-    rgba(0, 0, 0, 0.4) 88.02%
-    ), url('<%= cl_image_path(offer.photo.key) %>');">
-  <div class="frame">
-    <div class="avatar">
-      <div class="avatar-pic" >
-        <%= cl_image_tag profile.photo.key, class: "avatar-pic" %>
+  <div class="skill-card" style="background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 8.85%,
+      rgba(255, 255, 255, 0) 47.4%,
+      rgba(0, 0, 0, 0.4) 88.02%
+      ), url('<%= cl_image_path(offer.photo.key) %>');">
+    <div class="frame">
+      <div class="avatar">
+        <div class="avatar-pic" >
+          <%= cl_image_tag profile.photo.key, class: "avatar-pic" %>
+        </div>
+        <div class="profile-title"><%= profile.first_name %></div>
       </div>
-      <div class="profile-title"><%= profile.first_name %></div>
+      <div class="location-buttons">
+        <i class="fa-solid fa-location-arrow" style="color: #ffffff;"></i>
+        <div class="text">Nearby</div>
+      </div>
     </div>
-    <div class="location-buttons">
-      <i class="fa-solid fa-location-arrow" style="color: #ffffff;"></i>
-      <div class="text">Nearby</div>
+    <div class="skill-description">
+      <div class="text-wrapper"><%= offer.category %></div>
+      <p class="p"> <%= offer.description %>
+      </p>
     </div>
   </div>
-  <div class="skill-description">
-    <div class="text-wrapper"><%= offer.category %></div>
-    <p class="p"> <%= offer.description %>
-    </p>
-  </div>
-</div>
 <% end %>
