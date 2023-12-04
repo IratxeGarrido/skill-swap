@@ -21,7 +21,6 @@ User.destroy_all
 # template_profile.photo.attach(io: file, filename: "template.png", content_type: "image/png")
 # template_profile.save!
 
-
 spiderman = User.create(email: 'peter@skillswap.com', password: '123456')
 file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/spiderman.jpg")
 spiderman_profile = Profile.new(
@@ -93,6 +92,35 @@ mustafa_profile = Profile.new(
 mustafa_profile.photo.attach(io: file, filename: "mustafa.png", content_type: "image/png")
 mustafa_profile.save!
 
+file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701592191/skill-swap/bouldering-iratxe.jpg")
+offer = Offer.new(description: "I've been bouldering since the pandemic and I would be very happy to show you a couple techniques.",
+category: "Bouldering",
+profile_id: iratxe_profile.id)
+offer.photo.attach(io: file, filename: "bouldering-iratxe.png", content_type: "image/png")
+offer.save!
+
+file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701679662/skill-swap/photography-1.jpg")
+offer = Offer.new(description: "I can teach you to take pretty pictures with my very cool analog camera.",
+category: "Photography",
+profile_id: zoe_profile.id)
+offer.photo.attach(io: file, filename: "photography-1.png", content_type: "image/png")
+offer.save!
+
+file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701679797/skill-swap/painting-1.jpg")
+offer = Offer.new(description: "I love painting with watercolour and have loads of material id be happy to swap!",
+category: "Painting",
+profile_id: zoe_profile.id)
+offer.photo.attach(io: file, filename: "painting-1.png", content_type: "image/png")
+offer.save!
+
+file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701679797/skill-swap/coding-1.jpg")
+offer = Offer.new(description: "I've been coding for a few years and I just finished a webdev coding bootcamp. I can teach you ruby!",
+category: "Coding",
+profile_id: iratxe_profile.id)
+offer.photo.attach(io: file, filename: "coding-1.png", content_type: "image/png")
+offer.save!
+
+
 # match = Match.new(status: "pending", initiator_id: iratxe_profile.id)
 # match.save!
 # match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
@@ -107,3 +135,9 @@ mustafa_profile.save!
 
 # message = Message.new(content: "hi", read_status: true, match_id: 2, sender_id: 2)
 # message.save!
+# [('Photography').html_safe, "Photography"],
+#                           [('Art').html_safe, "Painting & Drawing"],
+#                           [('Coding').html_safe, "Coding"],
+#                           [('Ceramics').html_safe, "Ceramics"],
+#                           [('Textiles').html_safe, "Textiles"],
+#                           [('Carpentry'
