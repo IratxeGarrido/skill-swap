@@ -30,7 +30,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @message = Message.new
   end
-  
+
   def create
     @form_type = params[:match][:form]
     @profile_id = params[:match][:profile]
@@ -60,6 +60,11 @@ class MatchesController < ApplicationController
     else
       @match.status = 'accepted' unless @match.status == 'rejected'
       @match.save!
+    end
+    profile = Profile.find(profile_id)
+    respond_to do |format|
+      msg = { status: "matched", profile: profile.first_name }
+      format.json { render json: msg }
     end
   end
 

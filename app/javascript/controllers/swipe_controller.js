@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import Hammer from "hammerjs"
+import Swal from "sweetalert2"
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
@@ -45,8 +46,16 @@ export default class extends Controller {
         method: "POST",
         headers: {"Accept": "application/json"},
         body: new FormData(this.likeFormTarget)
-      }
-    )
+      }).then(response => response.json())
+        .then((data) => {
+        if (data.status === "matched") {
+          Swal.fire({
+            title: "It's a match!",
+            text: `Write a message to ${data.profile}`,
+            icon: "success"
+          });
+        }
+      })
   }
   #swipeLeft() {
     // event.preventDefault();
