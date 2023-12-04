@@ -9,7 +9,12 @@ class MatchesController < ApplicationController
       current_user.profile.id,
       current_user.profile.id
     )
+    
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
 
+  def index
     @latest_messages = {}
     @accepted_matches.each do |match|
       @latest_messages[match.id] = match.messages.order(created_at: :desc).first
@@ -24,6 +29,12 @@ class MatchesController < ApplicationController
       current_user.profile.id,
       current_user.profile.id
     )
+
+    @latest_messages = {}
+    @accepted_matches.each do |match|
+      @latest_messages[match.id] = match.messages.order(created_at: :desc).first
+    end
+    
     @match = Match.find(params[:id])
     @message = Message.new
   end

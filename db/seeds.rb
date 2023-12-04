@@ -93,16 +93,16 @@ mustafa_profile = Profile.new(
 mustafa_profile.photo.attach(io: file, filename: "mustafa.png", content_type: "image/png")
 mustafa_profile.save!
 
-# match = Match.new(status: "pending", initiator_id: iratxe_profile.id)
-# match.save!
-# match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
-# match.save!
-# match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.create(status: "rejected", initiator_id: iratxe_profile.id)
-# match.save!
+match = Match.new(status: "pending", initiator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
+match.save!
+match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.create(status: "rejected", initiator_id: iratxe_profile.id)
+match.save!
 
 
 # message = Message.new(content: "hi", read_status: true, match_id: 2, sender_id: 2)
