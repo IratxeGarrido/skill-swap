@@ -7,6 +7,14 @@
     <% end %>
   </div>
 
+<% elsif params[:controller] == "matches" && params[:action] == "index" %>
+
+  <div class="header">
+      <%= link_to profiles_path do %>
+        <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
+      <% end %>
+  </div>
+
 <% else %>
 
   <div class="header">

@@ -11,13 +11,16 @@
       <div class="profile-details">
         <div class="profile-name">
           <%= correspondent.first_name %>
- 
+
         </div>
-        <% correspondent.offers.each do |offer| %>
-          <div class="offer-category">
-            <%= offer.category %>
-          </div>
-        <% end %>
+          <div class="offer-categories">
+            <% correspondent.offers.each do |offer| %>
+            <div class="offer-category">
+              <%= offer.category %>
+            </div>
+          <% end %>
+        </div>
+
 
         <% latest_message = match.messages.order(created_at: :desc).first %>
         <% if latest_message.present? %>
