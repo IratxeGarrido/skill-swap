@@ -18,6 +18,7 @@ class Profile < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  
   def is_match?(my_user)
     # I swiped right
     Match.exists?(initiator: my_user, creator: self, status: 0) ||
