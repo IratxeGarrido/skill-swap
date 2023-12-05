@@ -1,17 +1,3 @@
-// .btn-ghost {
-//   color: #4A4A4A;
-//   border: 1px solid #4A4A4A;
-//   padding: 8px 24px;
-//   border-radius: 50px;
-//   font-weight: lighter;
-//   opacity: 0.6;
-//   transition: opacity 0.3s ease;
-// }
-
-// .btn-ghost:hover {
-//   opacity: 1;
-// }
-
 .btn-flat {
   color: $icon;
   padding: 8px 24px;
@@ -20,25 +6,16 @@
   transition: background 0.3s ease;
   width: 100%;
   font-weight: 600;
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;}
+}
 
 .btn-flat:hover {
   background: #4D04C4;
   color: $icon;
 }
 
-// .btn-gradient {
-//   color: white;
-//   padding: 8px 24px;
-//   border-radius: 4px;
-//   font-weight: bold;
-//   background: linear-gradient(#167FFB, #0F60C4);
-//   transition: background 0.3s ease;
-//   border: 1px solid #0F60C4;
-// }
-
-// .btn-gradient:hover {
-//   background: linear-gradient(#147EFF, #0F67DA);
-//   color: white;
-// }
+.btn-send {
+  background: $buttons;
+  color: $icon;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
