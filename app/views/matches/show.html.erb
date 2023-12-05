@@ -33,6 +33,22 @@
         <%= f.submit "Send", class: "btn btn-primary mb-3" %>
         <% end %>
 
+        <%= simple_form_for [@match, @message], html: {
+          data: {
+            controller: "swipe",
+            title: "It's a match!",
+            text: "Write a message to #{creator_profile.first_name}",
+            icon: "success",
+            input: "text",
+            showCloseButton: true,
+            confirmButtonText: "Send"
+            action: "submit->swipe#initSweetalert",
+            turbo: false
+            }
+          } do |f| %>
+        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+        <% end %>
+
       </div>
 
 <% else %>

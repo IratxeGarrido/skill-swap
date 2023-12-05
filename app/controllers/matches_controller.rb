@@ -1,5 +1,4 @@
 class MatchesController < ApplicationController
-
   def show
     @accepted_matches = Match.where(
       status: 'accepted'
@@ -27,7 +26,7 @@ class MatchesController < ApplicationController
       @latest_messages[match.id] = match.messages.order(created_at: :desc).first
     end
 
-    
+
   end
 
   def create
@@ -60,8 +59,8 @@ class MatchesController < ApplicationController
       @match.status = 'accepted' unless @match.status == 'rejected'
       @match.save!
     end
-    profile = Profile.find(profile_id)
     respond_to do |format|
+      profile = Profile.find(profile_id)
       msg = { status: "matched", profile: profile.first_name }
       format.json { render json: msg }
     end
