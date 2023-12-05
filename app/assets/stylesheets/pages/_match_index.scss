@@ -15,13 +15,23 @@
   margin:10px;
 }
 
+.my-link-class {
+  text-decoration: none;
+  color: black;
+}
+
 
 .match-item {
   position: relative;
   width: 100%;
   height: 80px;
   margin-bottom: 20px;
-  background: $cardbackground;
+  background: $icon;
+  cursor: pointer;
+}
+
+.match-item:hover {
+  background-color: blue;
 }
 
 .match-background {
@@ -107,4 +117,5 @@
   .fa-comment {
     color: $buttons;
   }
+
 }

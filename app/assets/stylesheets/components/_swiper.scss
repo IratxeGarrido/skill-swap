@@ -28,13 +28,18 @@
 .floating-icon i {
   font-size: 100px;
   transform: scale(0.8);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
   position: absolute;
   width: 100px;
   margin-left: -50px;
   color: $purple-1;
-  opacity: 0.6;
+  opacity: 0.8;
 }
+
+.floating-icon .gone {
+  opacity: 0;
+}
+
 
 
 // .float_love .fa-heart {

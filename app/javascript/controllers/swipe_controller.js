@@ -26,17 +26,18 @@ export default class extends Controller {
         // // helppp
         // this.iconTarget.classList.add('float-love');
         if (event.deltaX === 0) {
-          this.likeTarget.classList.add('d-none');
-          this.nopeTarget.classList.add('d-none');
-          // console.log(`None: ${event.deltaX}`);
+
+          this.likeTarget.classList.add('gone');
+          this.nopeTarget.classList.add('gone');
+          console.log(`None: ${event.deltaX}`);
         } else if (event.deltaX > 80 ) {
-          this.likeTarget.classList.remove('d-none');
-          this.nopeTarget.classList.add('d-none');
-          // console.log(`Like: ${event.deltaX}`);
+          this.likeTarget.classList.remove('gone');
+          this.nopeTarget.classList.add('gone');
+          console.log(`Like: ${event.deltaX}`);
         } else if (event.deltaX < -80 ) {
-          this.nopeTarget.classList.remove('d-none');
-          this.likeTarget.classList.add('d-none');
-          // console.log(`Nope: ${event.deltaX}`);
+          this.nopeTarget.classList.remove('gone');
+          this.likeTarget.classList.add('gone');
+          console.log(`Nope: ${event.deltaX}`);
         }
 
         // this.iconTarget.classList.toggle('float-love', event.deltaX > 0);
@@ -45,8 +46,8 @@ export default class extends Controller {
 
       hammertime.on('panend', (event) => {
         card.classList.remove('moving')
-        this.likeTarget.classList.add('d-none');
-        this.nopeTarget.classList.add('d-none');
+        this.likeTarget.classList.add('gone');
+        this.nopeTarget.classList.add('gone');
         card.style.transform = '';
         // console.log(event.deltaX);
         if ( event.deltaX > 200) {
@@ -66,7 +67,7 @@ export default class extends Controller {
     // console.log(this.likeFormTargets)
 
     const visibleCard = this.swipeCardTargets.filter((card) => {
-      console.log(card.classList.contains("d-none"))
+      // console.log(card.classList.contains("d-none"))
       return card.classList.contains("d-none")
     })
 
@@ -78,7 +79,8 @@ export default class extends Controller {
         body: new FormData(this.likeFormTargets[index])
       }).then(response => response.json())
         .then((data) => {
-        if (data.status === "matched") {
+          console.log(data)
+        if (data.status === "accepted") {
           console.log(data)
           Swal.fire({
             title: "It's a match!",
@@ -97,20 +99,8 @@ export default class extends Controller {
     fetch(this.dislikeFormTarget.action, {
         method: "POST",
         headers: {"Accept": "application/json"},
-        body: new FormData(this.dislikeFormTarget)
+        body: new FormData(this.dislikeFormTarget )
       }
     )
   }
-
-  // #initSweetalert() {
-  //   preventDefault();
-  //   Swal.fire({
-  //     title: this.titleValue,
-  //     text: this.textValue,
-  //     icon: this.iconValue,
-  //     input: this.InputValue,
-  //     showCloseButton: this.showCancelButtonValue,
-  //     confirmButtonText: this.confirmButtonTextValue
-  //   });
-  // }
 }

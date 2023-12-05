@@ -20,6 +20,10 @@
   background-color:$checked-icon;
 }
 
+.receiver-style {
+  background-color: $unchecked-icon;
+
+
 .messages {
   overflow: scroll;
   height: 100vh;

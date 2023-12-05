@@ -1,23 +1,30 @@
 <div class="matches-container">
   <h1 class="matches-title">Your Matches</h1>
 
+
+
   <% @accepted_matches.each do |match| %>
-    <% correspondent = match.initiator.user == current_user ? match.creator : match.initiator %>
+  <% correspondent = match.initiator.user == current_user ? match.creator : match.initiator %>
     <div class="match-item">
+      <!-- ... Rest of your existing HTML content -->
+  <%= link_to match_path(match) do %>
+
       <div class="match-background"></div>
       <div class="profile-image">
         <%= cl_image_tag(correspondent.photo.key, class: "profile-pic") %>
       </div>
       <div class="profile-details">
         <div class="profile-name">
-         <strong> <%= correspondent.first_name %> </strong>
-
+        <strong><%= correspondent.first_name %></strong>
         </div>
-        <% correspondent.offers.each do |offer| %>
-          <div class="offer-category">
-            <%= offer.category %>
-          </div>
-        <% end %>
+          <div class="offer-categories">
+            <% correspondent.offers.each do |offer| %>
+            <div class="offer-category">
+              <%= offer.category %>
+            </div>
+          <% end %>
+        </div>
+
 
         <% latest_message = match.messages.order(created_at: :desc).first %>
         <% if latest_message.present? %>
@@ -32,12 +39,13 @@
 
         <div class="icon-background"></div>
         <div class="comment-icon">
-          <%= link_to match_path(match), class: 'my-link-class' do %>
+
             <i class="fa-regular fa-comment"></i>
-          <% end %>
+
         </div>
       </div>
     </div>
-
+    <hr>
+   <% end %>
   <% end %>
 </div>
