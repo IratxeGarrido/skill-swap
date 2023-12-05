@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import Hammer from "hammerjs"
+import Swal from "sweetalert2"
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
@@ -27,19 +28,16 @@ export default class extends Controller {
         if (event.deltaX === 0) {
           this.likeTarget.classList.add('d-none');
           this.nopeTarget.classList.add('d-none');
-          console.log(`None: ${event.deltaX}`);
+          // console.log(`None: ${event.deltaX}`);
         } else if (event.deltaX > 80 ) {
           this.likeTarget.classList.remove('d-none');
           this.nopeTarget.classList.add('d-none');
-          console.log(`Like: ${event.deltaX}`);
+          // console.log(`Like: ${event.deltaX}`);
         } else if (event.deltaX < -80 ) {
           this.nopeTarget.classList.remove('d-none');
           this.likeTarget.classList.add('d-none');
-          console.log(`Nope: ${event.deltaX}`);
+          // console.log(`Nope: ${event.deltaX}`);
         }
-
-
-
 
         // this.iconTarget.classList.toggle('float-love', event.deltaX > 0);
         // this.iconTarget.classList.toggle('float-no', event.deltaX < 0);
@@ -50,7 +48,7 @@ export default class extends Controller {
         this.likeTarget.classList.add('d-none');
         this.nopeTarget.classList.add('d-none');
         card.style.transform = '';
-        console.log(event.deltaX);
+        // console.log(event.deltaX);
         if ( event.deltaX > 200) {
           card.classList.add("d-none");
           this.#swipeRight()
@@ -65,17 +63,37 @@ export default class extends Controller {
 
   #swipeRight() {
     // event.preventDefault();
-    console.log(this.likeFormTarget.action)
+    // console.log(this.likeFormTargets)
+
+    const visibleCard = this.swipeCardTargets.filter((card) => {
+      console.log(card.classList.contains("d-none"))
+      return card.classList.contains("d-none")
+    })
+
+    const index = visibleCard.length - 1
+
     fetch(this.likeFormTarget.action, {
         method: "POST",
         headers: {"Accept": "application/json"},
-        body: new FormData(this.likeFormTarget)
-      }
-    )
+        body: new FormData(this.likeFormTargets[index])
+      }).then(response => response.json())
+        .then((data) => {
+        if (data.status === "matched") {
+          console.log(data)
+          Swal.fire({
+            title: "It's a match!",
+            text: `Write a message to ${data.profile}`,
+            icon: "success",
+            input: "text",
+            showCloseButton: true,
+            confirmButtonText: "Send"
+          });
+        }
+      })
   }
   #swipeLeft() {
     // event.preventDefault();
-    console.log(this.dislikeFormTarget.action)
+    // console.log(this.dislikeFormTarget.action)
     fetch(this.dislikeFormTarget.action, {
         method: "POST",
         headers: {"Accept": "application/json"},
@@ -83,4 +101,16 @@ export default class extends Controller {
       }
     )
   }
+
+  // #initSweetalert() {
+  //   preventDefault();
+  //   Swal.fire({
+  //     title: this.titleValue,
+  //     text: this.textValue,
+  //     icon: this.iconValue,
+  //     input: this.InputValue,
+  //     showCloseButton: this.showCancelButtonValue,
+  //     confirmButtonText: this.confirmButtonTextValue
+  //   });
+  // }
 }

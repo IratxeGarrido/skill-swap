@@ -243,7 +243,6 @@ profile_id: pedro_profile.id)
 offer.photo.attach(io: file, filename: "photography-2.png", content_type: "image/png")
 offer.save!
 
-
 file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701704652/skill-swap/3d-printing.jpg")
 offer = Offer.new(description: "I just bought a new 3D printer and I dom't use this one anymore so I'm giving it away.",
 category: "3D Printing",

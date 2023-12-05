@@ -5,3 +5,5 @@ import "bootstrap"
 import "@popperjs/core"
 import "@rails/actioncable"
 import "channels"
+import Swal from 'sweetalert2';
+window.Swal = Swal;
