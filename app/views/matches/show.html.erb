@@ -33,7 +33,7 @@
         <%= f.submit "Send", class: "btn btn-primary mb-3" %>
         <% end %>
 
-        <%= simple_form_for [@match, @message], html: {
+        <%# <%= simple_form_for [@match, @message], html: {
           data: {
             controller: "swipe",
             title: "It's a match!",
@@ -46,8 +46,8 @@
             turbo: false
             }
           } do |f| %>
-        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-        <% end %>
+        <%#= f.submit "Send", class: "btn btn-primary mb-3" %>
+        <%# end %>
 
       </div>
 

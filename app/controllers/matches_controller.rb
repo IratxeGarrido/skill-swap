@@ -56,13 +56,15 @@ class MatchesController < ApplicationController
         status: 'pending'
       )
     else
-      @match.status = 'accepted' unless @match.status == 'rejected'
+      unless @match.status == 'rejected'
+        @match.status = 'accepted'
+        respond_to do |format|
+          profile = Profile.find(profile_id)
+          msg = { status: "matched", profile: profile.first_name }
+          format.json { render json: msg }
+        end
+      end
       @match.save!
-    end
-    respond_to do |format|
-      profile = Profile.find(profile_id)
-      msg = { status: "matched", profile: profile.first_name }
-      format.json { render json: msg }
     end
   end
 

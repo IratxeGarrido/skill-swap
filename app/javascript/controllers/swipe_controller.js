@@ -39,9 +39,6 @@ export default class extends Controller {
           // console.log(`Nope: ${event.deltaX}`);
         }
 
-
-
-
         // this.iconTarget.classList.toggle('float-love', event.deltaX > 0);
         // this.iconTarget.classList.toggle('float-no', event.deltaX < 0);
       })
@@ -104,4 +101,16 @@ export default class extends Controller {
       }
     )
   }
+
+  // #initSweetalert() {
+  //   preventDefault();
+  //   Swal.fire({
+  //     title: this.titleValue,
+  //     text: this.textValue,
+  //     icon: this.iconValue,
+  //     input: this.InputValue,
+  //     showCloseButton: this.showCancelButtonValue,
+  //     confirmButtonText: this.confirmButtonTextValue
+  //   });
+  // }
 }
