@@ -294,6 +294,12 @@ match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id:
 match.save!
 match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
 match.save!
+match = Match.new(status: "pending", initiator_id: michelle_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: max_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: adam_profile.id, creator_id: iratxe_profile.id)
+match.save!
 # match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
 # match.save!
 
