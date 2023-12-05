@@ -19,13 +19,16 @@
                           [('Ceramics').html_safe, "Ceramics"],
                           [('Textiles').html_safe, "Textiles"],
                           [('Carpentry').html_safe, "Carpentry"]
-                        ] %>
+                        ]
+                         %>
       </div>
     </div>
 
-    <div class="geolocation" data-controller="distance" >
-    <h2>Distance</h2>
+    <div class="geolocation" data-controller="distance">
+    <div class="d-flex inline-block">
+    <h2 style="margin-right: 10px;">Distance</h2>
     <h2 data-distance-target="kilometer">0km</h2>
+    </div>
       <%= f.input :distance,
         as: :range,
         label: false,

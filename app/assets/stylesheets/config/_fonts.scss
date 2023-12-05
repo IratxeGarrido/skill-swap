@@ -1,6 +1,6 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap');
 // Define fonts for body and headers
 
@@ -19,13 +19,13 @@ $headers-font: "Kanit";
 // $my-font: "Font Name";
 
 :root {
-  --large-none-regular-font-family: "Kanit";
+  --large-none-regular-font-family: "Inter-Regular", Helvetica;
   --large-none-regular-font-weight: 400;
   --large-none-regular-font-size: 18px;
   --large-none-regular-letter-spacing: 0px;
   --large-none-regular-line-height: 18px;
   --large-none-regular-font-style: normal;
-  --large-normal-bold-font-family: "Kanit";
+  --large-normal-bold-font-family: "Inter-Bold", Helvetica;
   --large-normal-bold-font-weight: 700;
   --large-normal-bold-font-size: 18px;
   --large-normal-bold-letter-spacing: 0px;

@@ -13,9 +13,14 @@
 }
 
 .sender-style {
-  background-color: lightcoral;
+  background-color: #D0A2F7
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color:  #E4F1FF
+}
+
+.messages {
+  overflow: scroll;
+  height: 100vh;
 }
