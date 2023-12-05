@@ -1,5 +1,5 @@
 <div class="matches-container">
-  <h1 class="matches-title">Your matches</h1>
+  <h1 class="matches-title">Your Matches</h1>
 
   <% @accepted_matches.each do |match| %>
     <% correspondent = match.initiator.user == current_user ? match.creator : match.initiator %>
@@ -10,8 +10,8 @@
       </div>
       <div class="profile-details">
         <div class="profile-name">
-          <%= correspondent.first_name %>
- 
+         <strong> <%= correspondent.first_name %> </strong>
+
         </div>
         <% correspondent.offers.each do |offer| %>
           <div class="offer-category">
@@ -33,7 +33,7 @@
         <div class="icon-background"></div>
         <div class="comment-icon">
           <%= link_to match_path(match), class: 'my-link-class' do %>
-            <i class="fas fa-comment"></i>
+            <i class="fa-regular fa-comment"></i>
           <% end %>
         </div>
       </div>
