@@ -1,15 +1,17 @@
 <% if current_user.id == @match.initiator_id || current_user.id == @match.creator_id %>
-
     <% initiator_profile = Profile.find_by(id: @match.initiator_id) %>
     <% creator_profile = Profile.find_by(id: @match.creator_id) %>
 
+    <% correspondent_profile = current_user.id == @match.initiator_id ? creator_profile : initiator_profile %>
+    <div>
       <div class="text-center">
-        <h1>This is the show page for matches and is also the chatroom</h1>
+        <%= cl_image_tag(correspondent_profile.photo.key, class: "profile-pic") %>
       </div>
 
-      <div class="container chatroom"
-      data-controller="match-subscription"
-      data-match-subscription-match-id-value="<%= @match.id %>">
+      <div class="container_chatroom"
+        data-controller="match-subscription"
+        data-match-subscription-match-id-value="<%= @match.id %>"
+        data-match-subscription-current-user-id-value="<%= current_user.id %>">
         <div class="messages" data-match-subscription-target="messages">
           <% @match.messages.each do |message| %>
             <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -20,18 +22,19 @@
           <% end %>
         </div>
 
-
-        <%= simple_form_for [@match, @message],
-        html: { data: { action: "turbo:submit-end->match-subscription#resetForm" },
-        class: "d-flex"} do |f|
-        %>
-        <%= f.input :content,
-          label: false,
-          placeholder: "write your message",
-          wrapper_html: {class: "flex-grow-1"}
-        %>
-        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-        <% end %>
+        <div class="message-form">
+          <%= simple_form_for [@match, @message],
+            html: { data: { action: "turbo:submit-end->match-subscription#resetForm" },
+            class: "d-flex"} do |f|
+            %>
+            <%= f.input :content,
+              label: false,
+              placeholder: "write your message",
+              wrapper_html: {class: "flex-grow-1", width: "100%", padding: "6px 12px"}
+            %>
+            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <% end %>
+        </div>
 
         <%# <%= simple_form_for [@match, @message], html: {
           data: {
@@ -50,7 +53,7 @@
         <%# end %>
 
       </div>
-
+    </div>
 <% else %>
   <p>Access denied</p>
 <% end %>

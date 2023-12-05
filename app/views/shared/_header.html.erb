@@ -1,10 +1,22 @@
    <%# header %>
-    <div class="header">
-      <%= link_to search_path do %>
-        <div class="option"><i class="fa-solid fa-sliders fa-lg"></i></div>
-      <% end %>
+<% if params[:controller] == "matches" && params[:action] == "show" %>
 
-      <%= link_to matches_path do %>
-        <div class="option"><i class="fa-solid fa-comments fa-lg"></i></div>
-      <% end %>
-    </div>
+  <div class="header">
+    <%= link_to matches_path do %>
+      <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
+    <% end %>
+  </div>
+
+<% else %>
+
+  <div class="header">
+    <%= link_to search_path do %>
+      <div class="option"><i class="fa-solid fa-sliders fa-lg"></i></div>
+    <% end %>
+
+    <%= link_to matches_path do %>
+      <div class="option"><i class="fa-solid fa-comments fa-lg"></i></div>
+    <% end %>
+  </div>
+
+<% end %>

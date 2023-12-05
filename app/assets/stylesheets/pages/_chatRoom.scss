@@ -1,0 +1,31 @@
+.container_chatroom {
+  font-size: 18px;
+  position: relative;
+  background-color: #90C3D4;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  float: right;
+  display: inline-block;
+  margin-left: 8px;
+  border-radius: 2px;
+}
+
+.message-form {
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+  display: inline-block;
+}
+
+#chatInput {
+
+  width: 100%;
+  padding: 6px 12px;
+
+}
+
+#cSubmitButton {
+  width: 80%;
+  display: inline-block;
+}
