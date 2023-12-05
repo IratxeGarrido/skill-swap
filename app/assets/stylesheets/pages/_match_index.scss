@@ -15,6 +15,11 @@
   margin:10px;
 }
 
+.my-link-class {
+  text-decoration: none;
+  color: black;
+}
+
 
 .match-item {
   position: relative;
@@ -22,6 +27,11 @@
   height: 80px;
   margin-bottom: 20px;
   background: $icon;
+  cursor: pointer;
+}
+
+.match-item:hover {
+  background-color: blue;
 }
 
 .match-background {
