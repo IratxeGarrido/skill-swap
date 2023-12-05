@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
+##############################################################################
 
+#############################################################################
   def create
     @match = Match.find(params[:match_id])
     @message = Message.new(message_params)
@@ -9,7 +11,8 @@ class MessagesController < ApplicationController
     if @message.save
       MatchesChannel.broadcast_to(
         @match,
-        render_to_string(partial: "message", locals: {message: @message})
+        message: render_to_string(partial: "message", locals: {message: @message}),
+        sender_id: @message.sender.id
       )
       head :ok
     else

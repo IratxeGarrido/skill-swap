@@ -2,7 +2,6 @@
   <h1 class="matches-title">Your matches</h1>
 
   <% @accepted_matches.each do |match| %>
-
     <% correspondent = match.initiator.user == current_user ? match.creator : match.initiator %>
     <div class="match-item">
       <div class="match-background"></div>

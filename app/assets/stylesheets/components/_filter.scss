@@ -10,10 +10,10 @@
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
-  background-color: #ECEAFF;
+  background-color: $icon;
   color: $unchecked-icon;
   border: 1px solid $unchecked-icon;
   margin-right: 0.6rem;
@@ -36,4 +36,7 @@
   color: #460ca2;
   font-size: 25px;
   font-weight: bold
+}
+body{
+  background-color: $background;
 }
