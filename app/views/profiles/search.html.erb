@@ -2,6 +2,7 @@
 
 <%# FILTERS AND SEARCH LOGIC %>
 <div class="filter-container">
+<br>
   <%= simple_form_for :search, url: profiles_path, method: "GET", html: {class: "form index-form" } do |f| %>
     <div class="filter-div" data-controller="checkbox">
       <div class="panel">
@@ -22,14 +23,19 @@
       </div>
     </div>
 
-    <div class="geolocation">
+    <div class="geolocation" data-controller="distance" >
+    <h2>Distance</h2>
+    <h2 data-distance-target="kilometer">0km</h2>
       <%= f.input :distance,
         as: :range,
-        label: 'Distance',
-        input_html: { min: 5, max: 25, step: 5, class: 'form-range' }
+        label: false,
+        input_html: { min: 1, max: 25, step: 1, value: 1, class: 'form-range',
+        data: { distance_target: 'rangeSlider', action: 'input->distance#updateValue' } }
       %>
+
+      </div>
     </div>
 
-    <%= f.submit class: 'btn-flat' %>
+    <%= f.submit class: 'btn-flat', value: "Filter Search" %>
   <% end %>
 </div>
