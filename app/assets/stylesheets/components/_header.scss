@@ -7,8 +7,10 @@
   position: sticky;
   top: 0;
   padding-bottom: 18px;
-  background-color: white;
+  background-color: $header-footer;
   z-index: 9999;
+  opacity: 90%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 
@@ -18,8 +20,9 @@
   margin-top: -1px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
-  color: $purple-1;
-  font-size: 12px;
+  color: $icon;
+  font-size: 20px;
   letter-spacing: 0;
   line-height: normal;
+  opacity: 100%;
 }
