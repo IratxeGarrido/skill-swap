@@ -22,8 +22,9 @@
 }
 
 .tag-selector:checked + label {
-  background-color: $buttons;
+  background-color: $checked-icon2;
   color: white;
+  border: 1px solid $border-tags;
 }
 
 .geolocation, .panel {
