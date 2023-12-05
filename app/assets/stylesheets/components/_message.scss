@@ -13,11 +13,11 @@
 }
 
 .sender-style {
-  background-color: #D0A2F7
+  background-color: $header-footer;
 }
 
 .receiver-style {
-  background-color:  #E4F1FF
+  background-color:  $unchecked-icon;
 }
 
 .messages {
