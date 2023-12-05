@@ -295,6 +295,7 @@ match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id:
 match.save!
 # match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
 # match.save!
+
 # match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
 # match.save!
 # match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)

@@ -3,5 +3,5 @@
   <%= f.input :category, label: 'Category', hint: 'No special characters.', error: 'category is mandatory, please specify one' %>
   <%# should I specify the category at my models? %>
 <%= f.input :photo, as: :file, error: 'Photo is mandatory, please specify one' %>
-  <%= f.button :submit, class: 'btn-flat'  %>
+  <%= f.button :submit, class: 'btn-flat', value: "Post Offer"  %>
 <% end %>
