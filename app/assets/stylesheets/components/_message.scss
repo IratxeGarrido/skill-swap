@@ -13,14 +13,19 @@
 }
 
 .sender-style {
-  background-color: #D0A2F7
+  background-color:$icon;
 }
 
 .receiver-style {
-  background-color:  #E4F1FF
+  background-color:$checked-icon;
 }
 
 .messages {
   overflow: scroll;
   height: 100vh;
+  background-color: $background;
+}
+
+#message {
+  background-color: $background;
 }
