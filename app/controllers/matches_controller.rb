@@ -53,7 +53,7 @@ class MatchesController < ApplicationController
     @match.save!
     respond_to do |format|
       profile = Profile.find(profile_id)
-      msg = { status: @match.status, profile: profile.first_name }
+      msg = { status: @match.status, profile: profile.first_name, match_id: @match.id }
       format.json { render json: msg }
     end
   end

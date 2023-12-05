@@ -23,25 +23,17 @@ export default class extends Controller {
       hammertime.on('pan', (event) => {
         card.classList.add('moving')
         card.style.transform = "translate(" + event.deltaX + "px, " + event.deltaY + "px)";
-        // // helppp
-        // this.iconTarget.classList.add('float-love');
         if (event.deltaX === 0) {
 
           this.likeTarget.classList.add('gone');
           this.nopeTarget.classList.add('gone');
-          console.log(`None: ${event.deltaX}`);
         } else if (event.deltaX > 80 ) {
           this.likeTarget.classList.remove('gone');
           this.nopeTarget.classList.add('gone');
-          console.log(`Like: ${event.deltaX}`);
         } else if (event.deltaX < -80 ) {
           this.nopeTarget.classList.remove('gone');
           this.likeTarget.classList.add('gone');
-          console.log(`Nope: ${event.deltaX}`);
         }
-
-        // this.iconTarget.classList.toggle('float-love', event.deltaX > 0);
-        // this.iconTarget.classList.toggle('float-no', event.deltaX < 0);
       })
 
       hammertime.on('panend', (event) => {
@@ -49,7 +41,6 @@ export default class extends Controller {
         this.likeTarget.classList.add('gone');
         this.nopeTarget.classList.add('gone');
         card.style.transform = '';
-        // console.log(event.deltaX);
         if ( event.deltaX > 200) {
           card.classList.add("d-none");
           this.#swipeRight()
@@ -63,11 +54,7 @@ export default class extends Controller {
   }
 
   #swipeRight() {
-    // event.preventDefault();
-    // console.log(this.likeFormTargets)
-
     const visibleCard = this.swipeCardTargets.filter((card) => {
-      // console.log(card.classList.contains("d-none"))
       return card.classList.contains("d-none")
     })
 
@@ -78,11 +65,11 @@ export default class extends Controller {
         headers: {"Accept": "application/json"},
         body: new FormData(this.likeFormTargets[index])
       }).then(response => response.json())
-        .then((data) => {
-          console.log(data)
+        .then(async (data) => {
+          // console.log(data)
         if (data.status === "accepted") {
-          console.log(data)
-          Swal.fire({
+          // console.log(data)
+          const { value: text } = await Swal.fire({
             title: "It's a match!",
             text: `Write a message to ${data.profile}`,
             icon: "success",
@@ -90,12 +77,37 @@ export default class extends Controller {
             showCloseButton: true,
             confirmButtonText: "Send"
           });
+          if (text){
+            // Swal.fire(`Entered message: ${text}`);
+            this.#sendMsg(text, data)
+          }
         }
       })
   }
+
+
+  #sendMsg(text, data){
+    const csrf = document.querySelector('meta[name=csrf-token]').content
+    const requestBody = JSON.stringify( {match_id: data.match_id, content: text})
+
+    fetch(`/pop_up_message`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "X-CSRF-Token": csrf,
+        "Content-Type": "application/json"
+    },
+      body: requestBody
+    })
+    .then(response => {
+      response.json
+    })
+    .then(data => {
+      // console.log(data,"something fun")
+    })
+  }
+
   #swipeLeft() {
-    // event.preventDefault();
-    // console.log(this.dislikeFormTarget.action)
     fetch(this.dislikeFormTarget.action, {
         method: "POST",
         headers: {"Accept": "application/json"},

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "search", to: 'profiles#search'
   patch "swipe_left", to: "matches#swipe_left"
   patch "swipe_right", to: "matches#swipe_right"
+  post "pop_up_message", to: "messages#pop_up_message"
 
   # Defines the root path route ("/")
   # root "profiles#index"
