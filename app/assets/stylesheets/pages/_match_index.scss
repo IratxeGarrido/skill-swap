@@ -38,7 +38,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #FBF7FF;
+  background: $cardbackground;
   border-radius: 5px;
 }
 
@@ -79,8 +79,8 @@
   padding: 10px;
   background: $icon;
   border-radius: 30px;
-  color: $unchecked-icon;
-  border: 1px solid $unchecked-icon;
+  color: $buttons;
+  border: 1px solid $buttons;
   font-size: 14px;
   font-weight: 400;
   word-wrap: break-word;
@@ -91,8 +91,7 @@
 
 .latest-message {
   position: absolute;
-  left: 81px;
-  top: 41px;
+  top: 30px;
   width: 209px;
   height: 27px;
   color: rgba(0, 0, 0, 0.70);

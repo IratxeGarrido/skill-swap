@@ -8,6 +8,7 @@
       <div class="panel">
         <%= f.input :skill,
           as: :radio_buttons,
+
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper-1',
           item_wrapper_class: 'tag-item',
@@ -26,7 +27,7 @@
 
     <div class="geolocation" data-controller="distance">
     <div class="d-flex inline-block">
-    <h2 style="margin-right: 10px;">Distance</h2>
+    <h2 style="margin-right: 10px; margin-left: 10px;">Distance:</h2>
     <h2 data-distance-target="kilometer">0km</h2>
     </div>
       <%= f.input :distance,

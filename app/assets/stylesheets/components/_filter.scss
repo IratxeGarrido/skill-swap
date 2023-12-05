@@ -31,12 +31,17 @@
   font-size: 25px;
   font-weight: bold;
 }
+.panel {
+  margin-left: 10px;
+}
 
 .geolocation, h2 {
   color:$text;
   font-size: 25px;
   font-weight: bold
 }
+
+
 body{
   background-color: $background;
 }

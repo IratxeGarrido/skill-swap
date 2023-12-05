@@ -13,14 +13,23 @@
 }
 
 .sender-style {
-  background-color: $header-footer;
+  background-color:$icon;
 }
 
 .receiver-style {
-  background-color:  $unchecked-icon;
+  background-color:$checked-icon;
 }
+
+.receiver-style {
+  background-color: $unchecked-icon;
+
 
 .messages {
   overflow: scroll;
   height: 100vh;
+  background-color: $background;
+}
+
+#message {
+  background-color: $background;
 }
