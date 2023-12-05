@@ -183,7 +183,7 @@ jamie_profile = Profile.new(
   user_id: jamie.id
 )
 jamie_profile.photo.attach(io: file, filename: "jamie.png", content_type: "image/png")
-jamie_profile.save!
+10.times {jamie_profile.save!}
 
 mustafa = User.create(email: 'mustafa@skillswap.com', password: '123456')
 file = URI.open("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/mustafa.jpg")
@@ -279,20 +279,20 @@ offer.save!
 # offer.save!
 
 
-# match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
-# match.save!
+match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
+match.save!
 # match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
 # match.save!
 # match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)

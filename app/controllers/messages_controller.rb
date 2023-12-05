@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     @match = Match.find(params[:match_id])
     @message = Message.new(message_params)
     @message.match = @match
-    @message.sender_id = current_user.id # how to make this part work?
+    @message.sender_id = current_user.id  #|| params[:user_id]
 
     if @message.save
       MatchesChannel.broadcast_to(

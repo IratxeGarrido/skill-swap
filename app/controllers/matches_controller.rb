@@ -36,48 +36,50 @@ class MatchesController < ApplicationController
   end
 
   def swipe_left(profile_id)
-    if user_has_swiped.nil?
+    if user_has_swiped(profile_id).nil?
       Match.create(
         initiator_id: current_user.profile.id,
         creator_id: profile_id,
         status: 'rejected'
       )
     else
-      @match.status = 'rejected'
+      @match.rejected!
       @match.save!
     end
   end
 
   def swipe_right(profile_id)
-    if user_has_swiped.nil?
-      Match.create(
-        initiator_id: current_user.profile.id,
-        creator_id: profile_id,
-        status: 'pending'
-      )
-    else
-      unless @match.status == 'rejected'
-        @match.status = 'accepted'
-        respond_to do |format|
-          profile = Profile.find(profile_id)
-          msg = { status: "matched", profile: profile.first_name }
-          format.json { render json: msg }
-        end
-      end
-      @match.save!
+    user_has_swiped(profile_id).nil? ? handle_initial_swipe_right(profile_id) : handle_its_a_match
+    @match.save!
+    respond_to do |format|
+      profile = Profile.find(profile_id)
+      msg = { status: @match.status, profile: profile.first_name }
+      format.json { render json: msg }
     end
   end
 
   private
 
+  def handle_initial_swipe_right(profile_id)
+    @match = Match.new(
+      initiator_id: current_user.profile.id,
+      creator_id: profile_id,
+      status: 'pending'
+    )
+  end
+
+  def handle_its_a_match
+    @match.accepted! unless @match.rejected?
+  end
+
   def user_matches
     Match.where(initiator_id: @test_profile.user_id)
   end
 
-  def user_has_swiped
+  def user_has_swiped(profile_id)
     @match = Match.where(
       'initiator_id = ? AND creator_id = ?',
-      params[:profile], current_user.profile.id
+      profile_id, current_user.profile.id
     ).first
   end
 end

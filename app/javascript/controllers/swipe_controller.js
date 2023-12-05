@@ -66,7 +66,7 @@ export default class extends Controller {
     // console.log(this.likeFormTargets)
 
     const visibleCard = this.swipeCardTargets.filter((card) => {
-      console.log(card.classList.contains("d-none"))
+      // console.log(card.classList.contains("d-none"))
       return card.classList.contains("d-none")
     })
 
@@ -78,7 +78,8 @@ export default class extends Controller {
         body: new FormData(this.likeFormTargets[index])
       }).then(response => response.json())
         .then((data) => {
-        if (data.status === "matched") {
+          console.log(data)
+        if (data.status === "accepted") {
           console.log(data)
           Swal.fire({
             title: "It's a match!",
@@ -97,20 +98,8 @@ export default class extends Controller {
     fetch(this.dislikeFormTarget.action, {
         method: "POST",
         headers: {"Accept": "application/json"},
-        body: new FormData(this.dislikeFormTarget)
+        body: new FormData(this.dislikeFormTarget )
       }
     )
   }
-
-  // #initSweetalert() {
-  //   preventDefault();
-  //   Swal.fire({
-  //     title: this.titleValue,
-  //     text: this.textValue,
-  //     icon: this.iconValue,
-  //     input: this.InputValue,
-  //     showCloseButton: this.showCancelButtonValue,
-  //     confirmButtonText: this.confirmButtonTextValue
-  //   });
-  // }
 }
