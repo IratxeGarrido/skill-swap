@@ -12,10 +12,12 @@
         </div>
         <div class="profile-title"><%= profile.first_name %></div>
       </div>
-      <div class="location-buttons">
-        <i class="fa-solid fa-location-arrow" style="color: #ffffff;"></i>
-        <div class="text">Nearby</div>
-      </div>
+      <% if Profile.near(current_user.profile, 2).select{ |user| user.id == profile.id }.length == 1%>
+        <div class="location-buttons">
+          <i class="fa-solid fa-location-arrow" style="color: #ffffff;"></i>
+          <div class="text">Nearby</div>
+        </div>
+      <% end %>
     </div>
     <div class="skill-description">
       <div class="text-wrapper"><%= offer.category %></div>
