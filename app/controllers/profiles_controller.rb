@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.where.not(user_id: current_user)
     @profiles = @profiles.reject { |profile| profile.is_match?(current_user.profile) }
+
     # match filter rejected or accept and pendint where Im initiator
     # I need to show all profiles that I dont have a match
     # i need to see the ones im a creator
