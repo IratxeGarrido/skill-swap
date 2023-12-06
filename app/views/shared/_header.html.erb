@@ -13,6 +13,16 @@
       <%= link_to profiles_path do %>
         <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
       <% end %>
+      <h3 class="matches-h">Your Matches</h3>
+  </div>
+
+  <% elsif params[:controller] == "profiles" && params[:action] == "search" %>
+
+  <div class="header">
+      <%= link_to profiles_path do %>
+        <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
+      <% end %>
+      <h3>Filter your Search</h3>
   </div>
 
 <% else %>
