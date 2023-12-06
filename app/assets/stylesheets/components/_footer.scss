@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 52px;
+  padding: 18px 52px;
   width: 100vw;
   position:fixed;
   bottom: 0%;
@@ -11,8 +11,7 @@
   background-color: $header-footer;
   z-index: 100;
   opacity: 100%;
-  box-shadow: rgba(29, 79, 43, 0.25) 0px 2px 5px -1px, rgba(29, 79, 43, 0.25) 0px 1px 3px -1px;
-}
+  box-shadow: 0px 1px $checked-icon;}
 
 
 .footer .option {
@@ -24,4 +23,5 @@
   font-size: 20px;
   letter-spacing: 0;
   line-height: normal;
+  text-shadow: 2px 2px $shadow;
 }

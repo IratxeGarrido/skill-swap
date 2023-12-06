@@ -280,7 +280,7 @@ offer.save!
 
 
 
-match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match = Match.new(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
 match.save!
 match = Match.new(status: "pending", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
 match.save!

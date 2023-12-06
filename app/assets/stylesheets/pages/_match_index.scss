@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 70px;
 
 }
 
@@ -9,10 +10,9 @@
   color: $text;
   font-size: 32px;
   font-weight: bold;
-  letter-spacing: 0.3mm;
   align-self: center;
-  letter-spacing: 0.3mm;
   margin:10px;
+  margin-bottom: 30px;
 }
 
 .my-link-class {
@@ -30,17 +30,13 @@
   cursor: pointer;
 }
 
-.match-item:hover {
-  background-color: blue;
-}
-
 .match-background {
   position: absolute;
   width: 100%;
   height: 100%;
   background: $cardbackground;
   border-radius: 5px;
-}
+  box-shadow: 1px 1px 2px rgba(239, 108, 8, 0.2);}
 
 .profile-image {
   position: absolute;
