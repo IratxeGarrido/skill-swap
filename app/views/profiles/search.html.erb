@@ -7,14 +7,14 @@
     <div class="filter-div" data-controller="checkbox">
       <div class="panel">
         <%= f.input :skill,
-          as: :radio_buttons,
+          as: :check_boxes,
 
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper-1',
           item_wrapper_class: 'tag-item',
           input_html: {class: 'tag-selector'},
           collection: [
-                          [('Art').html_safe, "Painting & Drawing"],
+                          [('Painting-Drawing').html_safe, "Painting & Drawing"],
                           [('Calligraphy').html_safe, "Calligraphy"],
                           [('Candle Making').html_safe, "Candle Making"],
                           [('Carpentry').html_safe, "Carpentry"],
@@ -32,8 +32,9 @@
                           [('Skateboarding').html_safe, "Skateboarding"],
                           [('Soap Making').html_safe, "Soap Making"],
                           [('Tattooing').html_safe, "Tattooing"],
-                        ]
-                        %>
+                          [('Photography').html_safe, "Photography"]
+                                                                              ]%>
+
       </div>
     </div>
     <br>
