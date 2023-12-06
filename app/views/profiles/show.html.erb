@@ -1,21 +1,15 @@
 
 <%# _usercard.scss  %>
   <div class="profile-card">
-      <div class="skill-card" style="background-image: url('<%= cl_image_path(@profile.photo.key) if @profile.photo.attached? %>');">
+      <div class="img-card" style="background-image: url('<%= cl_image_path(@profile.photo.key) if @profile.photo.attached? %>');">
       </div>
       <div class="frame">
         <div class="div">
+        </div>
+        <div class="profile-description">
           <div class="name">
             <div class="name-title"><%= @profile.first_name %></div>
           </div>
-          <div class="location-buttons">
-            <div>
-              <i class="fa-solid fa-location-arrow" style="color: #ffffff;"></i>
-            </div>
-            <div class="text">Nearby</div>
-          </div>
-        </div>
-        <div class="profile-description">
           <div class="text-wrapper">About Me</div>
           <p class="p"><%= @profile.bio %></p>
         </div>

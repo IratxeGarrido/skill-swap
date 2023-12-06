@@ -7,43 +7,6 @@ Offer.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-# template = User.create(email: 'template@skillswap.com', password: '123456')
-# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/template.jpg')
-# template_profile = Profile.new(
-#   first_name: 'FirstName',
-#   last_name: 'LastName',
-#   bio: '',
-#   age: 31,
-#   gender: '',
-#   address: '',
-#   user_id: template.id
-# )
-# template_profile.photo.attach(io: file, filename: 'template.png', content_type: 'image/png')
-# template_profile.save!
-
-# Adam
-# Emma Rünzel
-# Pedro
-# Joshua
-# Olivier Girardot
-# Lucas Grüner
-# Elisabeth Messmer
-# Emre Ebeturk
-# Sebastian Remm
-# Karl von der Eltz
-# Stella Raab
-# Maximilian Eich
-# Eduardo Roldan Isaac
-# Michelle Rodriguez
-# Rodrigo Hoffmann
-
-# Woodworking
-# Photography
-# Knitting
-# Climbing
-# Sawing machine
-# Jewllery making
-
 adam = User.create(email: 'adam@skillswap.com', password: '123456')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/adam.png')
 adam_profile = Profile.new(
@@ -274,7 +237,7 @@ offer.save!
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/painting-2.jpg')
 offer = Offer.new(description: "I've accumulated a vast collection of watercolor supplies, including premium paints, brushes, and specialty paper. If you're a fellow watercolor enthusiast, let's trade materials and elevate our painting experiences together!",
                   category: 'Painting',
-                  profile_id: emma_profile.id)
+                  profile_id: adam_profile.id)
 offer.photo.attach(io: file, filename: 'painting-2.png', content_type: 'image/png')
 offer.save!
 
@@ -289,7 +252,7 @@ offer.save!
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/drawing-2.jpg')
 offer = Offer.new(description: "As a passionate artist, I have a surplus of high-quality drawing materials, from graphite pencils to fine sketchbooks. Let's swap art supplies and turn our creative visions into reality!",
                   category: 'Drawing',
-                  profile_id: joshua_profile.id)
+                  profile_id: michelle_profile.id)
 offer.photo.attach(io: file, filename: 'drawing-2.png', content_type: 'image/png')
 offer.save!
 
@@ -331,36 +294,34 @@ offer = Offer.new(description: "Dive into calligraphy with me! Premium pens, ink
 offer.photo.attach(io: file, filename: 'calligraphy-3.png', content_type: 'image/png')
 offer.save!
 
-# ------------------------------ Candle Making ------------------------------ #
+# ------------------------------ Carpentry ------------------------------ #
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-1.jpg')
-offer = Offer.new(description: "Embracing the art of candle crafting! Swap something cool for my collection of handmade candles. Let's exchange warmth and ambiance. 🕯️✨",
-                  category: 'Candle Making',
-                  profile_id: michelle_profile.id)
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/carpentry-1.jpg')
+offer = Offer.new(description: "Offering handmade wooden creations in exchange for something cool. Let's swap and bring the warmth of craftsmanship into your surroundings. ",
+                  category: 'Carpentry',
+                  profile_id: max_profile.id)
 offer.photo.attach(io: file, filename: 'candle-1.png', content_type: 'image/png')
 offer.save!
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-2.jpg')
-offer = Offer.new(description: "Warmth in exchange! I have a bunch of handmade candles ready to swap for something cool.",
-                  category: 'Candle Making',
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/carpentry-2.jpg')
+offer = Offer.new(description: "Offering different carpentry tools and machinery for a cool exchange. ",
+                  category: 'Carpentry',
                   profile_id: jamie_profile.id)
 offer.photo.attach(io: file, filename: 'candle-2.png', content_type: 'image/png')
 offer.save!
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-3.jpg')
-offer = Offer.new(description: "I've got an assortment of supplies for making candles. Open to cool swaps for a fragrant exchange.",
-                  category: 'Candle Making',
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/carpentry-3.jpg')
+offer = Offer.new(description: "Swap for sturdy elegance! I've crafted various wooden pieces, and I'm open to cool exchanges.",
+                  category: 'Carpentry',
                   profile_id: olivier_profile.id)
 offer.photo.attach(io: file, filename: 'candle-3.png', content_type: 'image/png')
 offer.save!
-
-
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/3d-printing.jpg')
 offer =
   Offer.new(description: "I just bought a new 3D printer and I dom't use this one anymore so I'm giving it away.",
             category: '3D Printing',
-            profile_id: pedro_profile.id)
+            profile_id: joshua_profile.id)
 offer.photo.attach(io: file, filename: '3d-printing-1.png', content_type: 'image/png')
 offer.save!
 
@@ -373,54 +334,39 @@ offer.save!
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/tatto.jpg')
 offer = Offer.new(description: 'I have it all. The machine, the fake skin and the ink. I can teach you how to do tattos.',
-category: 'Tattooing',
-profile_id: jamie_profile.id)
+                  category: 'Tattooing',
+                  profile_id: jamie_profile.id)
 offer.photo.attach(io: file, filename: 'tattooing.png', content_type: 'image/png')
 offer.save!
 
-# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/v1701701075/skill-swap/plane.jpg')
-# offer = Offer.new(description: 'I've been a licensed pilot for a few years and I'll be happy to take you for a ride.',
-# category: 'Plane flying',
-# profile_id: joshua_profile.id)
-# offer.photo.attach(io: file, filename: 'plane.png', content_type: 'image/png')
-# offer.save!
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/tatto.jpg')
+offer = Offer.new(description: 'I have it all. The machine, the fake skin and the ink. I can teach you how to do tattos.',
+                  category: 'Tattooing',
+                  profile_id: elisabeth_profile.id)
+offer.photo.attach(io: file, filename: 'tattooing.png', content_type: 'image/png')
+offer.save!
 
-# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/c_crop,g_west,h_800,w_800/skill-swap/blazer.png')
-# offer = Offer.new(description: 'Are you a fun of dashboards as much as me? I can teach you how to create sexy dashboards in rails!',
-# category: 'Sexy dashboards',
-# profile_id: emma_profile.id)
-# offer.photo.attach(io: file, filename: 'dashboard.png', content_type: 'image/png')
-# offer.save!
+match = Match.new(status: "pending", initiator_id: max_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: elisabeth_profile.id, creator_id: iratxe_profile.id)
+match.save!
 
-match = Match.new(status: 'accepted', initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
 match.save!
-match = Match.new(status: 'accepted', initiator_id: jamie_profile.id, creator_id: mustafa_profile.id)
+match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
 match.save!
-match = Match.new(status: 'pending', initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
+match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
 match.save!
-match = Match.new(status: 'acceptedrails', initiator_id: joshua_profile.id, creator_id: jamie_profile.id)
-match.save!
-match = Match.new(status: 'pending', initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: 'pending', initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: 'pending', initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: 'pending', initiator_id: michelle_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: 'pending', initiator_id: max_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: 'pending', initiator_id: adam_profile.id, creator_id: iratxe_profile.id)
-match.save!
-# match = Match.create(status: 'accepted', initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-
-# match = Match.create(status: 'accepted', initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
-# match.save!
-# match = Match.create(status: 'rejected', initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.create(status: 'rejected', initiator_id: iratxe_profile.id)
-# match.save!
 
 
 # message = Message.new(content: 'hi', read_status: true, match_id: 2, sender_id: 2)
