@@ -7,6 +7,8 @@ export default class extends Controller {
   // added the currentUserId to above
   static targets = ["messages"]
   connect() {
+    console.log(this.messagesTarget.lastElementChild.scrollHeight)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     this.channel = createConsumer().subscriptions.create(
       { channel: "MatchesChannel", id: this.matchIdValue },
       { received: data => this.#insertMessageAndScrollDown(data)}

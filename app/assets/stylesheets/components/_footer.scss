@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 52px;
+  padding: 10px 52px;
   width: 100vw;
   position:fixed;
   bottom: 0%;
@@ -31,9 +31,5 @@
 }
 
 .option, img {
-  padding-bottom: 5px;
-}
-
-.logo {
-  justify-self: center;
+  padding-bottom: 3px;
 }

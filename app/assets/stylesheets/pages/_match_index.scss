@@ -105,6 +105,11 @@
   overflow: hidden;
 }
 
+.no-message {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.70)
+}
+
 .comment-icon {
   color: $header-footer;
   position: absolute;

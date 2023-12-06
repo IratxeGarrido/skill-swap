@@ -4,9 +4,6 @@
 
     <% correspondent_profile = current_user.id == @match.initiator_id ? creator_profile : initiator_profile %>
     <div>
-      <div class="text-center">
-        <%= cl_image_tag(correspondent_profile.photo.key, class: "profile-pic") %>
-      </div>
 
       <div class="container_chatroom"
         data-controller="match-subscription"

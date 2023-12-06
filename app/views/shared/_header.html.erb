@@ -9,7 +9,7 @@
     <%= link_to matches_path do %>
       <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
     <% end %>
-    <h5 style="margin-bottom: 0"><%= correspondent_profile.first_name %></h5>
+    <h3 class="navbar-name" style="margin-bottom: 0"><%= correspondent_profile.first_name %></h3>
 
     <%= link_to profile_path(correspondent_profile) do %>
       <%= cl_image_tag(correspondent_profile.photo.key, class: "profile-pic-messages") %>
