@@ -274,7 +274,7 @@ offer.save!
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/painting-2.jpg')
 offer = Offer.new(description: "I've accumulated a vast collection of watercolor supplies, including premium paints, brushes, and specialty paper. If you're a fellow watercolor enthusiast, let's trade materials and elevate our painting experiences together!",
                   category: 'Painting',
-                  profile_id: emma_profile.id)
+                  profile_id: adam_profile.id)
 offer.photo.attach(io: file, filename: 'painting-2.png', content_type: 'image/png')
 offer.save!
 
@@ -289,7 +289,7 @@ offer.save!
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/drawing-2.jpg')
 offer = Offer.new(description: "As a passionate artist, I have a surplus of high-quality drawing materials, from graphite pencils to fine sketchbooks. Let's swap art supplies and turn our creative visions into reality!",
                   category: 'Drawing',
-                  profile_id: joshua_profile.id)
+                  profile_id: michelle_profile.id)
 offer.photo.attach(io: file, filename: 'drawing-2.png', content_type: 'image/png')
 offer.save!
 
@@ -331,36 +331,34 @@ offer = Offer.new(description: "Dive into calligraphy with me! Premium pens, ink
 offer.photo.attach(io: file, filename: 'calligraphy-3.png', content_type: 'image/png')
 offer.save!
 
-# ------------------------------ Candle Making ------------------------------ #
+# ------------------------------ Carpentry ------------------------------ #
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-1.jpg')
-offer = Offer.new(description: "Embracing the art of candle crafting! Swap something cool for my collection of handmade candles. Let's exchange warmth and ambiance. 🕯️✨",
-                  category: 'Candle Making',
-                  profile_id: michelle_profile.id)
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/carpentry-1.jpg')
+offer = Offer.new(description: "Offering handmade wooden creations in exchange for something cool. Let's swap and bring the warmth of craftsmanship into your surroundings. ",
+                  category: 'Carpentry',
+                  profile_id: max_profile.id)
 offer.photo.attach(io: file, filename: 'candle-1.png', content_type: 'image/png')
 offer.save!
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-2.jpg')
-offer = Offer.new(description: "Warmth in exchange! I have a bunch of handmade candles ready to swap for something cool.",
-                  category: 'Candle Making',
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/carpentry-2.jpg')
+offer = Offer.new(description: "Offering different carpentry tools and machinery for a cool exchange. ",
+                  category: 'Carpentry',
                   profile_id: jamie_profile.id)
 offer.photo.attach(io: file, filename: 'candle-2.png', content_type: 'image/png')
 offer.save!
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-3.jpg')
-offer = Offer.new(description: "I've got an assortment of supplies for making candles. Open to cool swaps for a fragrant exchange.",
-                  category: 'Candle Making',
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/carpentry-3.jpg')
+offer = Offer.new(description: "Swap for sturdy elegance! I've crafted various wooden pieces, and I'm open to cool exchanges.",
+                  category: 'Carpentry',
                   profile_id: olivier_profile.id)
 offer.photo.attach(io: file, filename: 'candle-3.png', content_type: 'image/png')
 offer.save!
-
-
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/3d-printing.jpg')
 offer =
   Offer.new(description: "I just bought a new 3D printer and I dom't use this one anymore so I'm giving it away.",
             category: '3D Printing',
-            profile_id: pedro_profile.id)
+            profile_id: joshua_profile.id)
 offer.photo.attach(io: file, filename: '3d-printing-1.png', content_type: 'image/png')
 offer.save!
 
@@ -375,6 +373,13 @@ file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto
 offer = Offer.new(description: 'I have it all. The machine, the fake skin and the ink. I can teach you how to do tattos.',
 category: 'Tattooing',
 profile_id: jamie_profile.id)
+offer.photo.attach(io: file, filename: 'tattooing.png', content_type: 'image/png')
+offer.save!
+
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/tatto.jpg')
+offer = Offer.new(description: 'I have it all. The machine, the fake skin and the ink. I can teach you how to do tattos.',
+                  category: 'Tattooing',
+                  profile_id: elisabeth_profile.id)
 offer.photo.attach(io: file, filename: 'tattooing.png', content_type: 'image/png')
 offer.save!
 
