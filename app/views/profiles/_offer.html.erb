@@ -23,7 +23,7 @@
         <%# frame %>
       <div class="skill-description">
         <div class="text-wrapper"><%= offer.category %></div>
-        <p class="p"> <%= offer.description %>
+        <p class="p"> <%= offer.description.truncate(85, separator: '') %>
         </p>
       </div>
     </div>
