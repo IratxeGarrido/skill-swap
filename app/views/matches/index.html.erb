@@ -1,8 +1,5 @@
 <div class="matches-container">
-  <h1 class="matches-title">Your Matches</h1>
-
-
-
+  <br>
   <% @accepted_matches.each do |match| %>
   <% correspondent = match.initiator.user == current_user ? match.creator : match.initiator %>
     <div class="match-item">
@@ -16,16 +13,6 @@
       <div class="profile-details">
         <div class="profile-name">
         <strong><%= correspondent.first_name %></strong>
-        </div>
-          <div class="offer-categories">
-            <% correspondent.offers.each do |offer| %>
-            <div class="offer-category">
-              <%= offer.category %>
-            </div>
-          <% end %>
-        </div>
-
-
         <% latest_message = match.messages.order(created_at: :desc).first %>
         <% if latest_message.present? %>
           <div class="latest-message">
@@ -36,11 +23,6 @@
             No messages yet.
           </div>
         <% end %>
-
-        <div class="icon-background"></div>
-        <div class="comment-icon">
-
-            <i class="fa-regular fa-comment"></i>
 
         </div>
       </div>

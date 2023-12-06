@@ -1,5 +1,6 @@
 .filter-container {
   margin: 60px 15px;
+  padding-top: 20px;
 }
 
 .tag-item {
@@ -37,16 +38,30 @@
   font-weight: bold;
 }
 .panel {
-  margin-left: 10px;
+  padding-bottom: 30px;
+  // padding-left:20px;
+  // border-bottom: 1px solid $sender;
+}
+
+.geolocation {
+  // border-bottom: 1px solid $sender;
+  padding: 20px;
 }
 
 .geolocation, h2 {
   color:$text;
-  font-size: 25px;
-  font-weight: bold
+  font-size: 26px;
+  font-weight: bold;
+
 }
 
 
 body{
   background-color: $background;
+}
+
+hr {
+  width: 70%;
+  margin:auto;
+  color:$sender;
 }

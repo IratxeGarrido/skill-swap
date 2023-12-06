@@ -27,3 +27,19 @@
   opacity: 100%;
   text-shadow: 2px 2px $checked-icon;
 }
+
+.fa-arrow-left {
+  font-size: 25px;
+  text-shadow: 2px 2px $checked-icon;
+}
+
+.header, h3 {
+  color:$icon;
+  font-size: 24px;
+  padding-right:50px;
+  text-shadow: 2px 2px $checked-icon;
+}
+
+.matches-h {
+  padding-right:60px;
+}
