@@ -70,15 +70,16 @@ export default class extends Controller {
         if (data.status === "accepted") {
           // console.log(data)
           const { value: text } = await Swal.fire({
-            title: "It's a match!",
-            text: `Write a message to ${data.profile}`,
-            icon: "success",
+            title: "It's a match! 🎉",
+            html: `Write a message to <b>${data.profile}</b>`,
+            // icon: "success",
             input: "text",
             showCloseButton: true,
-            confirmButtonText: "Send"
+            confirmButtonText: "Send",
+            confirmButtonColor: "#32573C"
           });
           if (text){
-            // Swal.fire(`Entered message: ${text}`);
+            Swal.fire({text: "Message sent!", icon: "success", showCloseButton: true, showConfirmButton: false});
             this.#sendMsg(text, data)
           }
         }
