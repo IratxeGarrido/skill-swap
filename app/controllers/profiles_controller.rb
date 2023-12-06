@@ -10,18 +10,17 @@ class ProfilesController < ApplicationController
     # i need to see the ones im a creator
 
     if params[:search]
-      if params[:search][:distance].present? && params[:search][:offer].present?
-        @query = params[:search][:offer]
-        @results = Profile.offers_search(@query)
-        @profiles = @profiles.near(current_user.profile.address, params[:search][:distance])
-
-      elsif params[:search][:offer].present?
-        @query = params[:search][:offer]
-        @profiles = Profile.offers_search(@query)
-
-      elsif params[:search][:distance].present?
+      if params[:search][:skill].empty?
         @query = params[:search][:distance]
         @profiles = Profile.near(current_user.profile.address, @query)
+
+      else
+        @query = params[:search][:skill]
+        @results = Profile.excluding(current_user.profile)
+                    .joins(:offers)
+                    .where(offers: { category: @query })
+                    .distinct
+        @profiles = @results.near(current_user.profile.address, params[:search][:distance])
       end
     end
     @match = Match.new
