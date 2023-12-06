@@ -334,8 +334,8 @@ offer.save!
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/tatto.jpg')
 offer = Offer.new(description: 'I have it all. The machine, the fake skin and the ink. I can teach you how to do tattos.',
-category: 'Tattooing',
-profile_id: jamie_profile.id)
+                  category: 'Tattooing',
+                  profile_id: jamie_profile.id)
 offer.photo.attach(io: file, filename: 'tattooing.png', content_type: 'image/png')
 offer.save!
 
@@ -346,7 +346,7 @@ offer = Offer.new(description: 'I have it all. The machine, the fake skin and th
 offer.photo.attach(io: file, filename: 'tattooing.png', content_type: 'image/png')
 offer.save!
 
-match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match = Match.new(status: "pending", initiator_id: max_profile.id, creator_id: iratxe_profile.id)
 match.save!
 match = Match.new(status: "pending", initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
 match.save!
@@ -357,6 +357,8 @@ match.save!
 match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
 match.save!
 match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: elisabeth_profile.id, creator_id: iratxe_profile.id)
 match.save!
 
 match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
