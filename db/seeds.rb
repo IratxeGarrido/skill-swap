@@ -7,43 +7,6 @@ Offer.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-# template = User.create(email: 'template@skillswap.com', password: '123456')
-# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/v1701203113/skill-swap/template.jpg')
-# template_profile = Profile.new(
-#   first_name: 'FirstName',
-#   last_name: 'LastName',
-#   bio: '',
-#   age: 31,
-#   gender: '',
-#   address: '',
-#   user_id: template.id
-# )
-# template_profile.photo.attach(io: file, filename: 'template.png', content_type: 'image/png')
-# template_profile.save!
-
-# Adam
-# Emma Rünzel
-# Pedro
-# Joshua
-# Olivier Girardot
-# Lucas Grüner
-# Elisabeth Messmer
-# Emre Ebeturk
-# Sebastian Remm
-# Karl von der Eltz
-# Stella Raab
-# Maximilian Eich
-# Eduardo Roldan Isaac
-# Michelle Rodriguez
-# Rodrigo Hoffmann
-
-# Woodworking
-# Photography
-# Knitting
-# Climbing
-# Sawing machine
-# Jewllery making
-
 adam = User.create(email: 'adam@skillswap.com', password: '123456')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/adam.png')
 adam_profile = Profile.new(
@@ -383,45 +346,24 @@ offer = Offer.new(description: 'I have it all. The machine, the fake skin and th
 offer.photo.attach(io: file, filename: 'tattooing.png', content_type: 'image/png')
 offer.save!
 
-# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/v1701701075/skill-swap/plane.jpg')
-# offer = Offer.new(description: 'I've been a licensed pilot for a few years and I'll be happy to take you for a ride.',
-# category: 'Plane flying',
-# profile_id: joshua_profile.id)
-# offer.photo.attach(io: file, filename: 'plane.png', content_type: 'image/png')
-# offer.save!
-
-# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/c_crop,g_west,h_800,w_800/skill-swap/blazer.png')
-# offer = Offer.new(description: 'Are you a fun of dashboards as much as me? I can teach you how to create sexy dashboards in rails!',
-# category: 'Sexy dashboards',
-# profile_id: emma_profile.id)
-# offer.photo.attach(io: file, filename: 'dashboard.png', content_type: 'image/png')
-# offer.save!
-
-
-
-# match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
-
-# match.save!
-# match = Match.new(status: "pending", initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-# match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
-# match.save!
-match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match = Match.new(status: "pending", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
+match.save!
+match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
 match.save!
 
+match = Match.create(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match.save!
 match = Match.create(status: "accepted", initiator_id: iratxe_profile.id, creator_id: mustafa_profile.id)
 match.save!
 match = Match.create(status: "rejected", initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.create(status: "rejected", initiator_id: iratxe_profile.id)
 match.save!
 
 
