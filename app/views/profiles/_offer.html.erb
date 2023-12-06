@@ -1,15 +1,31 @@
-<% profile.offers.each do |offer| %>
-  <div class="skill-card" style="background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.4) 8.85%,
-      rgba(255, 255, 255, 0) 47.4%,
-      rgba(0, 0, 0, 0.4) 88.02%
-      ), url('<%= cl_image_path(offer.photo.key) %>');">
-      <%# frame %>
-    <div class="skill-description">
-      <div class="text-wrapper"><%= offer.category %></div>
-      <p class="p"> <%= offer.description %>
-      </p>
+<div class="profileoffers">
+  <div class="frame">
+    <div class="avatar">
+      <div class="avatar-pic" >
+        <%= cl_image_tag profile.photo.key, class: "avatar-pic" %>
+      </div>
+      <div class="profile-title"><%= profile.first_name %></div>
     </div>
+    <% if Profile.near(current_user.profile, 2).select{ |user| user.id == profile.id }.length == 1%>
+      <div class="location-buttons">
+        <i class="fa-solid fa-location-arrow" style="color: #ffffff;"></i>
+        <div class="text">Nearby</div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <% profile.offers.each do |offer| %>
+    <div class="skill-card" style="background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.4) 8.85%,
+        rgba(255, 255, 255, 0) 47.4%,
+        rgba(0, 0, 0, 0.4) 88.02%
+        ), url('<%= cl_image_path(offer.photo.key) %>');">
+        <%# frame %>
+      <div class="skill-description">
+        <div class="text-wrapper"><%= offer.category %></div>
+        <p class="p"> <%= offer.description %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
