@@ -50,10 +50,11 @@
 
 .profile-card .name {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 13px;
   position: relative;
   flex: 0 0 auto;
+  flex-direction: column;
 }
 
 // .profile-card .avatar-2 {
