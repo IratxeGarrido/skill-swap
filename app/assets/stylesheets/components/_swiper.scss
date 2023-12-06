@@ -64,7 +64,7 @@
   display: inline-block;
   width: 100vw;
   max-width: 400px;
-  height: 100vh;
+  height: 85vh;
   background: #FFFFFF;
   border-radius: 8px;
   overflow: auto;
@@ -74,7 +74,8 @@
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
-  margin: 65px 0;
+  margin: 7.5vh;
+    // margin-top: 14.5vh;
 }
 
 .moving.single {
