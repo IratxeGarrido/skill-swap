@@ -1,5 +1,5 @@
 
-<% raise %>
+
 <%# FILTERS AND SEARCH LOGIC %>
 <div class="filter-container">
 <br>
@@ -7,27 +7,42 @@
     <div class="filter-div" data-controller="checkbox">
       <div class="panel">
         <%= f.input :skill,
-          as: :radio_buttons,
+          as: :check_boxes,
 
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper-1',
           item_wrapper_class: 'tag-item',
           input_html: {class: 'tag-selector'},
           collection: [
-                          [('Photography').html_safe, "Photography"],
-                          [('Art').html_safe, "Painting & Drawing"],
-                          [('Coding').html_safe, "Coding"],
+                          [('Painting-Drawing').html_safe, "Painting & Drawing"],
+                          [('Calligraphy').html_safe, "Calligraphy"],
+                          [('Candle Making').html_safe, "Candle Making"],
+                          [('Carpentry').html_safe, "Carpentry"],
                           [('Ceramics').html_safe, "Ceramics"],
-                          [('Textiles').html_safe, "Textiles"],
-                          [('Carpentry').html_safe, "Carpentry"]
-                        ]
-                         %>
+                          [('Coding').html_safe, "Coding"],
+                          [('Embroidery').html_safe, "Embroidery"],
+                          [('Fishing').html_safe, "Fishing"],
+                          [('Knitting/Crocheting').html_safe, "Knitting/Crocheting"],
+                          [('Macramé').html_safe, "Macramé"],
+                          [('Music').html_safe, "Music"],
+                          [('Origami').html_safe, "Origami"],
+                          [('3D Printing').html_safe, "3D Printing"],
+                          [('Photography').html_safe, "Photography"],
+                          [('Sewing').html_safe, "Sewing"],
+                          [('Skateboarding').html_safe, "Skateboarding"],
+                          [('Soap Making').html_safe, "Soap Making"],
+                          [('Tattooing').html_safe, "Tattooing"],
+                          [('Photography').html_safe, "Photography"]
+                                                                              ]%>
+
       </div>
     </div>
-
+    <hr>
+    <br>
     <div class="geolocation" data-controller="distance">
-    <div class="d-flex inline-block">
-    <h2 style="margin-right: 10px; margin-left: 10px;">Distance:</h2>
+    <div class="d-flex">
+
+    <h2 style="margin-right:10px; margin-left: 70px;">Distance:</h2>
     <h2 data-distance-target="kilometer">0km</h2>
     </div>
       <%= f.input :distance,
@@ -38,8 +53,10 @@
       %>
 
       </div>
-    </div>
 
-    <%= f.submit class: 'btn-flat', value: "Filter Search" %>
+    
+    <br>
+    <%= f.submit class: 'btn-flat', value: "Show Results" %>
   <% end %>
+</div>
 </div>

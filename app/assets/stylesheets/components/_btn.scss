@@ -6,10 +6,13 @@
   transition: background 0.3s ease;
   width: 100%;
   font-weight: 600;
+  font-size: 20px;
+  border:none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-flat:active {
-  background-color: #62a174;
+  background-color:$checked-icon2;
 }
 
 .btn-send {
@@ -20,5 +23,5 @@
 }
 
 .btn-send:active {
-  background-color: #62a174;
+  background-color: $checked-icon2;
 }

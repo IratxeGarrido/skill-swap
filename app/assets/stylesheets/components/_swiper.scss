@@ -32,7 +32,7 @@
   position: absolute;
   width: 100px;
   margin-left: -50px;
-  color: $purple-1;
+  color: #FE5D5D;
   opacity: 0.8;
 }
 
@@ -74,6 +74,7 @@
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
+  margin: 65px 0;
 }
 
 .moving.single {

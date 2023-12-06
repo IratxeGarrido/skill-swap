@@ -1,7 +1,7 @@
 
 
 <%= simple_form_for(@offer) do |f| %>
-  <%= f.input :description, label: 'Description', error: 'Username is mandatory, please specify one' %>
+  <%= f.input :description, label: 'Description', error: 'Username is mandatory, please specify one', { class: 'large-input' } %>
   <%= f.input :category, label: 'Category', hint: 'No special characters.' %>
   <%# should I specify the category at my models? %>
   <%= f.input :photo, as: :file %>

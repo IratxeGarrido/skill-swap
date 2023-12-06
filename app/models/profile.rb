@@ -18,7 +18,7 @@ class Profile < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  
+
   def is_match?(my_user)
     # I swiped right
     Match.exists?(initiator: my_user, creator: self, status: 0) ||
@@ -32,14 +32,13 @@ class Profile < ApplicationRecord
       Match.exists?(initiator: self, creator: my_user, status: 2)
   end
 
-    include PgSearch::Model
+  # include PgSearch::Model
 
-  pg_search_scope :offers_search,
-    associated_against: {
-      offers: [:category]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
-
+  # pg_search_scope :offers_search,
+  #                 associated_against: {
+  #                   offers: [:category]
+  #                 },
+  #                 using: {
+  #                   tsearch: { prefix: true }
+  #                 }
 end

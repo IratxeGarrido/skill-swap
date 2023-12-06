@@ -7,9 +7,15 @@
   font-size: 32px;
   font-weight: bolder;
   text-align: center;
-  letter-spacing: 0.5mm;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
+}
+
+.col-form-label {
+ text-align: center;
+ margin-bottom: 10px;
+ font-size: 26px;
 }
 
 .form-text {
@@ -17,5 +23,17 @@
 }
 
 .form-control {
-  background-color: $inputfield;
+  background-color: $inputfield2;
+}
+
+.form-control:active {
+  border: #20572f;
+  box-shadow: none;
+}
+
+.form_container {
+  padding-top: 70px;
+}
+.form-control[type="file"]:not(:disabled):not([readonly]) {
+  color: #20572f;
 }
