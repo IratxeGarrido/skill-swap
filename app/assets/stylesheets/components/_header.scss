@@ -11,6 +11,7 @@
   background-color: $header-footer;
   z-index: 9999;
   opacity: 100%;
+  box-shadow: 0px 1px $checked-icon;
 }
 
 
@@ -18,11 +19,11 @@
   position: relative;
   width: fit-content;
   margin-top: -1px;
-  font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: $icon;
   font-size: 20px;
   letter-spacing: 0;
   line-height: normal;
   opacity: 100%;
+  text-shadow: 2px 2px $checked-icon;
 }

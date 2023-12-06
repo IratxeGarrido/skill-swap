@@ -14,17 +14,29 @@
           item_wrapper_class: 'tag-item',
           input_html: {class: 'tag-selector'},
           collection: [
-                          [('Photography').html_safe, "Photography"],
                           [('Art').html_safe, "Painting & Drawing"],
-                          [('Coding').html_safe, "Coding"],
+                          [('Calligraphy').html_safe, "Calligraphy"],
+                          [('Candle Making').html_safe, "Candle Making"],
+                          [('Carpentry').html_safe, "Carpentry"],
                           [('Ceramics').html_safe, "Ceramics"],
-                          [('Textiles').html_safe, "Textiles"],
-                          [('Carpentry').html_safe, "Carpentry"]
+                          [('Coding').html_safe, "Coding"],
+                          [('Embroidery').html_safe, "Embroidery"],
+                          [('Fishing').html_safe, "Fishing"],
+                          [('Knitting/Crocheting').html_safe, "Knitting/Crocheting"],
+                          [('Macramé').html_safe, "Macramé"],
+                          [('Music').html_safe, "Music"],
+                          [('Origami').html_safe, "Origami"],
+                          [('3D Printing').html_safe, "3D Printing"],
+                          [('Photography').html_safe, "Photography"],
+                          [('Sewing').html_safe, "Sewing"],
+                          [('Skateboarding').html_safe, "Skateboarding"],
+                          [('Soap Making').html_safe, "Soap Making"],
+                          [('Tattooing').html_safe, "Tattooing"],
                         ]
                          %>
       </div>
     </div>
-
+    <br>
     <div class="geolocation" data-controller="distance">
     <div class="d-flex inline-block">
     <h2 style="margin-right: 10px; margin-left: 10px;">Distance:</h2>
@@ -38,7 +50,8 @@
       %>
 
       </div>
-    </div>
+    <br>
     <%= f.submit class: 'btn-flat', value: "Filter Search" %>
   <% end %>
+</div>
 </div>
