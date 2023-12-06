@@ -5,8 +5,10 @@
         <div class="option"><i class="fa-solid fa-user fa-lg"></i></div>
       <% end %>
 
-      <%= link_to profiles_path do %>
-        <div class="option"><i class="fa-solid fa-bolt fa-2xl"></i></i></div>
+    <%= link_to profiles_path do %>
+        <div class="option logo">
+            <%= image_tag("https://res.cloudinary.com/dbd4uen7z/image/upload/v1701871540/skill-swap/orange-logo.png", alt: "Logo", size: "50x55") %>
+        </div>
       <% end %>
 
       <%= link_to new_profile_offer_path(current_user.profile) do %>

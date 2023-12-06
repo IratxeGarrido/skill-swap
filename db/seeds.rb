@@ -394,11 +394,11 @@ offer.save!
 
 match = Match.new(status: 'accepted', initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
 match.save!
-match = Match.new(status: 'pending', initiator_id: zoe_profile.id, creator_id: iratxe_profile.id)
+match = Match.new(status: 'accepted', initiator_id: jamie_profile.id, creator_id: mustafa_profile.id)
 match.save!
 match = Match.new(status: 'pending', initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
 match.save!
-match = Match.new(status: 'pending', initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
+match = Match.new(status: 'acceptedrails', initiator_id: joshua_profile.id, creator_id: jamie_profile.id)
 match.save!
 match = Match.new(status: 'pending', initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
 match.save!

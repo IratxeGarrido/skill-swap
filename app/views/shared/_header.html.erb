@@ -25,6 +25,15 @@
       <h3>Filter your Search</h3>
   </div>
 
+  <% elsif params[:controller] == "offers" && params[:action] == "new" %>
+
+    <div class="header">
+      <%= link_to profiles_path do %>
+        <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
+      <% end %>
+      <h3>Create an offer</h3>
+  </div>
+
 <% else %>
 
   <div class="header">
