@@ -37,10 +37,12 @@
 
       </div>
     </div>
+    <hr>
     <br>
     <div class="geolocation" data-controller="distance">
-    <div class="d-flex inline-block">
-    <h2 style="margin-right: 10px; margin-left: 10px;">Distance:</h2>
+    <div class="d-flex">
+
+    <h2 style="margin-right:10px; margin-left: 70px;">Distance:</h2>
     <h2 data-distance-target="kilometer">0km</h2>
     </div>
       <%= f.input :distance,
@@ -51,8 +53,10 @@
       %>
 
       </div>
+
+    
     <br>
-    <%= f.submit class: 'btn-flat', value: "Filter Search" %>
+    <%= f.submit class: 'btn-flat', value: "Show Results" %>
   <% end %>
 </div>
 </div>

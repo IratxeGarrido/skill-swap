@@ -54,6 +54,14 @@
   border-radius: 9999px;
 }
 
+.profile-pic-messages {
+  width: 47px;
+  height: 44px;
+  border-radius: 9999px;
+  margin-bottom: -11px;
+  margin-top: -13px;
+}
+
 .profile-details {
   position: absolute;
   left: 81px;
@@ -88,14 +96,13 @@
 .latest-message {
   position: absolute;
   top: 30px;
-  width: 209px;
+  width: 300px;
   height: 27px;
   color: rgba(0, 0, 0, 0.70);
   font-size: 18px;
-  font-family: "Kanit";
   font-weight: 400;
   line-height: 24px;
-  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .comment-icon {
