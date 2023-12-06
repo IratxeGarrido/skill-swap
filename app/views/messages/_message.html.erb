@@ -1,7 +1,7 @@
 <div id="message-<%= message.id %>">
-      <small>
+      <small class="chat-name-date">
         <strong><%= message.sender.first_name %></strong>
         <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
       </small>
-      <p><%= message.content %></p>
+      <p class="chat-content"><%= message.content %></p>
 </div>

@@ -2,12 +2,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 28px;
+  padding: 14px 28px;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  padding-bottom: 18px;
+  // padding-bottom: 18px;
+  padding-bottom:8px;
   background-color: $header-footer;
   z-index: 9999;
   opacity: 100%;
@@ -18,11 +19,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 28px;
+  padding: 14px 28px;
   width: 100%;
-  position: sticky;
+  position: fixed;
   top: 0;
-  padding-bottom: 18px;
+  padding-bottom: 10px;
   background-color: $header-footer;
   z-index: 9999;
   opacity: 100%;
@@ -39,19 +40,19 @@
   letter-spacing: 0;
   line-height: normal;
   opacity: 100%;
-  text-shadow: 2px 2px $checked-icon;
+  text-shadow: 2px 2px #1a2f20;
 }
 
 .fa-arrow-left {
   font-size: 25px;
-  text-shadow: 2px 2px $checked-icon;
+ text-shadow: 2px 2px #1a2f20;
 }
 
 .header, h3 {
   color:$icon;
   font-size: 24px;
   padding-right:50px;
-  text-shadow: 2px 2px $checked-icon;
+  text-shadow: 2px 2px #1a2f20;
 }
 
 .matches-h {
@@ -62,11 +63,11 @@
   position: relative;
   width: fit-content;
   margin-top: -1px;
-  font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: $icon;
   font-size: 20px;
   letter-spacing: 0;
   line-height: normal;
   opacity: 100%;
+  text-shadow: 2px 2px #1a2f20;
 }
