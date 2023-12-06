@@ -1,9 +1,18 @@
    <%# header %>
-<% if params[:controller] == "matches" && params[:action] == "show" %>
 
-  <div class="header">
+<% if params[:controller] == "matches" && params[:action] == "show" %>
+  <% initiator_profile = Profile.find_by(id: @match.initiator_id) %>
+  <% creator_profile = Profile.find_by(id: @match.creator_id) %>
+  <% correspondent_profile = current_user.id == @match.initiator_id ? creator_profile : initiator_profile %>
+
+  <div class="header_chat">
     <%= link_to matches_path do %>
       <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
+    <% end %>
+    <h5 style="margin-bottom: 0"><%= correspondent_profile.first_name %></h5>
+
+    <%= link_to profile_path(correspondent_profile) do %>
+      <%= cl_image_tag(correspondent_profile.photo.key, class: "profile-pic-messages") %>
     <% end %>
   </div>
 
@@ -23,6 +32,14 @@
         <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
       <% end %>
       <h3>Filter your Search</h3>
+  </div>
+
+<% elsif params[:controller] == "profiles" && params[:action] == "search" %>
+
+  <div class="header">
+      <%= link_to profiles_path do %>
+        <div class="option"><i class="fa-sharp fa-solid fa-arrow-left"></i></div>
+      <% end %>
   </div>
 
 <% else %>
