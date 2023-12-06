@@ -1,13 +1,10 @@
 <div class="profile-card">
   <div class="img-card" style="background-image: url('<%= cl_image_path(profile.photo.key) if @profile.photo.attached? %>');">
   </div>
-    <div class="div">
-    </div>
+    <div class="div"></div>
     <div class="profile-description">
       <div class="name">
         <div class="name-title"><%= profile.first_name %></div>
-      </div>
-      <div class="text-wrapper">About Me</div>
       <p class="p"><%= profile.bio %></p>
     </div>
 </div>
@@ -23,3 +20,4 @@
         <%= f.submit %>
       <% end %>
     </div>
+</div>
