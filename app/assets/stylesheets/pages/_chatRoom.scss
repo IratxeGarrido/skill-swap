@@ -19,11 +19,13 @@
   height: 66px;
 }
 
-#chatInput {
 
-  width: 100%;
-  padding: 6px 12px;
 
+.chatInput:focus, .chatInput:active, .chatInput.active, .chatInput:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 #cSubmitButton {
