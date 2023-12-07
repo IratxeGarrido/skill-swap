@@ -360,6 +360,7 @@ match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id:
 match.save!
 match = Match.new(status: "pending", initiator_id: elisabeth_profile.id, creator_id: iratxe_profile.id)
 match.save!
-
+match = Match.new(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
+match.save!
 # message = Message.new(content: 'hi', read_status: true, match_id: 2, sender_id: 2)
 # message.save!
