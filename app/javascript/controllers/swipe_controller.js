@@ -11,37 +11,50 @@ export default class extends Controller {
   }
 
   connect() {
-
     this.swipeCardTargets.forEach((card, index) => {
       const hammertime = new Hammer(card);
 
       card.style.zIndex = this.swipeCardTargets.length - index;
 
-      hammertime.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+      hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
       hammertime.get('pinch').set({ enable: false });
 
-      hammertime.on('pan', (event) => {
+      //  On panstart, check the angle to identify swipe vs. scroll (Hammerjs issue)
+      hammertime.on('panstart', (event) => {
+
         card.classList.add('moving')
-        // card.style.transform = "translate(" + event.deltaX + "px)";
-        card.style.transform = "translate(" + event.deltaX + "px, 0)";
-        if (event.deltaX === 0) {
 
-          this.likeTarget.classList.add('gone');
-          this.nopeTarget.classList.add('gone');
-        } else if (event.deltaX > 80 ) {
-          this.likeTarget.classList.remove('gone');
-          this.nopeTarget.classList.add('gone');
-        } else if (event.deltaX < -80 ) {
-          this.nopeTarget.classList.remove('gone');
-          this.likeTarget.classList.add('gone');
+        // Get initial angle
+        let angle = Math.abs(event.angle);
+
+        if (angle > 150 || angle < 30) {
+
+          // If angle corresponds to a swipe, add event listener on pan to handle translate motion of card
+          hammertime.on('pan', (event) => {
+            let angle = Math.abs(event.angle);
+            if (angle > 150 || angle < 30) {
+              card.style.transform = "translate(" + event.deltaX + "px, 0)";
+            }
+
+            // Add floating icons
+            if (event.deltaX === 0) {
+              this.likeTarget.classList.add('gone');
+              this.nopeTarget.classList.add('gone');
+            } else if (event.deltaX > 80 ) {
+              this.likeTarget.classList.remove('gone');
+              this.nopeTarget.classList.add('gone');
+            } else if (event.deltaX < -80 ) {
+              this.nopeTarget.classList.remove('gone');
+              this.likeTarget.classList.add('gone');
+            }
+          })
         }
-      })
+      });
 
+      // Event listener on panend for release (remove icons, make card disappear and trigger swipe actions)
       hammertime.on('panend', (event) => {
-        card.classList.remove('moving')
         this.likeTarget.classList.add('gone');
         this.nopeTarget.classList.add('gone');
-        card.style.transform = '';
         if ( event.deltaX > 200) {
           card.classList.add("d-none");
           this.#swipeRight()
@@ -50,6 +63,7 @@ export default class extends Controller {
           card.classList.add("d-none");
           this.#swipeLeft()
         }
+        card.style.transform = '';
       })
     });
   }
