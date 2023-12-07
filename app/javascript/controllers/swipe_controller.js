@@ -13,10 +13,9 @@ export default class extends Controller {
   connect() {
     this.swipeCardTargets.forEach((card, index) => {
       const hammertime = new Hammer(card);
-
       card.style.zIndex = this.swipeCardTargets.length - index;
 
-      hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+      hammertime.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
       hammertime.get('pinch').set({ enable: false });
 
       //  On panstart, check the angle to identify swipe vs. scroll (Hammerjs issue)
