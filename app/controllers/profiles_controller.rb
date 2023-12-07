@@ -54,7 +54,6 @@ class ProfilesController < ApplicationController
   end
 
   def show
-
   end
 
   def search
