@@ -63,7 +63,6 @@
   max-width: 400px;
   height: 85vh;
   background: #FFFFFF;
-  border-radius: 8px;
   overflow: auto;
   position: absolute;
   will-change: transform;
@@ -71,7 +70,7 @@
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
-  margin: 7.5vh;
+  margin: 8.5vh;
   touch-action: pan-y !important;
     // margin-top: 14.5vh;
 }
