@@ -3,7 +3,7 @@
     <% creator_profile = Profile.find_by(id: @match.creator_id) %>
 
     <% correspondent_profile = current_user.id == @match.initiator_id ? creator_profile : initiator_profile %>
-    <div>
+
 
       <div class="container_chatroom"
         data-controller="match-subscription"
@@ -33,7 +33,6 @@
 
           <% end %>
         </div>
-      </div>
     </div>
 <% else %>
   <p>Access denied</p>
