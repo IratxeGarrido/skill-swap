@@ -1,0 +1,17 @@
+{
+  "background_color": "#32513c",
+  "description": "Skill Swap is a sharing platform where you can share your knowledge and/or materials with other peers to reduce the threshold for starting new hobbies",
+  "display": "fullscreen",
+  "name": "Skill Swap",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
