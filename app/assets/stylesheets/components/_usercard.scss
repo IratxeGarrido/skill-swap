@@ -7,7 +7,10 @@
   align-items: flex-start;
   gap: 10px;
   position: relative;
-  background-color: $testbg;
+  // background-color: $testbg;
+  background: #426b4f;
+  box-shadow: inset 50px -50px 100px #375942,
+              inset -50px 50px 100px #4d7d5c;
 }
 
 .profile-card .img-card {
@@ -149,6 +152,7 @@
   line-height: 24px;
   overflow: hidden;
   padding-bottom: 18px;
+  text-shadow: 1px 1px $shadow;
 
 }
 
