@@ -22,7 +22,8 @@ export default class extends Controller {
 
       hammertime.on('pan', (event) => {
         card.classList.add('moving')
-        card.style.transform = "translate(" + event.deltaX + "px)";
+        // card.style.transform = "translate(" + event.deltaX + "px)";
+        card.style.transform = "translate(" + event.deltaX + "px, 0)";
         if (event.deltaX === 0) {
 
           this.likeTarget.classList.add('gone');
