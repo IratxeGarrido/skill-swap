@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    get 'logout' => "devise/sessions#destroy"
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   patch "swipe_left", to: "matches#swipe_left"
   patch "swipe_right", to: "matches#swipe_right"
   post "pop_up_message", to: "messages#pop_up_message"
-  
+
   # Defines the root path route ("/")
   # root "profiles#index"
   root "profiles#index"
