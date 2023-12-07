@@ -34,9 +34,7 @@ export default class extends Controller {
             let angle = Math.abs(event.angle);
             if (angle > 150 || angle < 30) {
               card.style.transform = "translate(" + event.deltaX + "px, 0)";
-            }
-
-            // Add floating icons
+              // Add floating icons
             if (event.deltaX === 0) {
               this.likeTarget.classList.add('gone');
               this.nopeTarget.classList.add('gone');
@@ -46,6 +44,7 @@ export default class extends Controller {
             } else if (event.deltaX < -80 ) {
               this.nopeTarget.classList.remove('gone');
               this.likeTarget.classList.add('gone');
+            }
             }
           })
         }
