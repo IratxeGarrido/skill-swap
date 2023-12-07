@@ -27,11 +27,14 @@
               rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
               rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset;
 }
-#chatInput {
 
-  width: 100%;
-  padding: 6px 12px;
 
+
+.chatInput:focus, .chatInput:active, .chatInput.active, .chatInput:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 #cSubmitButton {
