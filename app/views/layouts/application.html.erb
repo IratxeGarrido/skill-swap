@@ -5,15 +5,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
     <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dbd4uen7z/image/upload/v1701871540/skill-swap/orange-logo.png">
-    <%= render 'shared/ios_pwa_links' %>
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
   </head>
 
   <body>
