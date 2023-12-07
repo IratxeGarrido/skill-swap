@@ -46,8 +46,7 @@
       <i class="fa-arrow-left gone"></i>
   </div>
 
-  <% elsif params[:controller] == "profiles" && params[:action] == "show" %>
-
+  <% elsif params[:controller] == "profiles" && params[:action] == "show" && @profile.user.id == current_user.id %>
     <div class="header">
      <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
         <div class="option"><i class="fa-solid fa-power-off"></i></div>
