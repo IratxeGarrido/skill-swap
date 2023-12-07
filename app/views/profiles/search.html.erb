@@ -2,7 +2,6 @@
 
 <%# FILTERS AND SEARCH LOGIC %>
 <div class="filter-container">
-<br>
   <%= simple_form_for :search, url: profiles_path, method: "GET", html: {class: "form index-form" } do |f| %>
     <div class="filter-div" data-controller="checkbox">
       <div class="panel">
@@ -55,7 +54,7 @@
 
       </div>
 
-  
+
     <%= f.submit class: 'btn-flat', value: "Show Results" %>
   <% end %>
 </div>

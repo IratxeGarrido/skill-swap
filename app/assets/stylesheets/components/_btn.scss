@@ -9,6 +9,7 @@
   font-size: 20px;
   border:none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-shadow: 2px 2px #1a2f20;
 }
 
 .btn-flat:active {
@@ -24,4 +25,8 @@
 
 .btn-send:active {
   background-color: $checked-icon2;
+}
+
+1:active{
+  
 }

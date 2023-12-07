@@ -7,13 +7,14 @@ export default class extends Controller {
   // added the currentUserId to above
   static targets = ["messages"]
   connect() {
-    console.log(this.messagesTarget.lastElementChild.scrollHeight)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    console.log(this.element.scrollHeight)
+    this.element.scrollTo(0, this.element.scrollHeight)
     this.channel = createConsumer().subscriptions.create(
       { channel: "MatchesChannel", id: this.matchIdValue },
       { received: data => this.#insertMessageAndScrollDown(data)}
     )
     console.log(`Subscribed to the chatroom with the id ${this.matchIdValue}.`)
+
   }
 
   resetForm(event) {
@@ -39,7 +40,7 @@ export default class extends Controller {
   }
 
   #scrollPlease() {
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight + 100)
   }
   ///////////////////////////////////////////////////////////////////////////////
 

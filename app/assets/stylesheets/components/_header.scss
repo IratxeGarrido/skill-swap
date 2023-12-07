@@ -36,7 +36,7 @@
   margin-top: -1px;
   font-weight: 400;
   color: $icon;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 0;
   line-height: normal;
   opacity: 100%;
@@ -51,13 +51,10 @@
 .header, h3 {
   color:$icon;
   font-size: 24px;
-  padding-right:50px;
+  // padding-right:35px;
   text-shadow: 2px 2px #1a2f20;
 }
 
-.matches-h {
-  padding-right:65px;
-}
 
 .header_chat .option {
   position: relative;
@@ -71,3 +68,7 @@
   opacity: 100%;
   text-shadow: 2px 2px #1a2f20;
 }
+
+// .ghost {
+//  visibility: hidden;
+// }
