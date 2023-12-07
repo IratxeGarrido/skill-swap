@@ -17,12 +17,12 @@ export default class extends Controller {
 
       card.style.zIndex = this.swipeCardTargets.length - index;
 
-      hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-      hammertime.get('pinch').set({ enable: true });
+      hammertime.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+      hammertime.get('pinch').set({ enable: false });
 
       hammertime.on('pan', (event) => {
         card.classList.add('moving')
-        card.style.transform = "translate(" + event.deltaX + "px, " + event.deltaY + "px)";
+        card.style.transform = "translate(" + event.deltaX + "px)";
         if (event.deltaX === 0) {
 
           this.likeTarget.classList.add('gone');
