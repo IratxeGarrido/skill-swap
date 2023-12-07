@@ -13,7 +13,6 @@ export default class extends Controller {
   connect() {
     this.swipeCardTargets.forEach((card, index) => {
       const hammertime = new Hammer(card);
-
       card.style.zIndex = this.swipeCardTargets.length - index;
 
       hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
@@ -38,10 +37,10 @@ export default class extends Controller {
             if (event.deltaX === 0) {
               this.likeTarget.classList.add('gone');
               this.nopeTarget.classList.add('gone');
-            } else if (event.deltaX > 80 ) {
+            } else if (event.deltaX > 50 ) {
               this.likeTarget.classList.remove('gone');
               this.nopeTarget.classList.add('gone');
-            } else if (event.deltaX < -80 ) {
+            } else if (event.deltaX < -50 ) {
               this.nopeTarget.classList.remove('gone');
               this.likeTarget.classList.add('gone');
             }

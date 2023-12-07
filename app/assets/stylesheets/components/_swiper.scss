@@ -26,16 +26,23 @@
 .floating-icon i {
   font-size: 100px;
   transform: scale(0.8);
-  transition: all 0.4s ease-in-out;
+  // transition: all 0.1s ease-in-out;
   position: absolute;
   width: 100px;
   margin-left: -50px;
-  color: #FE5D5D;
   opacity: 0.8;
 }
 
 .floating-icon .gone {
   opacity: 0;
+}
+
+.floating-icon .heart {
+  color: #FE5D5D;
+}
+
+.floating-icon .nope {
+  color: #0e1117;
 }
 
 
@@ -66,7 +73,7 @@
   overflow: auto;
   position: absolute;
   will-change: transform;
-  transition: all 0.3s ease-in-out;
+  // transition: all 0.3s ease-in-out;
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
