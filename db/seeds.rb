@@ -147,19 +147,19 @@ iratxe_profile = Profile.new(
 iratxe_profile.photo.attach(io: file, filename: 'iratxe.png', content_type: 'image/png')
 iratxe_profile.save!
 
-zoe = User.create(email: 'zoe@skillswap.com', password: '123456')
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/zoe.jpg')
-zoe_profile = Profile.new(
-  first_name: 'Zoe',
-  last_name: 'Mawby Smart',
-  bio: "I'm from Australia and i have lived in Berlin for 5 years now. I was studying Biochemistry at FU but after taking a year off I decided to discontinue. Now I'm looking for a more creative career change and I am super excited to get into the tech world!",
-  age: 28,
-  gender: 'Female',
-  address: 'Ohlauer Str. 38, Berlin',
-  user_id: zoe.id
-)
-zoe_profile.photo.attach(io: file, filename: 'zoe.png', content_type: 'image/png')
-zoe_profile.save!
+# zoe = User.create(email: 'zoe@skillswap.com', password: '123456')
+# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/zoe.jpg')
+# zoe_profile = Profile.new(
+#   first_name: 'Zoe',
+#   last_name: 'Mawby Smart',
+#   bio: "I'm from Australia and i have lived in Berlin for 5 years now. I was studying Biochemistry at FU but after taking a year off I decided to discontinue. Now I'm looking for a more creative career change and I am super excited to get into the tech world!",
+#   age: 28,
+#   gender: 'Female',
+#   address: 'Ohlauer Str. 38, Berlin',
+#   user_id: zoe.id
+# )
+# zoe_profile.photo.attach(io: file, filename: 'zoe.png', content_type: 'image/png')
+# zoe_profile.save!
 
 jamie = User.create(email: 'jamie@skillswap.com', password: '123456')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/jamie.jpg')
@@ -190,7 +190,7 @@ mustafa_profile.photo.attach(io: file, filename: 'mustafa.png', content_type: 'i
 mustafa_profile.save!
 
 iratxe_profile = Profile.find_by(first_name: 'Iratxe')
-zoe_profile = Profile.find_by(first_name: 'Zoe')
+# zoe_profile = Profile.find_by(first_name: 'Zoe')
 pedro_profile = Profile.find_by(first_name: 'Pedro')
 lucas_profile = Profile.find_by(first_name: 'Lucas')
 jamie_profile = Profile.find_by(first_name: 'Jamie')
@@ -208,7 +208,7 @@ mustafa_profile = Profile.find_by(first_name: 'Mohammad')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/photography-1.jpg')
 offer = Offer.new(description: 'I can teach you to take pretty pictures with my very cool analog camera.',
                   category: 'Photography',
-                  profile_id: zoe_profile.id)
+                  profile_id: elisabeth_profile.id)
 offer.photo.attach(io: file, filename: 'photography-1.png', content_type: 'image/png')
 offer.save!
 
@@ -230,7 +230,7 @@ offer.save!
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/painting-1.jpg')
 offer = Offer.new(description: 'I love painting with watercolour and have loads of material I would be happy to swap!',
                   category: 'Painting',
-                  profile_id: zoe_profile.id)
+                  profile_id: iratxe_profile.id)
 offer.photo.attach(io: file, filename: 'painting-1.png', content_type: 'image/png')
 offer.save!
 
