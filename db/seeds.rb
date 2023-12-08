@@ -388,6 +388,7 @@ match.save!
 # match.save!
 match = Match.new(status: "pending", initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
 match.save!
+
 # match = Match.new(status: "pending", initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
 # match.save!
 # match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
@@ -396,5 +397,6 @@ match.save!
 # match.save!
 # match = Match.new(status: "pending", initiator_id: elisabeth_profile.id, creator_id: iratxe_profile.id)
 # match.save!
+
 # message = Message.new(content: 'hi', read_status: true, match_id: 2, sender_id: 2)
 # message.save!

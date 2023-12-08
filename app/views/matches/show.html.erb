@@ -1,9 +1,9 @@
-<% if current_user.id == @match.initiator_id || current_user.id == @match.creator_id %>
+<% current_profile = Profile.find_by(user_id: current_user.id) %>
+<% if current_profile.id == @match.initiator_id || current_profile.id == @match.creator_id %>
     <% initiator_profile = Profile.find_by(id: @match.initiator_id) %>
     <% creator_profile = Profile.find_by(id: @match.creator_id) %>
 
     <% correspondent_profile = current_user.id == @match.initiator_id ? creator_profile : initiator_profile %>
-
 
       <div class="container_chatroom"
         data-controller="match-subscription"
