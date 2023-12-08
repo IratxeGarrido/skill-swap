@@ -13,6 +13,8 @@ class ProfilesController < ApplicationController
       if params[:search][:skill].empty?
         @query = params[:search][:distance]
         @profiles = Profile.near(current_user.profile.address, @query)
+        @profiles = @profiles.reject { |profile| profile.is_match?(current_user.profile) }
+
 
       else
         @query = params[:search][:skill]
@@ -21,6 +23,7 @@ class ProfilesController < ApplicationController
                     .where(offers: { category: @query })
                     .distinct
         @profiles = @results.near(current_user.profile.address, params[:search][:distance])
+        @profiles = @profiles.reject { |profile| profile.is_match?(current_user.profile) }
       end
     end
     @match = Match.new
