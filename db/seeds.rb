@@ -21,6 +21,20 @@ adam_profile = Profile.new(
 adam_profile.photo.attach(io: file, filename: 'adam.png', content_type: 'image/png')
 adam_profile.save!
 
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/painting-2.jpg')
+offer = Offer.new(description: "I've accumulated a vast collection of watercolor supplies, including premium paints, brushes, and specialty paper. If you're a fellow watercolor enthusiast, let's trade materials and elevate our painting experiences together!",
+                  category: 'Painting',
+                  profile_id: adam_profile.id)
+offer.photo.attach(io: file, filename: 'painting-2.png', content_type: 'image/png')
+offer.save!
+
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/calligraphy-1.jpg')
+offer = Offer.new(description: "I possess premium calligraphy tools—pens, ink, and exquisite paper. Let's swap skills and elevate our lettering artistry!",
+                  category: 'Calligraphy',
+                  profile_id: adam_profile.id)
+offer.photo.attach(io: file, filename: 'calligraphy-1.png', content_type: 'image/png')
+offer.save!
+
 emma = User.create(email: 'emma@skillswap.com', password: '123456')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/emma.jpg')
 emma_profile = Profile.new(
@@ -35,6 +49,13 @@ emma_profile = Profile.new(
 emma_profile.photo.attach(io: file, filename: 'emma.png', content_type: 'image/png')
 emma_profile.save!
 
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/coding-2.jpg')
+offer = Offer.new(description: "I've been coding for a few years and I just finished a webdev coding bootcamp. I can teach you ruby!",
+                  category: 'Coding',
+                  profile_id: emma_profile.id)
+offer.photo.attach(io: file, filename: 'coding-2.png', content_type: 'image/png')
+offer.save!
+
 pedro = User.create(email: 'pedro@skillswap.com', password: '123456')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/pedro.jpg')
 pedro_profile = Profile.new(
@@ -48,6 +69,25 @@ pedro_profile = Profile.new(
 )
 pedro_profile.photo.attach(io: file, filename: 'pedro.png', content_type: 'image/png')
 pedro_profile.save!
+
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/photography-2.avif')
+offer = Offer.new(description: "I've was into photography some years ago, but not anymore. I have a couple of cameras and a bunch of gear I wanna swap for something cool",
+                  category: 'Photography',
+                  profile_id: pedro_profile.id)
+offer.photo.attach(io: file, filename: 'photography-2.png', content_type: 'image/png')
+offer.save!
+
+
+
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/3d-printing.jpg')
+offer =
+  Offer.new(description: "I just bought a new 3D printer and I dom't use this one anymore so I'm giving it away.",
+            category: '3D Printing',
+            profile_id: pedro_profile.id)
+offer.photo.attach(io: file, filename: '3d-printing-1.png', content_type: 'image/png')
+offer.save!
+
+
 
 max = User.create(email: 'max@skillswap.com', password: '123456')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/max.jpg')
@@ -147,19 +187,22 @@ iratxe_profile = Profile.new(
 iratxe_profile.photo.attach(io: file, filename: 'iratxe.png', content_type: 'image/png')
 iratxe_profile.save!
 
-zoe = User.create(email: 'zoe@skillswap.com', password: '123456')
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/zoe.jpg')
-zoe_profile = Profile.new(
-  first_name: 'Zoe',
-  last_name: 'Mawby Smart',
-  bio: "I'm from Australia and i have lived in Berlin for 5 years now. I was studying Biochemistry at FU but after taking a year off I decided to discontinue. Now I'm looking for a more creative career change and I am super excited to get into the tech world!",
-  age: 28,
-  gender: 'Female',
-  address: 'Ohlauer Str. 38, Berlin',
-  user_id: zoe.id
-)
-zoe_profile.photo.attach(io: file, filename: 'zoe.png', content_type: 'image/png')
-zoe_profile.save!
+match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
+match.save!
+
+# zoe = User.create(email: 'zoe@skillswap.com', password: '123456')
+# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/zoe.jpg')
+# zoe_profile = Profile.new(
+#   first_name: 'Zoe',
+#   last_name: 'Mawby Smart',
+#   bio: "I'm from Australia and i have lived in Berlin for 5 years now. I was studying Biochemistry at FU but after taking a year off I decided to discontinue. Now I'm looking for a more creative career change and I am super excited to get into the tech world!",
+#   age: 28,
+#   gender: 'Female',
+#   address: 'Ohlauer Str. 38, Berlin',
+#   user_id: zoe.id
+# )
+# zoe_profile.photo.attach(io: file, filename: 'zoe.png', content_type: 'image/png')
+# zoe_profile.save!
 
 jamie = User.create(email: 'jamie@skillswap.com', password: '123456')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/jamie.jpg')
@@ -190,7 +233,7 @@ mustafa_profile.photo.attach(io: file, filename: 'mustafa.png', content_type: 'i
 mustafa_profile.save!
 
 iratxe_profile = Profile.find_by(first_name: 'Iratxe')
-zoe_profile = Profile.find_by(first_name: 'Zoe')
+# zoe_profile = Profile.find_by(first_name: 'Zoe')
 pedro_profile = Profile.find_by(first_name: 'Pedro')
 lucas_profile = Profile.find_by(first_name: 'Lucas')
 jamie_profile = Profile.find_by(first_name: 'Jamie')
@@ -208,16 +251,13 @@ mustafa_profile = Profile.find_by(first_name: 'Mohammad')
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/photography-1.jpg')
 offer = Offer.new(description: 'I can teach you to take pretty pictures with my very cool analog camera.',
                   category: 'Photography',
-                  profile_id: zoe_profile.id)
+                  profile_id: michelle_profile.id)
 offer.photo.attach(io: file, filename: 'photography-1.png', content_type: 'image/png')
 offer.save!
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/photography-2.avif')
-offer = Offer.new(description: "I've was into photography some years ago, but not anymore. I have a couple of cameras and a bunch of gear I wanna swap for something cool",
-                  category: 'Photography',
-                  profile_id: pedro_profile.id)
-offer.photo.attach(io: file, filename: 'photography-2.png', content_type: 'image/png')
-offer.save!
+
+
+
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/photography-3.jpg')
 Offer.new(description: "Vintage photography gear enthusiast here! I've got a collection of classic film cameras, lenses, and darkroom equipment that I'd like to trade for unique, antique cameras or other vintage photography items. Let's swap some timeless treasures!",
@@ -230,16 +270,11 @@ offer.save!
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/painting-1.jpg')
 offer = Offer.new(description: 'I love painting with watercolour and have loads of material I would be happy to swap!',
                   category: 'Painting',
-                  profile_id: zoe_profile.id)
+                  profile_id: max_profile.id)
 offer.photo.attach(io: file, filename: 'painting-1.png', content_type: 'image/png')
 offer.save!
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/painting-2.jpg')
-offer = Offer.new(description: "I've accumulated a vast collection of watercolor supplies, including premium paints, brushes, and specialty paper. If you're a fellow watercolor enthusiast, let's trade materials and elevate our painting experiences together!",
-                  category: 'Painting',
-                  profile_id: adam_profile.id)
-offer.photo.attach(io: file, filename: 'painting-2.png', content_type: 'image/png')
-offer.save!
+
 
 # ------------------------------ Drawing ------------------------------ #
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/drawing-1.jpg')
@@ -264,21 +299,11 @@ offer = Offer.new(description: "Coding journey of a few years and just graduated
 offer.photo.attach(io: file, filename: 'coding-1.png', content_type: 'image/png')
 offer.save!
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/coding-2.jpg')
-offer = Offer.new(description: "I've been coding for a few years and I just finished a webdev coding bootcamp. I can teach you ruby!",
-                  category: 'Coding',
-                  profile_id: emma_profile.id)
-offer.photo.attach(io: file, filename: 'coding-2.png', content_type: 'image/png')
-offer.save!
+
 
 # ------------------------------ Calligraphy ------------------------------ #
 
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/calligraphy-1.jpg')
-offer = Offer.new(description: "I possess premium calligraphy tools—pens, ink, and exquisite paper. Let's swap skills and elevate our lettering artistry!",
-                  category: 'Calligraphy',
-                  profile_id: max_profile.id)
-offer.photo.attach(io: file, filename: 'calligraphy-1.png', content_type: 'image/png')
-offer.save!
+
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/calligraphy-2.jpg')
 offer = Offer.new(description: "Trade sketches for scrolls: My calligraphy kit is yours! ",
@@ -300,37 +325,47 @@ file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto
 offer = Offer.new(description: "Offering handmade wooden creations in exchange for something cool. Let's swap and bring the warmth of craftsmanship into your surroundings. ",
                   category: 'Carpentry',
                   profile_id: max_profile.id)
-offer.photo.attach(io: file, filename: 'candle-1.png', content_type: 'image/png')
+offer.photo.attach(io: file, filename: 'carpentry-1.png', content_type: 'image/png')
 offer.save!
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/carpentry-2.jpg')
 offer = Offer.new(description: "Offering different carpentry tools and machinery for a cool exchange. ",
                   category: 'Carpentry',
-                  profile_id: jamie_profile.id)
-offer.photo.attach(io: file, filename: 'candle-2.png', content_type: 'image/png')
+                  profile_id: mustafa_profile.id)
+offer.photo.attach(io: file, filename: 'carpentry-2.png', content_type: 'image/png')
 offer.save!
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/carpentry-3.jpg')
 offer = Offer.new(description: "Swap for sturdy elegance! I've crafted various wooden pieces, and I'm open to cool exchanges.",
                   category: 'Carpentry',
                   profile_id: olivier_profile.id)
+offer.photo.attach(io: file, filename: 'carpentry-3.png', content_type: 'image/png')
+offer.save!
+
+
+
+# ------------------------------ Candle Making ------------------------------ #
+
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-1.jpg')
+offer = Offer.new(description: "Offering hand-poured aromatic candles for a delightful exchange. Bring the soothing scents of relaxation into your home.",
+                  category: 'Candle Making',
+                  profile_id: lucas_profile.id)
+offer.photo.attach(io: file, filename: 'candle-1.png', content_type: 'image/png')
+offer.save!
+
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-2.jpg')
+offer = Offer.new(description: "Swap for sustainable serenity! I repurpose wax into beautiful candles. Let's trade for a greener, cozier space.",
+                  category: 'Candle Making',
+                  profile_id: elisabeth_profile.id)
+offer.photo.attach(io: file, filename: 'candle-2.png', content_type: 'image/png')
+offer.save!
+
+file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/candle-3.jpg')
+offer = Offer.new(description: "Turning memories into candles! Swap your nostalgic items for a personalized candle that encapsulates special moments.",
+                  category: 'Candle Making',
+                  profile_id: olivier_profile.id)
 offer.photo.attach(io: file, filename: 'candle-3.png', content_type: 'image/png')
 offer.save!
-
-file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/3d-printing.jpg')
-offer =
-  Offer.new(description: "I just bought a new 3D printer and I dom't use this one anymore so I'm giving it away.",
-            category: '3D Printing',
-            profile_id: joshua_profile.id)
-offer.photo.attach(io: file, filename: '3d-printing-1.png', content_type: 'image/png')
-offer.save!
-
-# file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/v1701699077/skill-swap/ginny.jpg')
-# offer = Offer.new(description: 'I'll teach you how to whisper french commands to your dog.',
-# category: 'Dog training',
-# profile_id: lucas_profile.id)
-# offer.photo.attach(io: file, filename: 'dog-training.png', content_type: 'image/png')
-# offer.save!
 
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/tatto.jpg')
 offer = Offer.new(description: 'I have it all. The machine, the fake skin and the ink. I can teach you how to do tattos.',
@@ -342,25 +377,24 @@ offer.save!
 file = URI.open('https://res.cloudinary.com/dbd4uen7z/image/upload/f_auto,q_auto/v1/skill-swap/tatto.jpg')
 offer = Offer.new(description: 'I have it all. The machine, the fake skin and the ink. I can teach you how to do tattos.',
                   category: 'Tattooing',
-                  profile_id: elisabeth_profile.id)
+                  profile_id: joshua_profile.id)
 offer.photo.attach(io: file, filename: 'tattooing.png', content_type: 'image/png')
 offer.save!
 
-match = Match.new(status: "pending", initiator_id: max_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: "pending", initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: "pending", initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: "pending", initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
-match.save!
-match = Match.new(status: "pending", initiator_id: elisabeth_profile.id, creator_id: iratxe_profile.id)
-match.save!
+
 match = Match.new(status: "accepted", initiator_id: jamie_profile.id, creator_id: iratxe_profile.id)
 match.save!
+# match = Match.new(status: "pending", initiator_id: mustafa_profile.id, creator_id: iratxe_profile.id)
+# match.save!
+match = Match.new(status: "pending", initiator_id: joshua_profile.id, creator_id: iratxe_profile.id)
+match.save!
+# match = Match.new(status: "pending", initiator_id: emma_profile.id, creator_id: iratxe_profile.id)
+# match.save!
+# match = Match.new(status: "pending", initiator_id: lucas_profile.id, creator_id: iratxe_profile.id)
+# match.save!
+# match = Match.new(status: "pending", initiator_id: pedro_profile.id, creator_id: iratxe_profile.id)
+# match.save!
+# match = Match.new(status: "pending", initiator_id: elisabeth_profile.id, creator_id: iratxe_profile.id)
+# match.save!
 # message = Message.new(content: 'hi', read_status: true, match_id: 2, sender_id: 2)
 # message.save!
