@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+MADE BY IRATXE JAMIE MUSTAFA AND ZOE
