@@ -3,6 +3,7 @@
 <br>
 <br>
 <div class="log-in container"></div>
+<div class="container px-3">
 <h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -15,8 +16,13 @@
     <% end %>
   </div>
 
-  <%= f.button :submit, class: "btn-flat", value:"Log In" %>
+  <%= f.button :submit, class: "btn-flat my-3", value:"Log In" %>
 <% end %>
 
+  <p>Default user credentials:</p>
+  <p>Email: iratxe@skillswap.com</p>
+  <p>Password: 123456</p>
+
 <%= render "devise/shared/links" %>
+</div>
 </div>
